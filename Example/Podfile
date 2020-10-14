@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'JJGuiso_Example' do
+  pod 'JJGuiso', :path => '../'
+
+  target 'JJGuiso_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
