@@ -155,10 +155,9 @@ public class GuisoRequest : Runnable {
         final  = self.mOptions.getTransformer()?.transformImage(img: img, outWidth: mOptions.getWidth(), outHeight: mOptions.getHeight())
         }
         if final != nil {
-            let cleaned = TransformationUtils.cleanImage(final!)
-            self.displayInTarget(cleaned)
-            saveToMemoryCache(cleaned)
-            saveResource(cleaned,dataSource,isTransformed)
+            self.displayInTarget(final!)
+            saveToMemoryCache(final!)
+            saveResource(final!,dataSource,isTransformed)
         }else{
             self.onLoadFailed("failed transformation")
         }
@@ -329,10 +328,9 @@ public class GuisoRequest : Runnable {
                   if let data = diskCache.get(mKey) {
             
                         if let img =  UIImage(data: data) {
-                           let cleaned = TransformationUtils.cleanImage(img)
-                             displayInTarget(cleaned)
+                             displayInTarget(img)
                             if !skipCache {
-                                cache.add(mKey, val: cleaned, isUpdate: false)
+                                cache.add(mKey, val: img, isUpdate: false)
                                 
                             }
                             return true
