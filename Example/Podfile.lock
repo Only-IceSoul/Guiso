@@ -1,0 +1,16 @@
+PODS:
+  - JJGuiso (1.0)
+
+DEPENDENCIES:
+  - JJGuiso (from `../`)
+
+EXTERNAL SOURCES:
+  JJGuiso:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JJGuiso: f7f6c692eadd02a84f3e397be697de292c970e25
+
+PODFILE CHECKSUM: aac25a6a4e4da81ab0477c5490149a5789dd24b1
+
+COCOAPODS: 1.9.1

@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJGuiso'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of JJGuiso.'
+  s.version          = '1.0'
+  s.summary          = 'Easy way load images and gif.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,19 +18,25 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  Guiso is image loading framework for IOS that wraps media decoding, memory and disk caching. By default Guiso uses URLSession.
                        DESC
 
-  s.homepage         = 'https://github.com/only-icesoul/JJGuiso'
+  s.homepage         = 'https://github.com/Only-IceSoul/Guiso'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license          = { :type => 'Apache License 2.0', :file => 'LICENSE' }
   s.author           = { 'only-icesoul' => 'justinjlf21@gmail.com' }
-  s.source           = { :git => 'https://github.com/only-icesoul/JJGuiso.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Only-IceSoul/Guiso.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
 
-  s.source_files = 'JJGuiso/Classes/**/*'
+  s.ios.deployment_target = '11.0'
+
+  s.source_files = 'src/**/*.swift'
+  s.swift_version = '5.0'
+  s.platforms = {
+      "ios": "11.0"
+  }
+  
   
   # s.resource_bundles = {
   #   'JJGuiso' => ['JJGuiso/Assets/*.png']

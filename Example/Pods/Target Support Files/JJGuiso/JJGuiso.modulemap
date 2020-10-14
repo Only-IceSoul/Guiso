@@ -1,0 +1,6 @@
+framework module JJGuiso {
+  umbrella header "JJGuiso-umbrella.h"
+
+  export *
+  module * { export * }
+}
