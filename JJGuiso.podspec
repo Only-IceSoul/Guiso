@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJGuiso'
-  s.version          = '1.6.5'
+  s.version          = '1.6.7'
   s.summary          = 'Easy way to load images and gif.'
 
 # This description is used to generate tags and improve search results.
@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '11.0'
 
-  s.source_files = ['src/**/*.swift','Frameworks/WebP.framework/Headers/*.{h}']
+  s.source_files = ['src/**/*.swift']
   s.swift_version = '5.0'
   s.platforms = {
       "ios": "11.0"
