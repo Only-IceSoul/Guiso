@@ -101,7 +101,6 @@
 		46ACA30B4CF9D691683BAFE57E1DE1A5 /* GuisoFallbackHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoFallbackHolder.swift; path = src/GuisoFallbackHolder.swift; sourceTree = "<group>"; };
 		4A23B34682AF455EE1EDEF032151DF5E /* GuisoPlaceHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoPlaceHolder.swift; path = src/GuisoPlaceHolder.swift; sourceTree = "<group>"; };
 		4AEF5B99919DE4993326840173E50DE2 /* LRUCacheGif.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LRUCacheGif.swift; sourceTree = "<group>"; };
-		4D9E7FA957B4EBE8973631800327E4AF /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = frameworks/WebP.framework; sourceTree = "<group>"; };
 		5085AE3FBED47C07E5D74916DBF4934A /* Pods-JJGuiso_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JJGuiso_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5E168C92B62F459AB7D2F9F4E887DC27 /* Pods-JJGuiso_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JJGuiso_Example-umbrella.h"; sourceTree = "<group>"; };
 		6AF38E32C57B8C1D882BBED687BFB6BC /* GuisoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoView.swift; sourceTree = "<group>"; };
@@ -123,6 +122,7 @@
 		A102DC06057E0CC63C8A4BE228F140A2 /* Pods-JJGuiso_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JJGuiso_Tests-Info.plist"; sourceTree = "<group>"; };
 		AA20FA6BD1BD2E02C628A8CB13E30048 /* JJGuiso.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = JJGuiso.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AB4EDBFD5C51951AFA976596B137A5C7 /* JJGuiso-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JJGuiso-umbrella.h"; sourceTree = "<group>"; };
+		B7E40853C996433E57C2FEEFD016264E /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = src/frameworks/WebP.framework; sourceTree = "<group>"; };
 		B97237776663CDB44A5E19BCD47CE963 /* JJGuiso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JJGuiso.debug.xcconfig; sourceTree = "<group>"; };
 		BC4EAEFB2352CDA590A16C472D43C5B2 /* LoaderProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoaderProtocol.swift; sourceTree = "<group>"; };
 		BC8F7C9FE6B1B6EEC7EA61352AE7F5BE /* JJGuiso-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JJGuiso-dummy.m"; sourceTree = "<group>"; };
@@ -185,6 +185,14 @@
 			path = src/models;
 			sourceTree = "<group>";
 		};
+		155242D2EDD0A6A3FC80930F598A2F79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7E40853C996433E57C2FEEFD016264E /* WebP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		19BFF90C4E1D86F1D5867CC278184AD6 /* protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,14 +214,6 @@
 			);
 			name = executor;
 			path = src/executor;
-			sourceTree = "<group>";
-		};
-		24CF485F117C4C8872E72DA83BC141CB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4D9E7FA957B4EBE8973631800327E4AF /* WebP.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		371D293C5829FD01181DF43B82B81E02 /* Pods-JJGuiso_Tests */ = {
@@ -252,7 +252,7 @@
 				E45AB1B9259F61B3D57577FBF0A09EDA /* GuisoWebpDecoder.swift */,
 				7421E2E74414D4B5C75C2EAC953398F9 /* cache */,
 				21434C75BB33F2BEF7AB9C26B0C0A544 /* executor */,
-				24CF485F117C4C8872E72DA83BC141CB /* Frameworks */,
+				155242D2EDD0A6A3FC80930F598A2F79 /* Frameworks */,
 				DEC74CEED915B5E204FCED1B70F62417 /* helper */,
 				961294AEC7413D3F852F1A445851C810 /* Loaders */,
 				04792315DCDFBE04CF9CD4E671199D48 /* models */,
