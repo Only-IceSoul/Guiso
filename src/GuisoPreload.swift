@@ -17,10 +17,10 @@ class GuisoPreload : Runnable {
     private var mOptions : GuisoOptions!
     private var mTransformer: GuisoTransform!
     private var mScale : Guiso.ScaleType!
-    private var mGifDecoder : GifDecoderProtocol!
+    private var mGifDecoder : AnimatedImageDecoderProtocol!
     private var mSaver:GuisoSaver!
     private var mPrimarySignature = ""
-    init(model:Any,_ primarySignature:String,options:GuisoOptions, loader: LoaderProtocol,gifDecoder : GifDecoderProtocol) {
+    init(model:Any,_ primarySignature:String,options:GuisoOptions, loader: LoaderProtocol,gifDecoder : AnimatedImageDecoderProtocol) {
         mOptions = options
         mModel = model
         mPrimarySignature = primarySignature
@@ -50,14 +50,14 @@ class GuisoPreload : Runnable {
                     mLoader.loadData(model: mModel!, width: mOptions.getWidth(), height: mOptions.getHeight(), options: mOptions) { (result, type,error,dataSource) in
                         if Thread.isMainThread {
                             Guiso.get().getExecutor().doWork {
-                                if self.mOptions.getAsGif() {
+                                if self.mOptions.getAsAnimatedImage() {
                                     self.handleGif(result, type: type)
                                 }else{
                                     self.handleImage(result,type:type)
                                 }
                             }
                         }else{
-                            if self.mOptions.getAsGif() {
+                            if self.mOptions.getAsAnimatedImage() {
                                self.handleGif(result, type: type)
                             }else{
                                self.handleImage(result,type:type)
@@ -132,7 +132,7 @@ class GuisoPreload : Runnable {
     }
     
     
-    func transformCacheGif(_ gifObj:Gif){
+    func transformCacheGif(_ gifObj:AnimatedImage){
            let gif = gifObj
         if self.mOptions.getIsOverride() {
            var images = [CGImage]()
@@ -169,8 +169,8 @@ class GuisoPreload : Runnable {
     }
     
     func makeKey() -> Key {
-        let key = mOptions.getIsOverride() ? Key(signature: mPrimarySignature ,extra:mOptions.getSignature(), width: mOptions.getWidth(), height: mOptions.getHeight(), scaleType: mScale, frame: mOptions.getFrameSecond()   ,exactFrame:mOptions.getExactFrame(), isGif:mOptions.getAsGif(), transform: mOptions.getTransformerSignature()) :
-            Key(signature: mPrimarySignature,extra: mOptions.getSignature(), width: -1, height: -1, scaleType: .none,frame: mOptions.getFrameSecond()  ,exactFrame:mOptions.getExactFrame(), isGif: mOptions.getAsGif(),
+        let key = mOptions.getIsOverride() ? Key(signature: mPrimarySignature ,extra:mOptions.getSignature(), width: mOptions.getWidth(), height: mOptions.getHeight(), scaleType: mScale, frame: mOptions.getFrameSecond()   ,exactFrame:mOptions.getExactFrame(), isAnim:mOptions.getAsAnimatedImage(), transform: mOptions.getTransformerSignature()) :
+            Key(signature: mPrimarySignature,extra: mOptions.getSignature(), width: -1, height: -1, scaleType: .none,frame: mOptions.getFrameSecond()  ,exactFrame:mOptions.getExactFrame(), isAnim: mOptions.getAsAnimatedImage(),
         transform: mOptions.getTransformerSignature())
         return key
     }
@@ -178,7 +178,7 @@ class GuisoPreload : Runnable {
         return scale == UIView.ContentMode.scaleAspectFill ? .centerCrop : .fitCenter
     }
     func keySource() -> Key {
-        return  Key(signature:mPrimarySignature,extra: mOptions.getSignature(), width: -1, height: -1, scaleType: .none,frame: mOptions.getFrameSecond()  ,exactFrame:mOptions.getExactFrame(), isGif: mOptions.getAsGif(),
+        return  Key(signature:mPrimarySignature,extra: mOptions.getSignature(), width: -1, height: -1, scaleType: .none,frame: mOptions.getFrameSecond()  ,exactFrame:mOptions.getExactFrame(), isAnim: mOptions.getAsAnimatedImage(),
           transform: "")
     
     }
@@ -186,9 +186,9 @@ class GuisoPreload : Runnable {
         let key = keySource().toString()
         let diskCache = Guiso.get().getDiskCache()
         let diskCacheGif = Guiso.get().getDiskCacheObject()
-        if mOptions.getAsGif(){
+        if mOptions.getAsAnimatedImage(){
               if let obj = diskCacheGif.get(key) {
-                  if let gif = obj as? Gif{
+                  if let gif = obj as? AnimatedImage{
                       transformCacheGif(gif)
                       return true
                   }
@@ -212,13 +212,13 @@ class GuisoPreload : Runnable {
         let diskCache = Guiso.get().getDiskCache()
         let diskCacheGif = Guiso.get().getDiskCacheObject()
 
-        if mOptions.getAsGif(){
+        if mOptions.getAsAnimatedImage(){
              if let _ =  cacheGif.get(mKey) {
                     removePreloadFromList()
                      return true
             }
             if let obj = diskCacheGif.get(mKey) {
-                if let drawable = obj as? Gif {
+                if let drawable = obj as? AnimatedImage {
                     removePreloadFromList()
                     if !mOptions.getSkipMemoryCache() { cacheGif.add(mKey, val: drawable,isUpdate: false) }
                     return true

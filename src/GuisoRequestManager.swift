@@ -42,12 +42,12 @@ import Foundation
          
       
         if let model = builder.getModel() {
-            let request = GuisoRequest(model:model,builder.getPrimarySignature(),options: builder.getOptions(),target,loader:builder.getLoader(),gifDecoder: builder.getGifDecoder())
+            let request = GuisoRequest(model:model,builder.getPrimarySignature(),options: builder.getOptions(),target,loader:builder.getLoader(),gifDecoder: builder.getAnimatedImageDecoder())
             let p = getPriority( builder.getOptions().getPriority())
             target.setRequest(request)
             
             if let t = builder.getOptions().getThumbnail() , builder.getOptions().getThumbnail()?.getModel() != nil {
-                let thumb = GuisoRequestThumb(model: t.getModel()!,t.getPrimarySignature(), options: t.getOptions(), target, loader: t.getLoader(), gifDecoder: t.getGifDecoder())
+                let thumb = GuisoRequestThumb(model: t.getModel()!,t.getPrimarySignature(), options: t.getOptions(), target, loader: t.getLoader(), gifDecoder: t.getAnimatedImageDecoder())
                 request.setThumb(thumb)
                 Guiso.get().getExecutor().doWork(thumb,priority: p , flags: .enforceQoS )
             }
@@ -63,7 +63,7 @@ import Foundation
       }
       
 
-    static func preload(_ model:Any?,_ primarySignature:String,loader:LoaderProtocol,gifd: GifDecoderProtocol,options: GuisoOptions) -> Bool{
+    static func preload(_ model:Any?,_ primarySignature:String,loader:LoaderProtocol,gifd: AnimatedImageDecoderProtocol,options: GuisoOptions) -> Bool{
         if model != nil {
             let work = GuisoPreload(model: model!,primarySignature, options: options, loader: loader, gifDecoder: gifd)
             Guiso.get().getExecutor().doWork(work,priority: .background , flags: .enforceQoS )

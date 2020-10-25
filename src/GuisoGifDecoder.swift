@@ -7,10 +7,14 @@
 
 import UIKit
 
-class GuisoGifDecoder: GifDecoderProtocol {
+class GuisoGifDecoder: AnimatedImageDecoderProtocol {
 
+    func getFirstFrame(data:Data) -> CGImage?{
+        
+        return nil
+    }
     
-     func decode(data:Data) -> Gif? {
+     func decode(data:Data) -> AnimatedImage? {
         
         guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
             print("makeImageGif:error -> maybe not exist data or wrong data")
@@ -18,7 +22,7 @@ class GuisoGifDecoder: GifDecoderProtocol {
         }
      
      
-        let gif = Gif()
+        let gif = AnimatedImage()
         let count = CGImageSourceGetCount(source)
          
          let cfProperties = CGImageSourceCopyProperties(source,nil)

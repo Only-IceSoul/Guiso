@@ -18,7 +18,7 @@ class GuisoSaver {
            cache.add(key, val: image!,isUpdate: false)
       }
       
-    func saveToMemoryCache(key: String,gif:Gif?){
+    func saveToMemoryCache(key: String,gif:AnimatedImage?){
          if gif == nil  { return  }
          let cache = Guiso.get().getMemoryCacheGif()
           cache.add(key, val: gif!,isUpdate: false)
@@ -33,7 +33,7 @@ class GuisoSaver {
         
     }
 
-    func saveToDiskCache(key:String,gif:Gif?){
+    func saveToDiskCache(key:String,gif:AnimatedImage?){
         if gif == nil { return  }
         let diskCache = Guiso.get().getDiskCacheObject()
         diskCache.add(key, obj: gif!,isUpdate: false)

@@ -18,10 +18,10 @@ class GuisoRequestThumb : Runnable {
     private var mOptions : GuisoOptions!
     private var mTransformer: GuisoTransform!
     private var mScale : Guiso.ScaleType!
-    private var mGifDecoder : GifDecoderProtocol!
+    private var mGifDecoder : AnimatedImageDecoderProtocol!
     private var mSaver:GuisoSaver!
     private var mPrimarySignature = ""
-    init(model:Any,_ primarySignature:String,options:GuisoOptions,_ target: ViewTarget?, loader: LoaderProtocol,gifDecoder : GifDecoderProtocol) {
+    init(model:Any,_ primarySignature:String,options:GuisoOptions,_ target: ViewTarget?, loader: LoaderProtocol,gifDecoder : AnimatedImageDecoderProtocol) {
         mOptions = options
         mModel = model
         mPrimarySignature = primarySignature
@@ -49,14 +49,14 @@ class GuisoRequestThumb : Runnable {
                 mLoader.loadData(model: mModel!, width: mOptions.getWidth(), height: mOptions.getHeight(), options: mOptions) { (result, type,error,dataSource) in
                     if Thread.isMainThread {
                         Guiso.get().getExecutor().doWork {
-                            if self.mOptions.getAsGif() {
+                            if self.mOptions.getAsAnimatedImage() {
                                 self.handleGif(result, type: type)
                             }else{
                                 self.handleImage(result,type:type)
                             }
                         }
                     }else{
-                        if self.mOptions.getAsGif() {
+                        if self.mOptions.getAsAnimatedImage() {
                            self.handleGif(result, type: type)
                         }else{
                            self.handleImage(result,type:type)
@@ -138,7 +138,7 @@ class GuisoRequestThumb : Runnable {
     }
   
     
-    func transformDisplayCacheGif(_ gifObj:Gif){
+    func transformDisplayCacheGif(_ gifObj:AnimatedImage){
           let gif = gifObj
           if self.mOptions.getIsOverride() {
               var images = [CGImage]()
@@ -169,8 +169,8 @@ class GuisoRequestThumb : Runnable {
 
   
     func makeKey() -> Key {
-        let key = mOptions.getIsOverride() ? Key(signature:mPrimarySignature ,extra:mOptions.getSignature(), width: mOptions.getWidth(), height: mOptions.getHeight(), scaleType: mScale, frame: mOptions.getFrameSecond()   ,exactFrame:mOptions.getExactFrame(), isGif:mOptions.getAsGif(), transform: mOptions.getTransformerSignature()) :
-            Key(signature: mPrimarySignature,extra:mOptions.getSignature(), width: -1, height: -1, scaleType: .none,frame: mOptions.getFrameSecond()  ,exactFrame:mOptions.getExactFrame(), isGif: mOptions.getAsGif(),
+        let key = mOptions.getIsOverride() ? Key(signature:mPrimarySignature ,extra:mOptions.getSignature(), width: mOptions.getWidth(), height: mOptions.getHeight(), scaleType: mScale, frame: mOptions.getFrameSecond()   ,exactFrame:mOptions.getExactFrame(), isAnim:mOptions.getAsAnimatedImage(), transform: mOptions.getTransformerSignature()) :
+            Key(signature: mPrimarySignature,extra:mOptions.getSignature(), width: -1, height: -1, scaleType: .none,frame: mOptions.getFrameSecond()  ,exactFrame:mOptions.getExactFrame(), isAnim: mOptions.getAsAnimatedImage(),
         transform: mOptions.getTransformerSignature())
         return key
     }
@@ -179,16 +179,16 @@ class GuisoRequestThumb : Runnable {
     }
     
     func keySource() -> Key {
-        return  Key(signature: mPrimarySignature,extra:mOptions.getSignature(), width: -1, height: -1, scaleType: .none,frame: mOptions.getFrameSecond()  ,exactFrame:mOptions.getExactFrame(), isGif: mOptions.getAsGif(),
+        return  Key(signature: mPrimarySignature,extra:mOptions.getSignature(), width: -1, height: -1, scaleType: .none,frame: mOptions.getFrameSecond()  ,exactFrame:mOptions.getExactFrame(), isAnim: mOptions.getAsAnimatedImage(),
           transform: "")
     }
     func updateFromSourceCache() -> Bool{
         let key = keySource().toString()
         let diskCache = Guiso.get().getDiskCache()
         let diskCacheGif = Guiso.get().getDiskCacheObject()
-        if mOptions.getAsGif(){
+        if mOptions.getAsAnimatedImage(){
             if let obj = diskCacheGif.get(key) {
-                if let gif = obj as? Gif{
+                if let gif = obj as? AnimatedImage{
                     transformDisplayCacheGif(gif)
                     return true
                 }
@@ -212,13 +212,13 @@ class GuisoRequestThumb : Runnable {
         let diskCache = Guiso.get().getDiskCache()
         let diskCacheGif = Guiso.get().getDiskCacheObject()
 
-        if mOptions.getAsGif(){
+        if mOptions.getAsAnimatedImage(){
              if let gifDrawable =  cacheGif.get(mKey) {
                     displayInTarget(gifDrawable)
                      return true
             }
             if let obj = diskCacheGif.get(mKey) {
-                if let gif = obj as? Gif{
+                if let gif = obj as? AnimatedImage{
                     displayInTarget(gif)
                     if !mOptions.getSkipMemoryCache() { cacheGif.add(mKey, val: gif,isUpdate: false) }
                     return true
@@ -252,10 +252,10 @@ class GuisoRequestThumb : Runnable {
             }
         }
     }
-    func displayInTarget(_ gif: Gif){
+    func displayInTarget(_ gif: AnimatedImage){
        DispatchQueue.main.async {
         if  !self.mIsCancelled {
-            let layer = GifLayer(gif)
+            let layer = AnimatedLayer(gif)
             self.mTarget?.onThumbReady(layer)
            }
        }

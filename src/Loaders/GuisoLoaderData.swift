@@ -19,7 +19,7 @@ class GuisoLoaderData: LoaderProtocol {
             sendResult(nil,.data,"Data: model  is null or not a Data object",.remote)
              return
         }
-        if options.getAsGif() {
+        if options.getAsAnimatedImage() {
             sendResult(model,.data,"",.remote)
         }else{
 

@@ -85,6 +85,12 @@ public class Guiso {
         audio
     }
     
+    public enum AnimatedType {
+        case gif,
+        webp
+    }
+    
+    
     public enum ScaleType {
         case fitCenter,
         centerCrop,
@@ -101,7 +107,7 @@ public class Guiso {
     public enum LoadType {
          case data,
          uiimg,
-         gif
+         animatedImg
       }
     
     public enum DataSource {

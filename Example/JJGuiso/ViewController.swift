@@ -48,13 +48,15 @@ class ViewController: UIViewController {
 //            .into(mImageView)
     
         //4k
-       let url = "https://images.pexels.com/photos/1236701/pexels-photo-1236701.jpeg?cs=srgb&dl=pexels-leo-cardelli-1236701.jpg&fm=jpg"
+       let url = "https://res.cloudinary.com/demo/image/upload/fl_awebp/bored_animation.webp"
 
         
         Guiso.load(model:url)
+            .asAnimatedImage(.webp)
+            
 //            .frame(50,exact:true)
-            .thumbnail(Guiso.load(model: "https://scontent.fvvi1-1.fna.fbcdn.net/v/t1.0-9/20708267_503484543329533_7853583049637214163_n.png?_nc_cat=108&_nc_sid=730e14&_nc_ohc=f-ZfdnwclzsAX_qx0uk&_nc_ht=scontent.fvvi1-1.fna&oh=7f2a7f7e12bb3600a7009c9dd89d05cd&oe=5F9BD93B")
-                )
+//            .thumbnail(Guiso.load(model: "https://scontent.fvvi1-1.fna.fbcdn.net/v/t1.0-9/20708267_503484543329533_7853583049637214163_n.png?_nc_cat=108&_nc_sid=730e14&_nc_ohc=f-ZfdnwclzsAX_qx0uk&_nc_ht=scontent.fvvi1-1.fna&oh=7f2a7f7e12bb3600a7009c9dd89d05cd&oe=5F9BD93B")
+//                )
             .into(mImageView2)
         
 
