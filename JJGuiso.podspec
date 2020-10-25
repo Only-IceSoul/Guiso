@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJGuiso'
-  s.version          = '1.5.4'
+  s.version          = '1.5.6'
   s.summary          = 'Easy way to load images and gif.'
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.author           = { 'only-icesoul' => 'justinjlf21@gmail.com' }
   s.source           = { :git => 'https://github.com/Only-IceSoul/Guiso.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  s.requires_arc = true 
 
   s.ios.deployment_target = '11.0'
 
@@ -36,6 +36,7 @@ Pod::Spec.new do |s|
   s.platforms = {
       "ios": "11.0"
   }
+
   s.vendored_frameworks = 'Frameworks/*.framework'
   s.ios.preserve_paths = 'Frameworks/*.framework'
   s.public_header_files = 'Frameworks/WebP.framework/Headers/*.{h}'
