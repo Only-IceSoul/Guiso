@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJGuiso'
-  s.version          = '1.6.2'
+  s.version          = '1.6.5'
   s.summary          = 'Easy way to load images and gif.'
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.author           = { 'only-icesoul' => 'justinjlf21@gmail.com' }
   s.source           = { :git => 'https://github.com/Only-IceSoul/Guiso.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-  s.requires_arc = true 
+ 
 
   s.ios.deployment_target = '11.0'
 
@@ -37,9 +37,7 @@ Pod::Spec.new do |s|
       "ios": "11.0"
   }
 
-  s.vendored_frameworks = 'Frameworks/*.framework'
-  s.ios.preserve_paths = 'Frameworks/WebP.framework'
-  s.public_header_files = 'Frameworks/WebP.framework/Headers/*.{h}'
+  s.vendored_frameworks = 'Frameworks/WebP.framework'
 
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
