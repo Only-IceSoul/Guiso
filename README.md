@@ -35,7 +35,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 - [x] Data
 - [x] Custom Model and loader
 - [x] Custom Transform
-- [x] Custon GifDecoder
+- [x] Custon Animated Image Decoder
 - [x] Preload
 - [x] thumbanil,placeholder,error,fallback
 - [x] Options 
@@ -94,12 +94,12 @@ Guiso.load(Data).centerCrop().override(width,height).into(view)
 
 ```
 
-## Animated Gif 
+## Animated Gif / Webp
 
 ```swift
 
-Guiso.load("url").asGif().into(myViewTarget)
-Guiso.load(Data).asGif().into(myViewTarget)
+Guiso.load("url").asAnimatedImage().into(myViewTarget) // gif
+Guiso.load(Data).asAnimatedImage(.webp).into(myViewTarget) //webp
 ```
 ## Priority
 
