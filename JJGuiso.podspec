@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJGuiso'
-  s.version          = '1.3'
+  s.version          = '1.4'
   s.summary          = 'Easy way to load images and gif.'
 
 # This description is used to generate tags and improve search results.
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
       "ios": "11.0"
   }
   s.vendored_frameworks = 'src/frameworks/WebP.framework'
-  
+  s.public_header_files = 'src/frameworks/WebP.framework/Headers/*.{h}'
   # s.resource_bundles = {
   #   'JJGuiso' => ['JJGuiso/Assets/*.png']
   # }
