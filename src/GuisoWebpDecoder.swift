@@ -5,8 +5,8 @@
 //  Created by Juan J LF on 10/24/20.
 //
 
-import Foundation
-import WebP
+import UIKit
+
 
 public class GuisoWebPDecoder : AnimatedImageDecoderProtocol {
     
@@ -25,7 +25,7 @@ public class GuisoWebPDecoder : AnimatedImageDecoderProtocol {
         })
      
         if webPDataP == nil { return nil }
-        print("after ")
+      
         var webPData = WebPData(bytes: webPDataP!, size: data.count)
          demuxer  = WebPDemux(&webPData)
         

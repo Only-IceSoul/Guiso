@@ -7,62 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		050AF82E3D8282E1044FB81E686AE58E /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = C382899D9BDC7FE40FF00AAFA9DE049E /* decode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0AD8FF9866C0EAEF6F8F7EF7EC528170 /* GuisoOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DCDF032C10FDFAB588780771FCBB16 /* GuisoOptions.swift */; };
-		16C61F2441C6625970CFDC67DC21732E /* AnimatedLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF9007D9989A873E3B9CD783EC485D /* AnimatedLayer.swift */; };
-		1A3208722D85EEF84606396638137006 /* extension_URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D14A2BD75D3D7858D1D1A6B072A041E /* extension_URL.swift */; };
+		050AF82E3D8282E1044FB81E686AE58E /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = D14F3BE9AAE1D16D895D6FCCEF69D78F /* decode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		156F2C797095B6D6500AD9A0B6985EC6 /* GuisoPreload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728118FC13F08665E4C5CCE6349E5585 /* GuisoPreload.swift */; };
+		1D4758C3942A5298C6C8B35787A4F720 /* ViewTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74E22BF75543BB3524B2993F79841E /* ViewTarget.swift */; };
 		1D950AD40649AB49ADCDD33862733647 /* Pods-JJGuiso_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0224BFCB6DA3F46650AE05204E41D927 /* Pods-JJGuiso_Tests-dummy.m */; };
 		200B96DAB0D1A569A912ED777AD41A9C /* Pods-JJGuiso_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C9D7EDCC0F42E8CFD277216F2BCC13 /* Pods-JJGuiso_Example-dummy.m */; };
-		2049F09A3A9713E197FD5FFB84951E3F /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A8601F9FDFD0A31471784523ADCE6E /* types.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		250589F75AAB3CBC67F02D99AADE88C1 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837873F3006528B4AA43C72E13402624 /* LinkedList.swift */; };
-		285331C1BAA820EBB2F9F9B9339BA172 /* GuisoPreload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806EA5F058D9434C457404EF9FAEFD60 /* GuisoPreload.swift */; };
-		29B922AA0587CABDD9B0914002C0F8FC /* GuisoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6CA944E390C850C2CE3513B962337F /* GuisoRequest.swift */; };
-		338803574ECED815E0B7D5A9D33AAC89 /* mux.h in Headers */ = {isa = PBXBuildFile; fileRef = C316AC6CBF3069E03C18445DCD6726C0 /* mux.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B80B79EC7FE679489A84479870BC9B3 /* GuisoLoaderString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6D0958D194F1BC7B251B521AAB1BEA /* GuisoLoaderString.swift */; };
-		482B9BB425937DBEB7972C21B75615A1 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D0E416333C2246C5DBAD2958C57796 /* Key.swift */; };
-		4BB6BAAB54C0A71F3DD8014006711F41 /* LoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5EE9076F574B8CCEAF5B6E2039360 /* LoaderProtocol.swift */; };
-		5C6FE45CDA4615FA77F6BA545EA7BFA5 /* AnimatedImageDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D853C8DDAFEC278A9399535C2F64B4 /* AnimatedImageDecoderProtocol.swift */; };
-		5D984E7E1CA91171AE48CBF76583FE9D /* LRUDiskCacheObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4531450D8A5ECAF25468E959BF16BFB /* LRUDiskCacheObject.swift */; };
-		5F9E8F801F56BB0D9E825ABD8077E58B /* GuisoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA69F2BCA4D18062D7AF7B1CB7015CB /* GuisoUtils.swift */; };
-		6486682F52BE5442ADE92272AAF66E14 /* Runnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69EF59766913B14B39DBC6F1454C07D /* Runnable.swift */; };
+		2049F09A3A9713E197FD5FFB84951E3F /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = FB7570575E899A4915B121E8C8BA1D49 /* types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		221CA5D44AE9D7D5DD5908924C599B57 /* LRUDiskCacheObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C5E261463749B7FCBE142E389B2C3 /* LRUDiskCacheObject.swift */; };
+		2539FE9F0A68C638BC20CFE2BEBA47A9 /* GuisoRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0692F85CE90E20CB0CCB3A6AB3C5DE /* GuisoRequestManager.swift */; };
+		2D553325E99E7862906C8EB531F457FF /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF1A75771585B52ACD73E68FD2F37E /* Key.swift */; };
+		338803574ECED815E0B7D5A9D33AAC89 /* mux.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B0E8E3CFBE0E7FA2D53B491A1FC682 /* mux.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		363C94F5599999C31C399387FAE1E61C /* LoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4795FC9728605DE31DC4A6442BDB877A /* LoaderProtocol.swift */; };
+		3BD4BEAC60B3937F2D37AB587BA594F3 /* JJGuiso-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC5455B850027A5553FD8DA997F008A /* JJGuiso-dummy.m */; };
+		3FAE59C8EC0619586C99F359130769DA /* GuisoRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1ADCC96753031288500EE85306C08 /* GuisoRequestBuilder.swift */; };
+		4A078861147D2D71491B91C79B414245 /* GuisoSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9987EA0D4313F0265A6A7B00F593EEA1 /* GuisoSaver.swift */; };
+		4EEB3C29FCFB2B57788DCEBA683BCF5C /* GuisoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7739078A59683058DA3962A0F74A3DF2 /* GuisoHeader.swift */; };
+		518EB81FB3015F053A3D18051763C6E5 /* TransformationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDF048492FDAE98764CD65E2EEF593 /* TransformationUtils.swift */; };
+		65D3A936642EAFFA29B1DAEA6AA3850C /* GuisoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C8799F51CECB57822A424049D0DFC7 /* GuisoView.swift */; };
 		690167E4EF52F1A4CF052A4112663B76 /* Pods-JJGuiso_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B20331C759D6089FA64072A4F4DF6DA /* Pods-JJGuiso_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6A057BF4DBB8EA937081EFDC57933B6F /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC40C258BB3F25C7112652081A32B4 /* LRUCache.swift */; };
-		6A63F19C7C837BCBE5318AC7A7E9CBE9 /* JJGuiso-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB52FE3D31BF37C7C428D24BE7855F9 /* JJGuiso-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A63F19C7C837BCBE5318AC7A7E9CBE9 /* JJGuiso-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EDB2A8EE8F72F748BB2A2054B123141 /* JJGuiso-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B1E165AFC7B81770BFD92E5638F88E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		6DBBDBA29790134B5C5D8D4857B43E70 /* GuisoSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A4E17DF3D7627A7AA577A4A012F799 /* GuisoSaver.swift */; };
-		6F14486079B8EA98442963949FDB0D33 /* LRUCacheGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6CE833373CEA3008F1812DA5570F6 /* LRUCacheGif.swift */; };
-		7986290D1D454B5AB4DD1F9AEDE19806 /* GuisoErrorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A6E565BD8054882797B24027C10F52 /* GuisoErrorHolder.swift */; };
-		7BC283CEB6EEE1625970F0FB1BE43944 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 106A6B088178E6D9E4170E8D6370DCD3 /* config.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7C3407468F63CAEA2AAC8D00E6DBB3E5 /* TransformationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6D56EA2C98280955B40FEBABC3D46E /* TransformationUtils.swift */; };
-		808C08FE23F3BB6A21E06D85D1AECACF /* GuisoRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88513F33F22334837D42F613A6CA9230 /* GuisoRequestManager.swift */; };
-		8283EAC7CD36ED0DDE3C3039B9E6C481 /* GuisoPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406EB3D3A8F26301A349142BA8812551 /* GuisoPlaceHolder.swift */; };
-		83520FF6ACD64EB9AAEA7D39A183719C /* GuisoRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CF1094AEDDE8F1E6BF1858547FE45 /* GuisoRequestBuilder.swift */; };
-		867101849E06D57A59E29B054A51AF2B /* GuisoRequestThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03C6B8B2F3055EA671CAE4ABC1DEA88 /* GuisoRequestThumb.swift */; };
-		896721DF342043A51F4EE01A29A8C5AC /* GuisoWebpDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9327B1381A6C1EBBF978C4AFE05B0 /* GuisoWebpDecoder.swift */; };
-		8BA9E28A626D0F26CFDBE1128F740206 /* Guiso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23392F62B0379C831EC208A228E7AECB /* Guiso.swift */; };
+		6BC95083E1768EB4A6FFDBFCB8661160 /* LRUCacheGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE6FC09D9278585D8FBDBCFABE4BF8 /* LRUCacheGif.swift */; };
+		74A8983AF00C07DAF6486F2A04CC24FD /* TransformProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B48FF62984FA8BD8948B94EBDF997 /* TransformProtocol.swift */; };
+		7BC283CEB6EEE1625970F0FB1BE43944 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 172A6160EB67951099D2C16D140292DC /* config.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7FBF90ED1029491ED19C3B5397060995 /* GuisoErrorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007FD11F1E1CA0C8F547979D8CA830D /* GuisoErrorHolder.swift */; };
+		8C41E4A2BE15D4FF7BB8C73E1741F3A9 /* extension_URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12283CAC924BA7A07B13480D477787E5 /* extension_URL.swift */; };
 		8F8A4E13053AF397ADA23468DFC855D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		95AE883A21E3584740336F4685A682B0 /* ColorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C088F8461DAC5B1B666246768F6849 /* ColorMap.swift */; };
-		96D588F70C0B2E5A5BCAF8989A434499 /* GuisoGifDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B642692785F4D9CB10294107C8C932 /* GuisoGifDecoder.swift */; };
-		9BEF842F5DADB51614DB7F7D85A0B5CD /* demux.h in Headers */ = {isa = PBXBuildFile; fileRef = C8E21552439E9C9763A79C31E09BEC2B /* demux.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9F9D81FBEA0E3F0D38F98CD28EFE45AB /* GuisoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722AD357FADDF00924C1B5F35918B16 /* GuisoHeader.swift */; };
-		A19353E034568BC33910419C821C949D /* GuisoLoaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35C01C16244C45C2B314B2465EC8886 /* GuisoLoaderData.swift */; };
-		A783390508219B2EBCB7E102339842A6 /* format_constants.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F94B41C2F3BAEBC1CEBAD724A493DC /* format_constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ADBCE85F8B9178863017C2E5729F9E7B /* AnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8557B5DF318630654CE67773571F2A /* AnimatedImage.swift */; };
-		AFD4E87CC68DF25EBD52E1FA3E1221BC /* ViewTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90C5D3C2C12FACFB4B483CF4184C761 /* ViewTarget.swift */; };
-		B2FE6A516927B0427122C24FC95C212E /* LRUDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196EC1CB097B0C0A2015ED8C4C8D81D8 /* LRUDiskCache.swift */; };
-		CAC705622D4715257B2A037371123A1F /* SimpleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F602FC712014F25DF952169AD5176C6 /* SimpleTarget.swift */; };
-		D1F4C547998FB4F82BB496B3FEB311B8 /* extension_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B03E0E620330AAC770AA7B3FA468F4 /* extension_String.swift */; };
-		D2B81593CE1ABBAF71A20DC1206FAB4A /* GuisoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF1656D33D325A71388A7CE3F4E8E0 /* GuisoTransform.swift */; };
-		D72267E3A534B8802436D4E53C314D92 /* TransformProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4E3EFF5DE14AF4CC9E9637E9BA762 /* TransformProtocol.swift */; };
-		DC36E5B03FC30D3FBF3C08C95797DEE1 /* WebP.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4E63243A1B139AC729199C296B5F1 /* WebP.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DF8556CB1B20B9E7745FDC60E0BF3562 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = EB0D2E841CCC38FCA9960FC5170B251C /* encode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E449BCF1E7E5724CB30D3FAAF515448F /* GuisoFallbackHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B2307591171A92735CD3189084691 /* GuisoFallbackHolder.swift */; };
-		E91AD3BB5E753774A040A97CF424155C /* GuisoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1990786EA805D735F32B9E7CB06CFB /* GuisoView.swift */; };
+		919325FE696101261D9860E4016910E3 /* GuisoLoaderString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6835C72A5D774601F564F1D7CFFF9C /* GuisoLoaderString.swift */; };
+		9A825B25ECD7681484F7163F56D0788B /* AnimatedLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B715A7DEFFDFE010F0CD93A60ACB1CA /* AnimatedLayer.swift */; };
+		9BEF842F5DADB51614DB7F7D85A0B5CD /* demux.h in Headers */ = {isa = PBXBuildFile; fileRef = 215CC68E4B08444AEE108389245AA16D /* demux.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A02602A916DBA87610B4E4F381F9C68F /* AnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414F471B7661EE37BFA862136C24363 /* AnimatedImage.swift */; };
+		A1FE5D31B1E0E998E75D5A1D836C0FE5 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAF974F3F140C64295C4ED17F95052C /* LRUCache.swift */; };
+		A783390508219B2EBCB7E102339842A6 /* format_constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 099BD2D741E843FA9C309F0EC9BA9850 /* format_constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A8921DC35AD4DAFB68E9AD557437B142 /* ColorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9906115DE8CDA3C56DEF9E60C142AE /* ColorMap.swift */; };
+		ACA69493E0DBC6B9315077C61F8ED6E5 /* LRUDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70739204B798524FAC69615171E7446A /* LRUDiskCache.swift */; };
+		AD15AF20DAE8D52E239810BEE42F0139 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00454F0E6935992600A1496269D39C81 /* LinkedList.swift */; };
+		AEDAE72EE7A0311BE3450BB3B685C90B /* GuisoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62573A0DC3A1F6800455BA6B7616F /* GuisoRequest.swift */; };
+		B450601D98D06CCE2B6B30D59CF3EB58 /* GuisoLoaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905BFD314521D32D13BA581F2DCD4054 /* GuisoLoaderData.swift */; };
+		B8B94A526F8FDE4A3D9E57B378698BB4 /* GuisoPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB2B1527630E370E9EAAA3F5FAFDE5B /* GuisoPlaceHolder.swift */; };
+		BB638CE8BA9C28582281987656877A72 /* SimpleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D74C12A202B96A27DE1DEB71D13DD3 /* SimpleTarget.swift */; };
+		C1F256FAF7F1E3410F350C75771B84AF /* GuisoFallbackHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAC27226AF2A89068B735AEE1969238 /* GuisoFallbackHolder.swift */; };
+		C3EA09B84868582BDF39B8AF2C4BC9BF /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB907EED0669532C8E0FC1870C7CA7EE /* Executor.swift */; };
+		C45908A8260EA6DF9A9552F89352199A /* GuisoRequestThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F415EBC48897C15327E33D4367ACDA5 /* GuisoRequestThumb.swift */; };
+		C60DCCE79A031244CB1BE5E936FA10DC /* extension_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DD83D7B27987B9F19F35CAE0C7EC46 /* extension_String.swift */; };
+		CB3F4FDE12CD79EBF41D9FB33BA5E600 /* Guiso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804D50F3ABB79278F2319E0E2AEDE19B /* Guiso.swift */; };
+		D8ECADF459A3598EF2F104270D6CEECB /* GuisoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27934AD3251126242A983D19ECBDDD /* GuisoUtils.swift */; };
+		DC36E5B03FC30D3FBF3C08C95797DEE1 /* WebP.h in Headers */ = {isa = PBXBuildFile; fileRef = C59C711FF8AB8CA69DDA6CAE68A78D1E /* WebP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC92823D0564ACB814BE444246ABAED3 /* GuisoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD972C83498BC362003ED05F9263FB /* GuisoTransform.swift */; };
+		DF8556CB1B20B9E7745FDC60E0BF3562 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = D512C69F50C953B8F6C035B6E44C01E3 /* encode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1B04AFB81160457D2CA999B0DD71FEC /* Runnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E00D20DDD35108C2AAD2AD12BF51E /* Runnable.swift */; };
+		E517F41E99269A4B586143815136704A /* AnimatedImageDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7CE80F0D503904E1F0E037CED45DBD /* AnimatedImageDecoderProtocol.swift */; };
+		E75D2F95AB4998A160D949C9766673C9 /* GuisoOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7774C5FE0BC0BF45813B5D6CAAEAA200 /* GuisoOptions.swift */; };
 		E998660ABE3DF8D789310A28FFEF86A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		F7658CBA9207703BD5D024DAE8A5DE28 /* JJGuiso-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D80853B9AF9942B6E2C162DA1DDD43B8 /* JJGuiso-dummy.m */; };
-		F902D2A53438FD3F2B7A27CEC37DE5E0 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58F312A2417C103BBFED07EC22A779A /* Executor.swift */; };
+		F112C42B5DCD72A78D82184943A93F58 /* GuisoWebpDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A446604CB62625DECC09CBA93742F /* GuisoWebpDecoder.swift */; };
+		F13CB0D85487BABB4A130909D9921276 /* GuisoGifDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B1B955224BF3BDF9B6D1353ED756C5 /* GuisoGifDecoder.swift */; };
 		FA570C0C4AAD1B758DCC2A7B171AA654 /* Pods-JJGuiso_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E168C92B62F459AB7D2F9F4E887DC27 /* Pods-JJGuiso_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FFE6AAC9DF6B02F824168392ED658DDE /* mux_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E9D3277CE908A76A323ACE4BEA5C795 /* mux_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFE6AAC9DF6B02F824168392ED658DDE /* mux_types.h in Headers */ = {isa = PBXBuildFile; fileRef = EDB4669883B3E2EF98D704618C123F69 /* mux_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,86 +83,86 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00454F0E6935992600A1496269D39C81 /* LinkedList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		009569E898E2024F30F5F6EACF6711A3 /* Pods-JJGuiso_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JJGuiso_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		0224BFCB6DA3F46650AE05204E41D927 /* Pods-JJGuiso_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JJGuiso_Tests-dummy.m"; sourceTree = "<group>"; };
 		0939031462A2016F773813A6632CD67E /* Pods-JJGuiso_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JJGuiso_Example.modulemap"; sourceTree = "<group>"; };
-		09D0E416333C2246C5DBAD2958C57796 /* Key.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		099BD2D741E843FA9C309F0EC9BA9850 /* format_constants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = format_constants.h; sourceTree = "<group>"; };
+		0B715A7DEFFDFE010F0CD93A60ACB1CA /* AnimatedLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimatedLayer.swift; sourceTree = "<group>"; };
 		0B996E8E391FA2F78BA7865D6C4EE25B /* Pods-JJGuiso_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JJGuiso_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		0C8557B5DF318630654CE67773571F2A /* AnimatedImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimatedImage.swift; sourceTree = "<group>"; };
-		0DB52FE3D31BF37C7C428D24BE7855F9 /* JJGuiso-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JJGuiso-umbrella.h"; sourceTree = "<group>"; };
-		106A6B088178E6D9E4170E8D6370DCD3 /* config.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		109AB9F52412E7B0578C453D54AFEB75 /* JJGuiso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JJGuiso.release.xcconfig; sourceTree = "<group>"; };
+		1007FD11F1E1CA0C8F547979D8CA830D /* GuisoErrorHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoErrorHolder.swift; sourceTree = "<group>"; };
+		12283CAC924BA7A07B13480D477787E5 /* extension_URL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = extension_URL.swift; sourceTree = "<group>"; };
 		125BBC8932DACA1A775091BCB3AC39E4 /* Pods-JJGuiso_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JJGuiso_Tests.modulemap"; sourceTree = "<group>"; };
-		14A8601F9FDFD0A31471784523ADCE6E /* types.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
-		15AC40C258BB3F25C7112652081A32B4 /* LRUCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
-		196EC1CB097B0C0A2015ED8C4C8D81D8 /* LRUDiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LRUDiskCache.swift; sourceTree = "<group>"; };
-		1D14A2BD75D3D7858D1D1A6B072A041E /* extension_URL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = extension_URL.swift; sourceTree = "<group>"; };
-		1DA69F2BCA4D18062D7AF7B1CB7015CB /* GuisoUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoUtils.swift; sourceTree = "<group>"; };
-		23392F62B0379C831EC208A228E7AECB /* Guiso.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Guiso.swift; path = src/Guiso.swift; sourceTree = "<group>"; };
-		276CF1094AEDDE8F1E6BF1858547FE45 /* GuisoRequestBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoRequestBuilder.swift; path = src/GuisoRequestBuilder.swift; sourceTree = "<group>"; };
-		28DCDF032C10FDFAB588780771FCBB16 /* GuisoOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoOptions.swift; path = src/GuisoOptions.swift; sourceTree = "<group>"; };
-		311B2307591171A92735CD3189084691 /* GuisoFallbackHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoFallbackHolder.swift; path = src/GuisoFallbackHolder.swift; sourceTree = "<group>"; };
+		172A6160EB67951099D2C16D140292DC /* config.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		215CC68E4B08444AEE108389245AA16D /* demux.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = demux.h; sourceTree = "<group>"; };
+		21725AB3D2C23307F75346121C0265DB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		2CA1ADCC96753031288500EE85306C08 /* GuisoRequestBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoRequestBuilder.swift; sourceTree = "<group>"; };
+		2CB2B1527630E370E9EAAA3F5FAFDE5B /* GuisoPlaceHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoPlaceHolder.swift; sourceTree = "<group>"; };
+		2DFF1A75771585B52ACD73E68FD2F37E /* Key.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3390766B7E399D09B98A1D2C7E986B3F /* Pods-JJGuiso_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JJGuiso_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		365A24C77ED3252254D765A17E8FF8E8 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = src/frameworks/WebP.framework; sourceTree = "<group>"; };
+		36C8799F51CECB57822A424049D0DFC7 /* GuisoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoView.swift; sourceTree = "<group>"; };
 		371417071E043DB2EA08DA0BF454BF46 /* Pods-JJGuiso_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JJGuiso_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		3722AD357FADDF00924C1B5F35918B16 /* GuisoHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoHeader.swift; path = src/GuisoHeader.swift; sourceTree = "<group>"; };
-		3B6D0958D194F1BC7B251B521AAB1BEA /* GuisoLoaderString.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoLoaderString.swift; sourceTree = "<group>"; };
-		3F602FC712014F25DF952169AD5176C6 /* SimpleTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SimpleTarget.swift; sourceTree = "<group>"; };
-		406EB3D3A8F26301A349142BA8812551 /* GuisoPlaceHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoPlaceHolder.swift; path = src/GuisoPlaceHolder.swift; sourceTree = "<group>"; };
+		395C5E261463749B7FCBE142E389B2C3 /* LRUDiskCacheObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LRUDiskCacheObject.swift; sourceTree = "<group>"; };
+		4795FC9728605DE31DC4A6442BDB877A /* LoaderProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoaderProtocol.swift; sourceTree = "<group>"; };
+		4EAF974F3F140C64295C4ED17F95052C /* LRUCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
 		5085AE3FBED47C07E5D74916DBF4934A /* Pods-JJGuiso_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JJGuiso_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		54A4E17DF3D7627A7AA577A4A012F799 /* GuisoSaver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoSaver.swift; path = src/GuisoSaver.swift; sourceTree = "<group>"; };
+		527B48FF62984FA8BD8948B94EBDF997 /* TransformProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransformProtocol.swift; sourceTree = "<group>"; };
+		5522F50205BC8AFE72267EB34C5A6755 /* JJGuiso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JJGuiso.release.xcconfig; sourceTree = "<group>"; };
+		5A3B292E8BC985163B84AC67A0318A17 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
+		5B27934AD3251126242A983D19ECBDDD /* GuisoUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoUtils.swift; sourceTree = "<group>"; };
 		5E168C92B62F459AB7D2F9F4E887DC27 /* Pods-JJGuiso_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JJGuiso_Example-umbrella.h"; sourceTree = "<group>"; };
-		5EFF9007D9989A873E3B9CD783EC485D /* AnimatedLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimatedLayer.swift; sourceTree = "<group>"; };
-		6E9D3277CE908A76A323ACE4BEA5C795 /* mux_types.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = mux_types.h; sourceTree = "<group>"; };
-		70B642692785F4D9CB10294107C8C932 /* GuisoGifDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoGifDecoder.swift; path = src/GuisoGifDecoder.swift; sourceTree = "<group>"; };
-		70E4E63243A1B139AC729199C296B5F1 /* WebP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WebP.h; sourceTree = "<group>"; };
+		5E74E22BF75543BB3524B2993F79841E /* ViewTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewTarget.swift; sourceTree = "<group>"; };
+		5FA33A1A0C41A8AD9D611963B6EF2A6E /* JJGuiso.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = JJGuiso.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		602A446604CB62625DECC09CBA93742F /* GuisoWebpDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoWebpDecoder.swift; sourceTree = "<group>"; };
+		6168B646F69D0E491A88D5643FA90C3A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		6F415EBC48897C15327E33D4367ACDA5 /* GuisoRequestThumb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoRequestThumb.swift; sourceTree = "<group>"; };
+		70739204B798524FAC69615171E7446A /* LRUDiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LRUDiskCache.swift; sourceTree = "<group>"; };
 		7232263D27B1FC0560A0E8E7643B0687 /* Pods-JJGuiso_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JJGuiso_Example.release.xcconfig"; sourceTree = "<group>"; };
+		728118FC13F08665E4C5CCE6349E5585 /* GuisoPreload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoPreload.swift; sourceTree = "<group>"; };
 		72E10A41F625284EAE6B810AC0375822 /* Pods_JJGuiso_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JJGuiso_Tests.framework; path = "Pods-JJGuiso_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7770D6861BFA2C311C06A3DAA4AA6029 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		798A2A7ABF35DB304B45B2FAEFA74524 /* JJGuiso.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = JJGuiso.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		7C1990786EA805D735F32B9E7CB06CFB /* GuisoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoView.swift; sourceTree = "<group>"; };
-		806EA5F058D9434C457404EF9FAEFD60 /* GuisoPreload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoPreload.swift; path = src/GuisoPreload.swift; sourceTree = "<group>"; };
-		837873F3006528B4AA43C72E13402624 /* LinkedList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		74B0E8E3CFBE0E7FA2D53B491A1FC682 /* mux.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = mux.h; sourceTree = "<group>"; };
+		7739078A59683058DA3962A0F74A3DF2 /* GuisoHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoHeader.swift; sourceTree = "<group>"; };
+		7774C5FE0BC0BF45813B5D6CAAEAA200 /* GuisoOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoOptions.swift; sourceTree = "<group>"; };
+		7DCDF048492FDAE98764CD65E2EEF593 /* TransformationUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransformationUtils.swift; sourceTree = "<group>"; };
+		804D50F3ABB79278F2319E0E2AEDE19B /* Guiso.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Guiso.swift; sourceTree = "<group>"; };
+		8414F471B7661EE37BFA862136C24363 /* AnimatedImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimatedImage.swift; sourceTree = "<group>"; };
 		873F2719EC62A7DFCC028D4D5CF6970C /* JJGuiso.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JJGuiso.framework; path = JJGuiso.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		880D62E38903167A1CACD34DA9E3A39A /* Pods-JJGuiso_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JJGuiso_Example-frameworks.sh"; sourceTree = "<group>"; };
-		88513F33F22334837D42F613A6CA9230 /* GuisoRequestManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoRequestManager.swift; path = src/GuisoRequestManager.swift; sourceTree = "<group>"; };
+		8B0692F85CE90E20CB0CCB3A6AB3C5DE /* GuisoRequestManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoRequestManager.swift; sourceTree = "<group>"; };
 		8B20331C759D6089FA64072A4F4DF6DA /* Pods-JJGuiso_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JJGuiso_Tests-umbrella.h"; sourceTree = "<group>"; };
-		8DFF1656D33D325A71388A7CE3F4E8E0 /* GuisoTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoTransform.swift; path = src/GuisoTransform.swift; sourceTree = "<group>"; };
+		8E09AC747ECB0FBE7545EB338C57773F /* JJGuiso-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JJGuiso-prefix.pch"; sourceTree = "<group>"; };
+		8E286CB1B78DD801F054E0192C7B9146 /* JJGuiso.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JJGuiso.modulemap; sourceTree = "<group>"; };
+		8EDB2A8EE8F72F748BB2A2054B123141 /* JJGuiso-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JJGuiso-umbrella.h"; sourceTree = "<group>"; };
+		905BFD314521D32D13BA581F2DCD4054 /* GuisoLoaderData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoLoaderData.swift; sourceTree = "<group>"; };
 		93C9D7EDCC0F42E8CFD277216F2BCC13 /* Pods-JJGuiso_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JJGuiso_Example-dummy.m"; sourceTree = "<group>"; };
 		9437BD1668654BBEA35AEC684F5BE015 /* Pods_JJGuiso_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JJGuiso_Example.framework; path = "Pods-JJGuiso_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		96A6E565BD8054882797B24027C10F52 /* GuisoErrorHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoErrorHolder.swift; path = src/GuisoErrorHolder.swift; sourceTree = "<group>"; };
-		99D853C8DDAFEC278A9399535C2F64B4 /* AnimatedImageDecoderProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimatedImageDecoderProtocol.swift; sourceTree = "<group>"; };
-		9CD02DAF1D96FED4E1D2C7105B7D0EC3 /* JJGuiso.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JJGuiso.modulemap; sourceTree = "<group>"; };
+		9987EA0D4313F0265A6A7B00F593EEA1 /* GuisoSaver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoSaver.swift; sourceTree = "<group>"; };
+		9BA62573A0DC3A1F6800455BA6B7616F /* GuisoRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoRequest.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EEB6B0B899F29552145847759B2BE46 /* Pods-JJGuiso_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JJGuiso_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A102DC06057E0CC63C8A4BE228F140A2 /* Pods-JJGuiso_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JJGuiso_Tests-Info.plist"; sourceTree = "<group>"; };
-		A4599DA9C212DC52FE47FCE1DB8FE5D9 /* JJGuiso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JJGuiso.debug.xcconfig; sourceTree = "<group>"; };
-		A7E4E3EFF5DE14AF4CC9E9637E9BA762 /* TransformProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransformProtocol.swift; sourceTree = "<group>"; };
-		AE6D56EA2C98280955B40FEBABC3D46E /* TransformationUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransformationUtils.swift; sourceTree = "<group>"; };
-		BE5CD779213B83684F6D770BD2C492BF /* JJGuiso-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JJGuiso-prefix.pch"; sourceTree = "<group>"; };
-		C316AC6CBF3069E03C18445DCD6726C0 /* mux.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = mux.h; sourceTree = "<group>"; };
-		C382899D9BDC7FE40FF00AAFA9DE049E /* decode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = decode.h; sourceTree = "<group>"; };
-		C4531450D8A5ECAF25468E959BF16BFB /* LRUDiskCacheObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LRUDiskCacheObject.swift; sourceTree = "<group>"; };
-		C69EF59766913B14B39DBC6F1454C07D /* Runnable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Runnable.swift; sourceTree = "<group>"; };
-		C8E21552439E9C9763A79C31E09BEC2B /* demux.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = demux.h; sourceTree = "<group>"; };
-		CB41DDFB3DAA719CAA43CC9530D88A3D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		AC7CE80F0D503904E1F0E037CED45DBD /* AnimatedImageDecoderProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimatedImageDecoderProtocol.swift; sourceTree = "<group>"; };
+		BD6835C72A5D774601F564F1D7CFFF9C /* GuisoLoaderString.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoLoaderString.swift; sourceTree = "<group>"; };
+		C59C711FF8AB8CA69DDA6CAE68A78D1E /* WebP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WebP.h; sourceTree = "<group>"; };
+		C9F8E451382A772A41B4C13DDE0E6175 /* JJGuiso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JJGuiso.debug.xcconfig; sourceTree = "<group>"; };
+		CB907EED0669532C8E0FC1870C7CA7EE /* Executor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
 		CE149571115AA6C011497C042654DBC6 /* Pods-JJGuiso_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JJGuiso_Example-Info.plist"; sourceTree = "<group>"; };
-		D03C6B8B2F3055EA671CAE4ABC1DEA88 /* GuisoRequestThumb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoRequestThumb.swift; path = src/GuisoRequestThumb.swift; sourceTree = "<group>"; };
-		D1C088F8461DAC5B1B666246768F6849 /* ColorMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorMap.swift; sourceTree = "<group>"; };
-		D58F312A2417C103BBFED07EC22A779A /* Executor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
-		D80853B9AF9942B6E2C162DA1DDD43B8 /* JJGuiso-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JJGuiso-dummy.m"; sourceTree = "<group>"; };
-		DBF5EE9076F574B8CCEAF5B6E2039360 /* LoaderProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoaderProtocol.swift; sourceTree = "<group>"; };
-		DC6CA944E390C850C2CE3513B962337F /* GuisoRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoRequest.swift; path = src/GuisoRequest.swift; sourceTree = "<group>"; };
-		E35C01C16244C45C2B314B2465EC8886 /* GuisoLoaderData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoLoaderData.swift; sourceTree = "<group>"; };
-		E5F94B41C2F3BAEBC1CEBAD724A493DC /* format_constants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = format_constants.h; sourceTree = "<group>"; };
-		E8A9327B1381A6C1EBBF978C4AFE05B0 /* GuisoWebpDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GuisoWebpDecoder.swift; path = src/GuisoWebpDecoder.swift; sourceTree = "<group>"; };
-		E8B03E0E620330AAC770AA7B3FA468F4 /* extension_String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = extension_String.swift; sourceTree = "<group>"; };
-		E90C5D3C2C12FACFB4B483CF4184C761 /* ViewTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewTarget.swift; sourceTree = "<group>"; };
-		EB0D2E841CCC38FCA9960FC5170B251C /* encode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = encode.h; sourceTree = "<group>"; };
+		D14F3BE9AAE1D16D895D6FCCEF69D78F /* decode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = decode.h; sourceTree = "<group>"; };
+		D3DD83D7B27987B9F19F35CAE0C7EC46 /* extension_String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = extension_String.swift; sourceTree = "<group>"; };
+		D512C69F50C953B8F6C035B6E44C01E3 /* encode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = encode.h; sourceTree = "<group>"; };
+		D6D74C12A202B96A27DE1DEB71D13DD3 /* SimpleTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SimpleTarget.swift; sourceTree = "<group>"; };
+		DBC5455B850027A5553FD8DA997F008A /* JJGuiso-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JJGuiso-dummy.m"; sourceTree = "<group>"; };
+		DCAC27226AF2A89068B735AEE1969238 /* GuisoFallbackHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoFallbackHolder.swift; sourceTree = "<group>"; };
+		E3301685040A8EBA06FA13E69983E4A7 /* JJGuiso-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JJGuiso-Info.plist"; sourceTree = "<group>"; };
+		EB9906115DE8CDA3C56DEF9E60C142AE /* ColorMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorMap.swift; sourceTree = "<group>"; };
+		EDB4669883B3E2EF98D704618C123F69 /* mux_types.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = mux_types.h; sourceTree = "<group>"; };
+		EDCD972C83498BC362003ED05F9263FB /* GuisoTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoTransform.swift; sourceTree = "<group>"; };
 		F0012F4674BF6B844D45045199F2A39A /* Pods-JJGuiso_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JJGuiso_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		F8B6CE833373CEA3008F1812DA5570F6 /* LRUCacheGif.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LRUCacheGif.swift; sourceTree = "<group>"; };
-		F9F19F7F272B83F36D4039A098DE37B0 /* JJGuiso-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JJGuiso-Info.plist"; sourceTree = "<group>"; };
+		F5AE6FC09D9278585D8FBDBCFABE4BF8 /* LRUCacheGif.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LRUCacheGif.swift; sourceTree = "<group>"; };
+		F7B1B955224BF3BDF9B6D1353ED756C5 /* GuisoGifDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuisoGifDecoder.swift; sourceTree = "<group>"; };
+		FB7570575E899A4915B121E8C8BA1D49 /* types.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		FC0E00D20DDD35108C2AAD2AD12BF51E /* Runnable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Runnable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,18 +193,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0BB81C587A9B57209B32E4540E24F0F2 /* helper */ = {
+		038AFFC097506C62921BF22ACA07AC80 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5EFF9007D9989A873E3B9CD783EC485D /* AnimatedLayer.swift */,
-				E8B03E0E620330AAC770AA7B3FA468F4 /* extension_String.swift */,
-				1D14A2BD75D3D7858D1D1A6B072A041E /* extension_URL.swift */,
-				1DA69F2BCA4D18062D7AF7B1CB7015CB /* GuisoUtils.swift */,
-				7C1990786EA805D735F32B9E7CB06CFB /* GuisoView.swift */,
-				AE6D56EA2C98280955B40FEBABC3D46E /* TransformationUtils.swift */,
+				8E286CB1B78DD801F054E0192C7B9146 /* JJGuiso.modulemap */,
+				DBC5455B850027A5553FD8DA997F008A /* JJGuiso-dummy.m */,
+				E3301685040A8EBA06FA13E69983E4A7 /* JJGuiso-Info.plist */,
+				8E09AC747ECB0FBE7545EB338C57773F /* JJGuiso-prefix.pch */,
+				8EDB2A8EE8F72F748BB2A2054B123141 /* JJGuiso-umbrella.h */,
+				C9F8E451382A772A41B4C13DDE0E6175 /* JJGuiso.debug.xcconfig */,
+				5522F50205BC8AFE72267EB34C5A6755 /* JJGuiso.release.xcconfig */,
 			);
-			name = helper;
-			path = src/helper;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/JJGuiso";
+			sourceTree = "<group>";
+		};
+		2BE3DCD17C0FDBA67992F1C553157DCB /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				172A6160EB67951099D2C16D140292DC /* config.h */,
+				D14F3BE9AAE1D16D895D6FCCEF69D78F /* decode.h */,
+				215CC68E4B08444AEE108389245AA16D /* demux.h */,
+				D512C69F50C953B8F6C035B6E44C01E3 /* encode.h */,
+				099BD2D741E843FA9C309F0EC9BA9850 /* format_constants.h */,
+				74B0E8E3CFBE0E7FA2D53B491A1FC682 /* mux.h */,
+				EDB4669883B3E2EF98D704618C123F69 /* mux_types.h */,
+				FB7570575E899A4915B121E8C8BA1D49 /* types.h */,
+				C59C711FF8AB8CA69DDA6CAE68A78D1E /* WebP.h */,
+			);
+			name = Headers;
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		32C2028E64ADF7CA37CD38DCF12128E2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				804D50F3ABB79278F2319E0E2AEDE19B /* Guiso.swift */,
+				1007FD11F1E1CA0C8F547979D8CA830D /* GuisoErrorHolder.swift */,
+				DCAC27226AF2A89068B735AEE1969238 /* GuisoFallbackHolder.swift */,
+				F7B1B955224BF3BDF9B6D1353ED756C5 /* GuisoGifDecoder.swift */,
+				7739078A59683058DA3962A0F74A3DF2 /* GuisoHeader.swift */,
+				7774C5FE0BC0BF45813B5D6CAAEAA200 /* GuisoOptions.swift */,
+				2CB2B1527630E370E9EAAA3F5FAFDE5B /* GuisoPlaceHolder.swift */,
+				728118FC13F08665E4C5CCE6349E5585 /* GuisoPreload.swift */,
+				9BA62573A0DC3A1F6800455BA6B7616F /* GuisoRequest.swift */,
+				2CA1ADCC96753031288500EE85306C08 /* GuisoRequestBuilder.swift */,
+				8B0692F85CE90E20CB0CCB3A6AB3C5DE /* GuisoRequestManager.swift */,
+				6F415EBC48897C15327E33D4367ACDA5 /* GuisoRequestThumb.swift */,
+				9987EA0D4313F0265A6A7B00F593EEA1 /* GuisoSaver.swift */,
+				EDCD972C83498BC362003ED05F9263FB /* GuisoTransform.swift */,
+				602A446604CB62625DECC09CBA93742F /* GuisoWebpDecoder.swift */,
+				4A77CD25083957B363E761437BADD650 /* cache */,
+				CF88CF582FD4EB694FD0F9D9956D9E6F /* executor */,
+				7446C18A59998D36355B04E397933B9C /* helper */,
+				5E3D04F574935C9271D486804ED35103 /* Loaders */,
+				B0351E38CB2FFC18BDEB0DD07255E492 /* models */,
+				6790959E445369102E64E92A20C642C3 /* protocols */,
+			);
+			name = src;
+			path = src;
 			sourceTree = "<group>";
 		};
 		371D293C5829FD01181DF43B82B81E02 /* Pods-JJGuiso_Tests */ = {
@@ -223,18 +270,84 @@
 			path = "Target Support Files/Pods-JJGuiso_Tests";
 			sourceTree = "<group>";
 		};
-		72390BCBF8E259A5A1272B14C0AE847D /* cache */ = {
+		4A77CD25083957B363E761437BADD650 /* cache */ = {
 			isa = PBXGroup;
 			children = (
-				D1C088F8461DAC5B1B666246768F6849 /* ColorMap.swift */,
-				837873F3006528B4AA43C72E13402624 /* LinkedList.swift */,
-				15AC40C258BB3F25C7112652081A32B4 /* LRUCache.swift */,
-				F8B6CE833373CEA3008F1812DA5570F6 /* LRUCacheGif.swift */,
-				196EC1CB097B0C0A2015ED8C4C8D81D8 /* LRUDiskCache.swift */,
-				C4531450D8A5ECAF25468E959BF16BFB /* LRUDiskCacheObject.swift */,
+				EB9906115DE8CDA3C56DEF9E60C142AE /* ColorMap.swift */,
+				00454F0E6935992600A1496269D39C81 /* LinkedList.swift */,
+				4EAF974F3F140C64295C4ED17F95052C /* LRUCache.swift */,
+				F5AE6FC09D9278585D8FBDBCFABE4BF8 /* LRUCacheGif.swift */,
+				70739204B798524FAC69615171E7446A /* LRUDiskCache.swift */,
+				395C5E261463749B7FCBE142E389B2C3 /* LRUDiskCacheObject.swift */,
 			);
 			name = cache;
-			path = src/cache;
+			path = cache;
+			sourceTree = "<group>";
+		};
+		5E3D04F574935C9271D486804ED35103 /* Loaders */ = {
+			isa = PBXGroup;
+			children = (
+				905BFD314521D32D13BA581F2DCD4054 /* GuisoLoaderData.swift */,
+				BD6835C72A5D774601F564F1D7CFFF9C /* GuisoLoaderString.swift */,
+			);
+			name = Loaders;
+			path = Loaders;
+			sourceTree = "<group>";
+		};
+		665568EC0D585DE221012C9AA605961A /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67041C4081CDF5814373F5F586CB4090 /* JJGuiso */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		67041C4081CDF5814373F5F586CB4090 /* JJGuiso */ = {
+			isa = PBXGroup;
+			children = (
+				B74BF7B30C37796DEF5556755C435012 /* Frameworks */,
+				C6CE984C42CBBAB6FBCD6AC3858EF56A /* Pod */,
+				32C2028E64ADF7CA37CD38DCF12128E2 /* src */,
+				038AFFC097506C62921BF22ACA07AC80 /* Support Files */,
+			);
+			name = JJGuiso;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		6790959E445369102E64E92A20C642C3 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AC7CE80F0D503904E1F0E037CED45DBD /* AnimatedImageDecoderProtocol.swift */,
+				4795FC9728605DE31DC4A6442BDB877A /* LoaderProtocol.swift */,
+				D6D74C12A202B96A27DE1DEB71D13DD3 /* SimpleTarget.swift */,
+				527B48FF62984FA8BD8948B94EBDF997 /* TransformProtocol.swift */,
+				5E74E22BF75543BB3524B2993F79841E /* ViewTarget.swift */,
+			);
+			name = protocols;
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		7446C18A59998D36355B04E397933B9C /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				0B715A7DEFFDFE010F0CD93A60ACB1CA /* AnimatedLayer.swift */,
+				D3DD83D7B27987B9F19F35CAE0C7EC46 /* extension_String.swift */,
+				12283CAC924BA7A07B13480D477787E5 /* extension_URL.swift */,
+				5B27934AD3251126242A983D19ECBDDD /* GuisoUtils.swift */,
+				36C8799F51CECB57822A424049D0DFC7 /* GuisoView.swift */,
+				7DCDF048492FDAE98764CD65E2EEF593 /* TransformationUtils.swift */,
+			);
+			name = helper;
+			path = helper;
+			sourceTree = "<group>";
+		};
+		7AAB8EE5734581762915DEBEBF32AA1A /* WebP.framework */ = {
+			isa = PBXGroup;
+			children = (
+				2BE3DCD17C0FDBA67992F1C553157DCB /* Headers */,
+			);
+			name = WebP.framework;
+			path = WebP.framework;
 			sourceTree = "<group>";
 		};
 		8280B6226712C25DBE44D722C1B2366C /* Pods-JJGuiso_Example */ = {
@@ -254,68 +367,24 @@
 			path = "Target Support Files/Pods-JJGuiso_Example";
 			sourceTree = "<group>";
 		};
-		8A8B36C66D9B6BC39F3A6E73E5B96F86 /* Support Files */ = {
+		B0351E38CB2FFC18BDEB0DD07255E492 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				9CD02DAF1D96FED4E1D2C7105B7D0EC3 /* JJGuiso.modulemap */,
-				D80853B9AF9942B6E2C162DA1DDD43B8 /* JJGuiso-dummy.m */,
-				F9F19F7F272B83F36D4039A098DE37B0 /* JJGuiso-Info.plist */,
-				BE5CD779213B83684F6D770BD2C492BF /* JJGuiso-prefix.pch */,
-				0DB52FE3D31BF37C7C428D24BE7855F9 /* JJGuiso-umbrella.h */,
-				A4599DA9C212DC52FE47FCE1DB8FE5D9 /* JJGuiso.debug.xcconfig */,
-				109AB9F52412E7B0578C453D54AFEB75 /* JJGuiso.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/JJGuiso";
-			sourceTree = "<group>";
-		};
-		8B803DEF435EAB9CB1D9A88E28215091 /* executor */ = {
-			isa = PBXGroup;
-			children = (
-				D58F312A2417C103BBFED07EC22A779A /* Executor.swift */,
-				C69EF59766913B14B39DBC6F1454C07D /* Runnable.swift */,
-			);
-			name = executor;
-			path = src/executor;
-			sourceTree = "<group>";
-		};
-		8BD1BA31EB88315E4BFB4CEC9D7B84A8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				365A24C77ED3252254D765A17E8FF8E8 /* WebP.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A0B35F23509FC1BC0160AC9DDEDF5914 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DED7A139D86A526B62F9C78EDF611B1D /* JJGuiso */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		A55D1D904788E22779751AB8D31EBD06 /* protocols */ = {
-			isa = PBXGroup;
-			children = (
-				99D853C8DDAFEC278A9399535C2F64B4 /* AnimatedImageDecoderProtocol.swift */,
-				DBF5EE9076F574B8CCEAF5B6E2039360 /* LoaderProtocol.swift */,
-				3F602FC712014F25DF952169AD5176C6 /* SimpleTarget.swift */,
-				A7E4E3EFF5DE14AF4CC9E9637E9BA762 /* TransformProtocol.swift */,
-				E90C5D3C2C12FACFB4B483CF4184C761 /* ViewTarget.swift */,
-			);
-			name = protocols;
-			path = src/protocols;
-			sourceTree = "<group>";
-		};
-		A85319EBEFE673146BEEA51F7C50EE46 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				0C8557B5DF318630654CE67773571F2A /* AnimatedImage.swift */,
-				09D0E416333C2246C5DBAD2958C57796 /* Key.swift */,
+				8414F471B7661EE37BFA862136C24363 /* AnimatedImage.swift */,
+				2DFF1A75771585B52ACD73E68FD2F37E /* Key.swift */,
 			);
 			name = models;
-			path = src/models;
+			path = models;
+			sourceTree = "<group>";
+		};
+		B74BF7B30C37796DEF5556755C435012 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A3B292E8BC985163B84AC67A0318A17 /* WebP.framework */,
+				7AAB8EE5734581762915DEBEBF32AA1A /* WebP.framework */,
+			);
+			name = Frameworks;
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -324,6 +393,16 @@
 				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		C6CE984C42CBBAB6FBCD6AC3858EF56A /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				5FA33A1A0C41A8AD9D611963B6EF2A6E /* JJGuiso.podspec */,
+				21725AB3D2C23307F75346121C0265DB /* LICENSE */,
+				6168B646F69D0E491A88D5643FA90C3A /* README.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		C9B03E3B8726F043E682018A58BD4314 /* Targets Support Files */ = {
@@ -339,11 +418,21 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				A0B35F23509FC1BC0160AC9DDEDF5914 /* Development Pods */,
+				665568EC0D585DE221012C9AA605961A /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				F00CF32C7B3889E2D7E25CD12343CC6C /* Products */,
 				C9B03E3B8726F043E682018A58BD4314 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		CF88CF582FD4EB694FD0F9D9956D9E6F /* executor */ = {
+			isa = PBXGroup;
+			children = (
+				CB907EED0669532C8E0FC1870C7CA7EE /* Executor.swift */,
+				FC0E00D20DDD35108C2AAD2AD12BF51E /* Runnable.swift */,
+			);
+			name = executor;
+			path = executor;
 			sourceTree = "<group>";
 		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
@@ -354,77 +443,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DED7A139D86A526B62F9C78EDF611B1D /* JJGuiso */ = {
-			isa = PBXGroup;
-			children = (
-				23392F62B0379C831EC208A228E7AECB /* Guiso.swift */,
-				96A6E565BD8054882797B24027C10F52 /* GuisoErrorHolder.swift */,
-				311B2307591171A92735CD3189084691 /* GuisoFallbackHolder.swift */,
-				70B642692785F4D9CB10294107C8C932 /* GuisoGifDecoder.swift */,
-				3722AD357FADDF00924C1B5F35918B16 /* GuisoHeader.swift */,
-				28DCDF032C10FDFAB588780771FCBB16 /* GuisoOptions.swift */,
-				406EB3D3A8F26301A349142BA8812551 /* GuisoPlaceHolder.swift */,
-				806EA5F058D9434C457404EF9FAEFD60 /* GuisoPreload.swift */,
-				DC6CA944E390C850C2CE3513B962337F /* GuisoRequest.swift */,
-				276CF1094AEDDE8F1E6BF1858547FE45 /* GuisoRequestBuilder.swift */,
-				88513F33F22334837D42F613A6CA9230 /* GuisoRequestManager.swift */,
-				D03C6B8B2F3055EA671CAE4ABC1DEA88 /* GuisoRequestThumb.swift */,
-				54A4E17DF3D7627A7AA577A4A012F799 /* GuisoSaver.swift */,
-				8DFF1656D33D325A71388A7CE3F4E8E0 /* GuisoTransform.swift */,
-				E8A9327B1381A6C1EBBF978C4AFE05B0 /* GuisoWebpDecoder.swift */,
-				72390BCBF8E259A5A1272B14C0AE847D /* cache */,
-				8B803DEF435EAB9CB1D9A88E28215091 /* executor */,
-				8BD1BA31EB88315E4BFB4CEC9D7B84A8 /* Frameworks */,
-				DF17ACD16F6288F4B21CCB3DE0782E1D /* frameworks */,
-				0BB81C587A9B57209B32E4540E24F0F2 /* helper */,
-				E7B0D8B2A830E1C1467D9732C6D2D538 /* Loaders */,
-				A85319EBEFE673146BEEA51F7C50EE46 /* models */,
-				E203E776ADE61C5E6F90AB2879FBB675 /* Pod */,
-				A55D1D904788E22779751AB8D31EBD06 /* protocols */,
-				8A8B36C66D9B6BC39F3A6E73E5B96F86 /* Support Files */,
-			);
-			name = JJGuiso;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		DF17ACD16F6288F4B21CCB3DE0782E1D /* frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EE697C7263543A712E09C93775BDF596 /* WebP.framework */,
-			);
-			name = frameworks;
-			path = src/frameworks;
-			sourceTree = "<group>";
-		};
-		E203E776ADE61C5E6F90AB2879FBB675 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				798A2A7ABF35DB304B45B2FAEFA74524 /* JJGuiso.podspec */,
-				CB41DDFB3DAA719CAA43CC9530D88A3D /* LICENSE */,
-				7770D6861BFA2C311C06A3DAA4AA6029 /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		E7B0D8B2A830E1C1467D9732C6D2D538 /* Loaders */ = {
-			isa = PBXGroup;
-			children = (
-				E35C01C16244C45C2B314B2465EC8886 /* GuisoLoaderData.swift */,
-				3B6D0958D194F1BC7B251B521AAB1BEA /* GuisoLoaderString.swift */,
-			);
-			name = Loaders;
-			path = src/Loaders;
-			sourceTree = "<group>";
-		};
-		EE697C7263543A712E09C93775BDF596 /* WebP.framework */ = {
-			isa = PBXGroup;
-			children = (
-				F3C62B47A797F5EA22D077780DEE326F /* Headers */,
-			);
-			name = WebP.framework;
-			path = WebP.framework;
-			sourceTree = "<group>";
-		};
 		F00CF32C7B3889E2D7E25CD12343CC6C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,23 +451,6 @@
 				72E10A41F625284EAE6B810AC0375822 /* Pods_JJGuiso_Tests.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		F3C62B47A797F5EA22D077780DEE326F /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				106A6B088178E6D9E4170E8D6370DCD3 /* config.h */,
-				C382899D9BDC7FE40FF00AAFA9DE049E /* decode.h */,
-				C8E21552439E9C9763A79C31E09BEC2B /* demux.h */,
-				EB0D2E841CCC38FCA9960FC5170B251C /* encode.h */,
-				E5F94B41C2F3BAEBC1CEBAD724A493DC /* format_constants.h */,
-				C316AC6CBF3069E03C18445DCD6726C0 /* mux.h */,
-				6E9D3277CE908A76A323ACE4BEA5C795 /* mux_types.h */,
-				14A8601F9FDFD0A31471784523ADCE6E /* types.h */,
-				70E4E63243A1B139AC729199C296B5F1 /* WebP.h */,
-			);
-			name = Headers;
-			path = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,7 +516,7 @@
 			buildConfigurationList = 6FB948B91401B994AB2644DA79D298E4 /* Build configuration list for PBXNativeTarget "JJGuiso" */;
 			buildPhases = (
 				EEB09A77AD8D042BA68C09FBE64D8662 /* Headers */,
-				647614548D1CDECB927AE17BB5ED08A8 /* Sources */,
+				727B150CDEEDD694CEAF0143FC060974 /* Sources */,
 				FCFD8FD068456B2D335E0CBE1A2AC0B7 /* Frameworks */,
 				13C5AF50611247A74D6371533C694132 /* Resources */,
 			);
@@ -601,49 +602,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		647614548D1CDECB927AE17BB5ED08A8 /* Sources */ = {
+		727B150CDEEDD694CEAF0143FC060974 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADBCE85F8B9178863017C2E5729F9E7B /* AnimatedImage.swift in Sources */,
-				5C6FE45CDA4615FA77F6BA545EA7BFA5 /* AnimatedImageDecoderProtocol.swift in Sources */,
-				16C61F2441C6625970CFDC67DC21732E /* AnimatedLayer.swift in Sources */,
-				95AE883A21E3584740336F4685A682B0 /* ColorMap.swift in Sources */,
-				F902D2A53438FD3F2B7A27CEC37DE5E0 /* Executor.swift in Sources */,
-				D1F4C547998FB4F82BB496B3FEB311B8 /* extension_String.swift in Sources */,
-				1A3208722D85EEF84606396638137006 /* extension_URL.swift in Sources */,
-				8BA9E28A626D0F26CFDBE1128F740206 /* Guiso.swift in Sources */,
-				7986290D1D454B5AB4DD1F9AEDE19806 /* GuisoErrorHolder.swift in Sources */,
-				E449BCF1E7E5724CB30D3FAAF515448F /* GuisoFallbackHolder.swift in Sources */,
-				96D588F70C0B2E5A5BCAF8989A434499 /* GuisoGifDecoder.swift in Sources */,
-				9F9D81FBEA0E3F0D38F98CD28EFE45AB /* GuisoHeader.swift in Sources */,
-				A19353E034568BC33910419C821C949D /* GuisoLoaderData.swift in Sources */,
-				3B80B79EC7FE679489A84479870BC9B3 /* GuisoLoaderString.swift in Sources */,
-				0AD8FF9866C0EAEF6F8F7EF7EC528170 /* GuisoOptions.swift in Sources */,
-				8283EAC7CD36ED0DDE3C3039B9E6C481 /* GuisoPlaceHolder.swift in Sources */,
-				285331C1BAA820EBB2F9F9B9339BA172 /* GuisoPreload.swift in Sources */,
-				29B922AA0587CABDD9B0914002C0F8FC /* GuisoRequest.swift in Sources */,
-				83520FF6ACD64EB9AAEA7D39A183719C /* GuisoRequestBuilder.swift in Sources */,
-				808C08FE23F3BB6A21E06D85D1AECACF /* GuisoRequestManager.swift in Sources */,
-				867101849E06D57A59E29B054A51AF2B /* GuisoRequestThumb.swift in Sources */,
-				6DBBDBA29790134B5C5D8D4857B43E70 /* GuisoSaver.swift in Sources */,
-				D2B81593CE1ABBAF71A20DC1206FAB4A /* GuisoTransform.swift in Sources */,
-				5F9E8F801F56BB0D9E825ABD8077E58B /* GuisoUtils.swift in Sources */,
-				E91AD3BB5E753774A040A97CF424155C /* GuisoView.swift in Sources */,
-				896721DF342043A51F4EE01A29A8C5AC /* GuisoWebpDecoder.swift in Sources */,
-				F7658CBA9207703BD5D024DAE8A5DE28 /* JJGuiso-dummy.m in Sources */,
-				482B9BB425937DBEB7972C21B75615A1 /* Key.swift in Sources */,
-				250589F75AAB3CBC67F02D99AADE88C1 /* LinkedList.swift in Sources */,
-				4BB6BAAB54C0A71F3DD8014006711F41 /* LoaderProtocol.swift in Sources */,
-				6A057BF4DBB8EA937081EFDC57933B6F /* LRUCache.swift in Sources */,
-				6F14486079B8EA98442963949FDB0D33 /* LRUCacheGif.swift in Sources */,
-				B2FE6A516927B0427122C24FC95C212E /* LRUDiskCache.swift in Sources */,
-				5D984E7E1CA91171AE48CBF76583FE9D /* LRUDiskCacheObject.swift in Sources */,
-				6486682F52BE5442ADE92272AAF66E14 /* Runnable.swift in Sources */,
-				CAC705622D4715257B2A037371123A1F /* SimpleTarget.swift in Sources */,
-				7C3407468F63CAEA2AAC8D00E6DBB3E5 /* TransformationUtils.swift in Sources */,
-				D72267E3A534B8802436D4E53C314D92 /* TransformProtocol.swift in Sources */,
-				AFD4E87CC68DF25EBD52E1FA3E1221BC /* ViewTarget.swift in Sources */,
+				A02602A916DBA87610B4E4F381F9C68F /* AnimatedImage.swift in Sources */,
+				E517F41E99269A4B586143815136704A /* AnimatedImageDecoderProtocol.swift in Sources */,
+				9A825B25ECD7681484F7163F56D0788B /* AnimatedLayer.swift in Sources */,
+				A8921DC35AD4DAFB68E9AD557437B142 /* ColorMap.swift in Sources */,
+				C3EA09B84868582BDF39B8AF2C4BC9BF /* Executor.swift in Sources */,
+				C60DCCE79A031244CB1BE5E936FA10DC /* extension_String.swift in Sources */,
+				8C41E4A2BE15D4FF7BB8C73E1741F3A9 /* extension_URL.swift in Sources */,
+				CB3F4FDE12CD79EBF41D9FB33BA5E600 /* Guiso.swift in Sources */,
+				7FBF90ED1029491ED19C3B5397060995 /* GuisoErrorHolder.swift in Sources */,
+				C1F256FAF7F1E3410F350C75771B84AF /* GuisoFallbackHolder.swift in Sources */,
+				F13CB0D85487BABB4A130909D9921276 /* GuisoGifDecoder.swift in Sources */,
+				4EEB3C29FCFB2B57788DCEBA683BCF5C /* GuisoHeader.swift in Sources */,
+				B450601D98D06CCE2B6B30D59CF3EB58 /* GuisoLoaderData.swift in Sources */,
+				919325FE696101261D9860E4016910E3 /* GuisoLoaderString.swift in Sources */,
+				E75D2F95AB4998A160D949C9766673C9 /* GuisoOptions.swift in Sources */,
+				B8B94A526F8FDE4A3D9E57B378698BB4 /* GuisoPlaceHolder.swift in Sources */,
+				156F2C797095B6D6500AD9A0B6985EC6 /* GuisoPreload.swift in Sources */,
+				AEDAE72EE7A0311BE3450BB3B685C90B /* GuisoRequest.swift in Sources */,
+				3FAE59C8EC0619586C99F359130769DA /* GuisoRequestBuilder.swift in Sources */,
+				2539FE9F0A68C638BC20CFE2BEBA47A9 /* GuisoRequestManager.swift in Sources */,
+				C45908A8260EA6DF9A9552F89352199A /* GuisoRequestThumb.swift in Sources */,
+				4A078861147D2D71491B91C79B414245 /* GuisoSaver.swift in Sources */,
+				DC92823D0564ACB814BE444246ABAED3 /* GuisoTransform.swift in Sources */,
+				D8ECADF459A3598EF2F104270D6CEECB /* GuisoUtils.swift in Sources */,
+				65D3A936642EAFFA29B1DAEA6AA3850C /* GuisoView.swift in Sources */,
+				F112C42B5DCD72A78D82184943A93F58 /* GuisoWebpDecoder.swift in Sources */,
+				3BD4BEAC60B3937F2D37AB587BA594F3 /* JJGuiso-dummy.m in Sources */,
+				2D553325E99E7862906C8EB531F457FF /* Key.swift in Sources */,
+				AD15AF20DAE8D52E239810BEE42F0139 /* LinkedList.swift in Sources */,
+				363C94F5599999C31C399387FAE1E61C /* LoaderProtocol.swift in Sources */,
+				A1FE5D31B1E0E998E75D5A1D836C0FE5 /* LRUCache.swift in Sources */,
+				6BC95083E1768EB4A6FFDBFCB8661160 /* LRUCacheGif.swift in Sources */,
+				ACA69493E0DBC6B9315077C61F8ED6E5 /* LRUDiskCache.swift in Sources */,
+				221CA5D44AE9D7D5DD5908924C599B57 /* LRUDiskCacheObject.swift in Sources */,
+				E1B04AFB81160457D2CA999B0DD71FEC /* Runnable.swift in Sources */,
+				BB638CE8BA9C28582281987656877A72 /* SimpleTarget.swift in Sources */,
+				518EB81FB3015F053A3D18051763C6E5 /* TransformationUtils.swift in Sources */,
+				74A8983AF00C07DAF6486F2A04CC24FD /* TransformProtocol.swift in Sources */,
+				1D4758C3942A5298C6C8B35787A4F720 /* ViewTarget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,7 +720,7 @@
 		};
 		23076FAA3949F6ABE7C8ABA877E38049 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4599DA9C212DC52FE47FCE1DB8FE5D9 /* JJGuiso.debug.xcconfig */;
+			baseConfigurationReference = C9F8E451382A772A41B4C13DDE0E6175 /* JJGuiso.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -812,7 +813,7 @@
 		};
 		2B514CD84AA51711F2B5F840589C8CAF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 109AB9F52412E7B0578C453D54AFEB75 /* JJGuiso.release.xcconfig */;
+			baseConfigurationReference = 5522F50205BC8AFE72267EB34C5A6755 /* JJGuiso.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
