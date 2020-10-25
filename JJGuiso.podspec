@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJGuiso'
-  s.version          = '1.5.7'
+  s.version          = '1.5.8'
   s.summary          = 'Easy way to load images and gif.'
 
 # This description is used to generate tags and improve search results.
@@ -41,7 +41,8 @@ Pod::Spec.new do |s|
   s.ios.preserve_paths = 'Frameworks/*.framework'
   s.public_header_files = 'Frameworks/WebP.framework/Headers/*.{h}'
 
-  s.pod_target_xcconfig = { 'ONLY_ACTIVE_ARCH' => 'YES' }
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   # s.resource_bundles = {
   #   'JJGuiso' => ['JJGuiso/Assets/*.png']
   # }
