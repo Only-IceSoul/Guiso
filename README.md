@@ -98,7 +98,7 @@ Guiso.load(Data).centerCrop().override(width,height).into(view)
 
 ```swift
 
-Guiso.load("url").asAnimatedImage().into(myViewTarget) // gif
+Guiso.load("url").asAnimatedImage(.gif).into(myViewTarget) // gif
 Guiso.load(Data).asAnimatedImage(.webp).into(myViewTarget) //webp
 ```
 ## Priority

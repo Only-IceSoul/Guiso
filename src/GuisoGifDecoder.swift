@@ -15,14 +15,15 @@ class GuisoGifDecoder: AnimatedImageDecoderProtocol {
     }
     
      func decode(data:Data) -> AnimatedImage? {
-        
+        let gif:AnimatedImage? = AnimatedImage()
+     
         guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
             print("makeImageGif:error -> maybe not exist data or wrong data")
             return nil
         }
      
      
-        let gif = AnimatedImage()
+       
         let count = CGImageSourceGetCount(source)
          
          let cfProperties = CGImageSourceCopyProperties(source,nil)
@@ -36,9 +37,9 @@ class GuisoGifDecoder: AnimatedImageDecoderProtocol {
               Unmanaged.passUnretained(kCGImagePropertyGIFLoopCount).toOpaque()),
           to: AnyObject.self)
 
-         gif.loopCount = 0
+         gif?.loopCount = 0
          if let num = loopCount as? NSNumber {
-           gif.loopCount = num.intValue
+           gif?.loopCount = num.intValue
          }
            
         var images = [CGImage]()
@@ -49,21 +50,25 @@ class GuisoGifDecoder: AnimatedImageDecoderProtocol {
            
            let delaySeconds = delayForImageAtIndex(Int(i),
                source: source)
-           gif.delays.append(delaySeconds)
+            
+           gif?.delays.append(delaySeconds)
         }
 
-         gif.frames = images
+         gif?.frames = images
          let duration: Double = {
          var sum : Double = 0
           
-         for val in gif.delays {
+         for val in gif!.delays {
               sum += val
           }
           
           return sum
          }()
 
-         gif.duration = duration
+         gif!.duration = duration
+            
+       
+        
 
         return gif
      }
@@ -79,18 +84,18 @@ class GuisoGifDecoder: AnimatedImageDecoderProtocol {
                  Unmanaged.passUnretained(kCGImagePropertyGIFDictionary).toOpaque()),
              to: CFDictionary.self)
          
-         var delayObject: AnyObject = unsafeBitCast(
+         var delayObject: Double = unsafeBitCast(
              CFDictionaryGetValue(gifProperties,
                  Unmanaged.passUnretained(kCGImagePropertyGIFUnclampedDelayTime).toOpaque()),
-             to: AnyObject.self)
+             to: AnyObject.self) as? Double ?? 0
 
-         if delayObject.doubleValue == 0 {
+        if delayObject == 0{
              delayObject = unsafeBitCast(CFDictionaryGetValue(gifProperties,
-                 Unmanaged.passUnretained(kCGImagePropertyGIFDelayTime).toOpaque()), to: AnyObject.self)
-         }
-          
-          
-         delay = delayObject as? Double ?? delay
+                 Unmanaged.passUnretained(kCGImagePropertyGIFDelayTime).toOpaque()), to: AnyObject.self) as? Double ?? 0
+             
+        }
+        delay = delayObject <= 0.01 ? delay : delayObject
+        
         
          return delay
       }

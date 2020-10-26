@@ -7,6 +7,7 @@
 
 import UIKit
 import WebP
+import WebPDemux
 
 public class GuisoWebPDecoder : AnimatedImageDecoderProtocol {
     
@@ -39,17 +40,16 @@ public class GuisoWebPDecoder : AnimatedImageDecoderProtocol {
         guard frameCount > 0 && width > 0 && height > 0 else {
             return nil
         }
-        
-      
         var iter = WebPIterator()
+        
         if WebPDemuxGetFrame(demuxer, 1, &iter) != 0 {
-            if let img = decodeImage(index: 0, width: Int(iter.width), height: Int(iter.height)){
+            if let img = decodeImage(iter: &iter){
                 return img
             }else { return nil}
+         
         }else{
             return nil
         }
-
     }
 
     public func decode(data:Data) -> AnimatedImage? {
@@ -62,7 +62,7 @@ public class GuisoWebPDecoder : AnimatedImageDecoderProtocol {
                   webPDataP = ptrAddress.assumingMemoryBound(to: UInt8.self)
                }
         })
-     
+      
         if webPDataP == nil { return nil }
         var webPData = WebPData(bytes: webPDataP!, size: data.count)
          demuxer  = WebPDemux(&webPData)
@@ -81,24 +81,28 @@ public class GuisoWebPDecoder : AnimatedImageDecoderProtocol {
         gif.loopCount = loopCount
        
         
+    
         var iter = WebPIterator()
         if WebPDemuxGetFrame(demuxer, 1, &iter) != 0 {
             defer {
                 WebPDemuxReleaseIterator(&iter)
             }
-
             repeat {
-
-                gif.delays.append(Double(iter.duration) / 1000.0)
-                if let img = decodeImage(index: gif.frames.count, width: Int(iter.width), height: Int(iter.height)){
-                        gif.frames.append(img)
+              
+                var duration = Double(iter.duration) / 1000.0
+                if (duration <= 0.01) {duration = 0.1}
+                gif.delays.append(duration)
+                if let img = decodeImage(iter: &iter){
+                    gif.frames.append(img)
                 }else{
-                    print("error got nil frame")
                     return nil
                 }
+                
+
             } while (WebPDemuxNextFrame(&iter) != 0)
         }
-        let duration: Double = {
+        
+        let durationTotal: Double = {
         var sum : Double = 0
          
         for val in gif.delays {
@@ -108,7 +112,7 @@ public class GuisoWebPDecoder : AnimatedImageDecoderProtocol {
          return sum
         }()
         
-        gif.duration = duration
+        gif.duration = durationTotal
         
 //        let gcd = gcdForDelays(gif.delays.map({ (d) -> Int in
 //            Int(d * 1000)
@@ -127,22 +131,18 @@ public class GuisoWebPDecoder : AnimatedImageDecoderProtocol {
 //       }
 //
 //        gif.frames = framesGcd
+        
+      
         return gif
     }
     
-    func decodeImage(index: Int,
-                     width: Int,
-                     height: Int) -> CGImage? {
-
-        var iter = WebPIterator()
-        if WebPDemuxGetFrame(demuxer, Int32(index + 1), &iter) == 0 { return nil }
-        defer {
-            WebPDemuxReleaseIterator(&iter)
-        }
+    func decodeImage(iter: inout WebPIterator) -> CGImage? {
 
         var config   = WebPDecoderConfig()
         let data     = iter.fragment.bytes
         let dataSize = iter.fragment.size
+        let width = Int(iter.width)
+        let height = Int(iter.height)
 
         if WebPInitDecoderConfig(&config) == 0 ||
             WebPGetFeatures(data, dataSize, &config.input) != VP8_STATUS_OK {
@@ -177,16 +177,16 @@ public class GuisoWebPDecoder : AnimatedImageDecoderProtocol {
             [CGBitmapInfo.byteOrder32Big, CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)] : CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue)
 
         return CGImage(width: width,
-                       height: height,
-                       bitsPerComponent: bitsPerComponent,
-                       bitsPerPixel: bitsPerPixel,
-                       bytesPerRow: bytesPerRow,
-                       space: CGColorSpaceCreateDeviceRGB(),
-                       bitmapInfo: bitmapInfo,
-                       provider: wrappedProvider,
-                       decode: nil,
-                       shouldInterpolate: false,
-                       intent: .defaultIntent)
+                              height: height,
+                              bitsPerComponent: bitsPerComponent,
+                              bitsPerPixel: bitsPerPixel,
+                              bytesPerRow: bytesPerRow,
+                              space: CGColorSpaceCreateDeviceRGB(),
+                              bitmapInfo: bitmapInfo,
+                              provider: wrappedProvider,
+                              decode: nil,
+                              shouldInterpolate: false,
+                              intent: .defaultIntent)
     }
     
     func gcdForDelays(_ millis: Array<Int>) -> Int {

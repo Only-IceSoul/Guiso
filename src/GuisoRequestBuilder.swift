@@ -93,7 +93,7 @@ public class GuisoRequestBuilder {
         mOptions.fallback(color)
         return self
     }
-    public func asAnimatedImage(_ type:Guiso.AnimatedType = .gif) -> GuisoRequestBuilder {
+    public func asAnimatedImage(_ type:Guiso.AnimatedType) -> GuisoRequestBuilder {
         switch type {
         case .gif:
             mAnimatedImageDecoder = GuisoGifDecoder()

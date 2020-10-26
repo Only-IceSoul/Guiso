@@ -37,10 +37,10 @@ Pod::Spec.new do |s|
       "ios": "11.0"
   }
 
-  s.vendored_frameworks = 'Frameworks/WebP.framework'
+  s.vendored_frameworks = 'Frameworks/*.framework'
 
-  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  # s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  # s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   # s.resource_bundles = {
   #   'JJGuiso' => ['JJGuiso/Assets/*.png']
   # }
