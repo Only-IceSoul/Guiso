@@ -7,12 +7,12 @@
 
 
 import UIKit
-import Photos
+
 
 public class GuisoRequest : Runnable {
     
 
-    private var mModel: Any!
+    private var mModel: Any?
     private var mLoader : LoaderProtocol!
     private var mTarget : ViewTarget?
     private var mKey : String = ""
@@ -23,11 +23,11 @@ public class GuisoRequest : Runnable {
     private var mSaver:GuisoSaver!
     private var mThumb: GuisoRequestThumb?
     private var mPrimarySignature = ""
-    init(model:Any,_ primarySignature:String,options:GuisoOptions,_ target: ViewTarget?, loader: LoaderProtocol,gifDecoder : AnimatedImageDecoderProtocol) {
+    init(model:Any?,_ primarySignature:String,options:GuisoOptions,_ target: ViewTarget?, loader: LoaderProtocol,animImgDecoder : AnimatedImageDecoderProtocol) {
         mOptions = options
         mPrimarySignature = primarySignature
         mModel = model
-        mAnimImgDecoder = gifDecoder
+        mAnimImgDecoder = animImgDecoder
             
         mTarget = target
         mLoader = loader
@@ -54,10 +54,9 @@ public class GuisoRequest : Runnable {
     
     public func run(){
 
-     updateIdentifier()
     if !updateImageFromCache()  {
         
-        mLoader.loadData(model: mModel!, width: mOptions.getWidth(), height: mOptions.getHeight(), options: mOptions) { (result, type,error,dataSource) in
+        mLoader.loadData(model: mModel, width: mOptions.getWidth(), height: mOptions.getHeight(), options: mOptions) { (result, type,error,dataSource) in
             if Thread.isMainThread {
                 Guiso.get().getExecutor().doWork {
                     if self.mOptions.getAsAnimatedImage() {
@@ -265,13 +264,9 @@ public class GuisoRequest : Runnable {
         if !sm { self.mSaver.saveToMemoryCache(key: mKey, gif:gif) }
     }
     
-    func updateIdentifier(){
-        self.mTarget?.setRequest(self)
-    }
+   
     
-    func checkIfNeedIgnore() -> Bool {
-        return mTarget?.getRequest()?.getKey() == mKey && !mKey.isEmpty
-    }
+    
     
     func makeKey() -> Key {
         let key = mOptions.getIsOverride() ? Key(signature:mPrimarySignature ,extra:mOptions.getSignature(), width: mOptions.getWidth(), height: mOptions.getHeight(), scaleType: mScale, frame: mOptions.getFrameSecond()   ,exactFrame:mOptions.getExactFrame(), isAnim:mOptions.getAsAnimatedImage(), transform: mOptions.getTransformerSignature()) :
@@ -386,10 +381,8 @@ public class GuisoRequest : Runnable {
     func onLoadFailed(_ msg:String){
         DispatchQueue.main.async {
             if self.mTarget?.getRequest()?.getKey() == self.mKey && !self.mIsCancelled {
-                self.mThumb?.cancel()
                 self.mTarget?.setRequest(nil)
-                self.mOptions.getErrorHolder()?.setTarget(self.mTarget)
-                self.mOptions.getErrorHolder()?.load()
+                self.mOptions.getErrorHolder()?.load(self.mTarget)
                 self.mTarget?.onLoadFailed(msg)
             }
             

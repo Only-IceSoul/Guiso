@@ -96,6 +96,12 @@ public class GuisoOptions {
        }
     
     @discardableResult
+       public func error(_ errorRequest:GuisoRequestBuilder) -> GuisoOptions {
+         mErrorHolder = GuisoErrorHolder(errorRequest)
+          return self
+       }
+    
+    @discardableResult
       public func fallback(_ fallback:UIImage) -> GuisoOptions {
         mFallbackHolder = GuisoFallbackHolder(fallback)
          return self

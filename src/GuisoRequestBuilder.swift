@@ -68,7 +68,10 @@ public class GuisoRequestBuilder {
         mOptions.error(name)
        return self
     }
-
+    public func error(_ request:GuisoRequestBuilder) -> GuisoRequestBuilder {
+        mOptions.error(request)
+       return self
+    }
     public func error(_ image:UIImage) -> GuisoRequestBuilder {
       mOptions.error(image)
       return self
@@ -154,7 +157,7 @@ public class GuisoRequestBuilder {
     
     @discardableResult
     public func preload() -> Bool {
-        return GuisoRequestManager.preload(mModel,mPrimarySignature, loader: mLoader, gifd: mAnimatedImageDecoder, options: mOptions)
+        return GuisoRequestManager.preload(mModel,mPrimarySignature, loader: mLoader, animtedImgDecoder: mAnimatedImageDecoder, options: mOptions)
     }
     
     public func diskCacheStrategy(_ strategy: Guiso.DiskCacheStrategy) -> GuisoRequestBuilder{

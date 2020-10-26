@@ -25,7 +25,7 @@ class GuisoLoaderString : LoaderProtocol {
     private var mPha : PHAsset?
     private var mPhaId : PHContentEditingInputRequestID?
   
-    func loadData(model: Any, width: CGFloat, height: CGFloat, options: GuisoOptions,callback:@escaping (Any?,Guiso.LoadType,String,Guiso.DataSource)-> Void) {
+    func loadData(model: Any?, width: CGFloat, height: CGFloat, options: GuisoOptions,callback:@escaping (Any?,Guiso.LoadType,String,Guiso.DataSource)-> Void) {
         mCallback = callback
         guard let url = model as? String else {
             sendResult(nil,.data,"model is nil or not a string",.remote)
@@ -87,7 +87,6 @@ class GuisoLoaderString : LoaderProtocol {
         let request = getRequestWeb(mOptions.getHeader()?.getFields())
     mWebLoad = session.dataTask(with: request) { (data, response, error) in
             if error != nil {
-                print("ImageWorker:error - updateWebImage -> ",error!)
                 self.sendResult(nil,.data,error!.localizedDescription,.remote)
                 return
             }
@@ -275,7 +274,6 @@ class GuisoLoaderString : LoaderProtocol {
         self.mWebTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 completion(result)
-                print("Guis - UrlWeb Mediatype:error -> ",error!)
             }else {
                 guard let httpResponse = response as? HTTPURLResponse,
                      let ct = httpResponse.allHeaderFields["Content-Type"] as? String

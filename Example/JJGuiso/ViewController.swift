@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     @IBAction func handleButton(_ sender: UIButton) {
         
        //video
-//      let url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      let url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
 
 //        guard let p = Bundle.main.url(forResource: "IMG_0021", withExtension: "GIF"),
 //            let data = try? Data(contentsOf: p)
@@ -48,15 +48,16 @@ class ViewController: UIViewController {
 //            .into(mImageView)
     
         //4k
-       let url = "https://res.cloudinary.com/demo/image/upload/fl_awebp/bored_animation.webp"
+      
 
         
         Guiso.load(model:url)
-            .asAnimatedImage(.webp)
+       
             
-//            .frame(50,exact:true)
-//            .thumbnail(Guiso.load(model: "https://scontent.fvvi1-1.fna.fbcdn.net/v/t1.0-9/20708267_503484543329533_7853583049637214163_n.png?_nc_cat=108&_nc_sid=730e14&_nc_ohc=f-ZfdnwclzsAX_qx0uk&_nc_ht=scontent.fvvi1-1.fna&oh=7f2a7f7e12bb3600a7009c9dd89d05cd&oe=5F9BD93B")
-//                )
+            .frame(10,exact:true)
+            .thumbnail(Guiso.load(model: "https://cnnespanol.cnn.com/wp-content/uploads/2016/09/meme-anonimos.jpg?quality=100&strip=info&w=320&h=240&crop=1"))
+  
+         
             .into(mImageView2)
         
 
@@ -78,7 +79,7 @@ class ViewController: UIViewController {
     }
     
     class CustomLoader : LoaderProtocol{
-        func loadData(model: Any, width: CGFloat, height: CGFloat, options: GuisoOptions, callback: @escaping (Any?, Guiso.LoadType,String,Guiso.DataSource) -> Void) {
+        func loadData(model: Any?, width: CGFloat, height: CGFloat, options: GuisoOptions, callback: @escaping (Any?, Guiso.LoadType,String,Guiso.DataSource) -> Void) {
             
             guard let m =  model as? String else{
                 callback(nil,.data,"Custom error nil or not string",.remote)
