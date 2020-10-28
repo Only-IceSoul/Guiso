@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJGuiso'
-  s.version          = '1.7.4'
+  s.version          = '1.7.7'
   s.summary          = 'Easy way to load images and Animated Images.'
 
 # This description is used to generate tags and improve search results.
@@ -40,6 +40,9 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'Frameworks/*.framework'
 
   # comment arm64 for xcode 11 if any error
+  s.pod_target_xcconfig = { 'ARCHS'  => '$(ARCHS_STANDARD)' ,
+ 'ONLY_ACTIVE_ARCH' => 'YES'}
+  s.user_target_xcconfig = { 'ARCHS'  => '$(ARCHS_STANDARD)', 'ONLY_ACTIVE_ARCH' => 'YES'}
 #  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 #  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   # s.resource_bundles = {
