@@ -283,7 +283,7 @@ public class GuisoRequestThumb : Runnable {
         let cache = Guiso.get().getMemoryCache()
         let cacheGif = Guiso.get().getMemoryCacheGif()
         let diskCache = Guiso.get().getDiskCache()
-        let diskCacheGif = Guiso.get().getDiskCacheObject()
+
         
         let diskStrategy = mOptions.getDiskCacheStrategy()
         let skipCache = mOptions.getSkipMemoryCache()
@@ -297,7 +297,7 @@ public class GuisoRequestThumb : Runnable {
                 }
             }
             if diskStrategy != .none {
-                if let obj = diskCacheGif.get(mKey) {
+                if let obj = diskCache.getClassObj(mKey) {
                     if let gif = obj as? AnimatedImage{
                         displayInTarget(gif)
                         if !skipCache {
@@ -308,7 +308,7 @@ public class GuisoRequestThumb : Runnable {
                     }
                 }
                 
-                if let obj = diskCacheGif.get(keyD) {
+                if let obj = diskCache.getClassObj(keyD) {
                     if let gif = obj as? AnimatedImage{
                         handleAnimImg(gif, type: .animatedImg, "",.dataDiskCache)
                         return true
