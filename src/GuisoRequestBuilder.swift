@@ -103,7 +103,7 @@ public class GuisoRequestBuilder {
             break
             
         }
-        mOptions.asAnimatedImage()
+        mOptions.asAnimatedImage(type)
         return self
     }
     public func fitCenter() -> GuisoRequestBuilder {
@@ -182,6 +182,15 @@ public class GuisoRequestBuilder {
    
     func apply(_ options:GuisoOptions) -> GuisoRequestBuilder{
         mOptions = options
+        switch mOptions.getAnimatedType() {
+        case .gif:
+            mAnimatedImageDecoder = GuisoGifDecoder()
+            break
+        case .webp:
+            mAnimatedImageDecoder = GuisoWebPDecoder()
+            break
+            
+        }
         return self
     }
  
