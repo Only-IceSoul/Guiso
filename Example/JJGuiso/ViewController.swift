@@ -34,7 +34,9 @@ class ViewController: UIViewController {
        //video
 //      let url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
 
-        let url = "https://res.cloudinary.com/demo/image/upload/fl_awebp/bored_animation.webp"
+//        let url = "https://i.pinimg.com/originals/1b/06/9c/1b069c08879c4323b3a7362155124fad.gif"
+        
+        let url = "https://res.cloudinary.com/demo/image/upload/fl_awebp,q_40/bored_animation.webp"
 //        guard let p = Bundle.main.url(forResource: "IMG_0021", withExtension: "GIF"),
 //            let data = try? Data(contentsOf: p)
 //            else { return }
