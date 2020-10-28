@@ -1,6 +1,6 @@
 {
   "name": "JJGuiso",
-  "version": "1.7.1",
+  "version": "1.7.5",
   "summary": "Easy way to load images and Animated Images.",
   "description": "Guiso is image loading framework for IOS that wraps media decoding, memory and disk caching. By default Guiso uses URLSession.",
   "homepage": "https://github.com/Only-IceSoul/Guiso",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/Only-IceSoul/Guiso.git",
-    "tag": "1.7.1"
+    "tag": "1.7.5"
   },
   "platforms": {
     "ios": "11.0"
@@ -24,10 +24,12 @@
   "swift_versions": "5.0",
   "vendored_frameworks": "Frameworks/*.framework",
   "pod_target_xcconfig": {
-    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+    "ARCHS": "$(ARCHS_STANDARD)",
+    "ONLY_ACTIVE_ARCH": "YES"
   },
   "user_target_xcconfig": {
-    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+    "ARCHS": "$(ARCHS_STANDARD)",
+    "ONLY_ACTIVE_ARCH": "YES"
   },
   "swift_version": "5.0"
 }
