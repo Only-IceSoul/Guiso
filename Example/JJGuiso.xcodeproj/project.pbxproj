@@ -46,7 +46,7 @@
 		B811947E09023103C313F763 /* Pods_JJGuiso_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJGuiso_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D118974B6074525A10C1C7 /* Pods-JJGuiso_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJGuiso_Example.release.xcconfig"; path = "Target Support Files/Pods-JJGuiso_Example/Pods-JJGuiso_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C42F9F89B0DBE0A83E5B4954 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		F7716C38B8287516538AC319 /* JJGuiso.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JJGuiso.podspec; path = ../JJGuiso.podspec; sourceTree = "<group>"; };
+		F7716C38B8287516538AC319 /* JJGuiso.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JJGuiso.podspec; path = ../JJGuiso.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
