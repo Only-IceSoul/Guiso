@@ -31,7 +31,7 @@ public class KeyGenerator {
         return str
     }
     
-    public func calculateHexString(key:Key) -> String? {
+    private func calculateHexString(key:Key) -> String? {
         guard let data = key.digestKey() else { return nil }
         
         var bytes = [UInt8](repeating: 0, count: data.count)

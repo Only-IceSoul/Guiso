@@ -19,9 +19,8 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
     private var mOptions : GuisoOptions!
     private var mScale : Guiso.ScaleType!
     private var mAnimImgDecoder : AnimatedImageDecoderProtocol!
-
     private var mPrimarySignature = ""
-//    private var mSimpleKey = ""
+
     init(model:Any?,_ primarySignature:String,options:GuisoOptions,_ target: ViewTarget?, loader: LoaderProtocol,animImgDecoder : AnimatedImageDecoderProtocol) {
         pthread_rwlock_init(&mLock, nil)
         mOptions = options
@@ -34,9 +33,6 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
         mScale = mOptions.getScaleType()  == .none ? getScaleTypeFrom(mTarget?.getContentMode() ?? .scaleAspectFit) : mOptions.getScaleType()
     
         mKey = makeKey()
-//        mSimpleKey = mKey.toString()
-   
-     
         
     }
     

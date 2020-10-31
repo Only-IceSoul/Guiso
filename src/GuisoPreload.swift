@@ -7,7 +7,8 @@
 
 import Foundation
 
-public class GuisoPreload: Runnable,Equatable,Request {
+public class GuisoPreload: Runnable,Equatable {
+    
  
     private var mModel: Any?
     private var mLoader : LoaderProtocol!
@@ -16,9 +17,7 @@ public class GuisoPreload: Runnable,Equatable,Request {
     private var mOptions : GuisoOptions!
     private var mScale : Guiso.ScaleType!
     private var mAnimImgDecoder : AnimatedImageDecoderProtocol!
-   
     private var mPrimarySignature = ""
-//    private var mSimpleKey = ""
     init(model:Any?,_ primarySignature:String,options:GuisoOptions, loader: LoaderProtocol,animImgDecoder : AnimatedImageDecoderProtocol) {
         pthread_rwlock_init(&mLock, nil)
         mOptions = options
@@ -30,7 +29,6 @@ public class GuisoPreload: Runnable,Equatable,Request {
         mScale = mOptions.getScaleType()  == .none ? .fitCenter : mOptions.getScaleType()
        
         mKey = makeKey()
-//        mSimpleKey = mKey.toString()
      
     }
     
@@ -47,10 +45,12 @@ public class GuisoPreload: Runnable,Equatable,Request {
         return mKey
     }
 
-   
+   private var isFromBeign = false
     
     public func run(){
         
+        if !isFromBeign { fatalError("use beign instead run")}
+          isFromBeign = false
         if isCancelled { return  }
         //diskcache
         if mOptions.getAsAnimatedImage() {
@@ -347,7 +347,7 @@ public class GuisoPreload: Runnable,Equatable,Request {
     
  
     
-    public func begin(){
+    public func begin(bgThread:Bool){
         pthread_rwlock_wrlock(&mLock); defer { pthread_rwlock_unlock(&mLock) }
         if mModel == nil {
             onLoadFailedFallback("Model is nil")
@@ -369,7 +369,7 @@ public class GuisoPreload: Runnable,Equatable,Request {
         
 
         
-        load()
+        load(bgThread: bgThread)
         
     
         
@@ -378,7 +378,7 @@ public class GuisoPreload: Runnable,Equatable,Request {
     
     }
     
-    func load(){
+    private func load(bgThread:Bool){
         status = .running
         
         if isCancelled { return  }
@@ -396,7 +396,12 @@ public class GuisoPreload: Runnable,Equatable,Request {
         }
     
         if isCancelled { return  }
-        mTask = Guiso.get().getExecutor().doWork(self, priority: .userInitiated, flags: .enforceQoS)
+        isFromBeign = true
+        if bgThread {
+            mTask = Guiso.get().getExecutor().doWork(self, priority: .userInitiated, flags: .enforceQoS)
+        }else{
+            run()
+        }
         
         
     }
@@ -492,11 +497,9 @@ public class GuisoPreload: Runnable,Equatable,Request {
         resourceAnimImg = nil
         
         if self.isCancelled { return }
-        
-        DispatchQueue.main.async {
-            GuisoRequestManager.removePreload(self.mKey)
-            self.mTask = nil
-        }
+        self.mTask?.cancel()
+        self.mTask = nil
+        onResourceReady?(res!,dataSource)
         
     }
     func onResourceReady(_ res:AnimatedImage?,_ dataSource:Guiso.DataSource){
@@ -511,10 +514,9 @@ public class GuisoPreload: Runnable,Equatable,Request {
         resourceImg = nil
         
         if self.isCancelled { return }
-        DispatchQueue.main.async {
-            GuisoRequestManager.removePreload(self.mKey)
-            self.mTask = nil
-        }
+        self.mTask?.cancel()
+        self.mTask = nil
+        onResourceReadyAnim?(res!,dataSource)
         
         
     }
@@ -522,24 +524,25 @@ public class GuisoPreload: Runnable,Equatable,Request {
     func onLoadFailedError(_ msg:String){
         status = .failed
         if !self.isCancelled {
-            DispatchQueue.main.async {
-                GuisoRequestManager.removePreload(self.mKey)
-                self.mTask = nil
-            }
+            self.mTask?.cancel()
+            self.mTask = nil
+            onLoadFailed?(msg)
         }
     }
     func onLoadFailedFallback(_ msg:String){
         status = .failed
         if !self.isCancelled {
-            DispatchQueue.main.async {
-                GuisoRequestManager.removePreload(self.mKey)
-                self.mTask = nil
-            }
-      
+            self.mTask?.cancel()
+            self.mTask = nil
+           
+            onLoadFailed?(msg)
         }
     }
     
     
+    private var onLoadFailed : ((String)->Void)?
+    private var onResourceReady : ((UIImage,Guiso.DataSource)->Void)?
+    private var onResourceReadyAnim : ((AnimatedImage,Guiso.DataSource)->Void)?
     
     private var status: Status = .pending
     private var mLock = pthread_rwlock_t()
@@ -560,10 +563,10 @@ public class GuisoPreload: Runnable,Equatable,Request {
         case complete, //finished loading media successfully
              running, // in the process of fetching media
              pending, // created but not yet running
-             waitingSize, //w8 for a callback given to the target to be called to determine target dimensions
+             waitingSize, 
             
              failed, // failed to load media, may be restarted
-             cleared  //cleared by the user with a placeholder set , may be restarted
+             cleared
     }
     
     
@@ -573,10 +576,3 @@ public class GuisoPreload: Runnable,Equatable,Request {
        
     }
 }
-//func registry(){
-//    GuisoRequestManager.registryPreLoad(mKey)
-//}
-//
-//func checkIfNeedIgnore() -> Bool {
-//    return GuisoRequestManager.containsPreload(mKey) || mKey.isEmpty
-//}

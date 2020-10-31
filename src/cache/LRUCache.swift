@@ -94,12 +94,7 @@ public class LRUCache<U:Hashable,T> {
             trimToSize((mMaxSize * 90) / 100)
         }
     }
-    
-    private var mEvictWithBarrier = false
-    func evictWithBarrier(_ bool: Bool){
-        mEvictWithBarrier = bool
-    }
-    
+
     public func trimToSize(_ size: Int64){
       
         print("trim to size")

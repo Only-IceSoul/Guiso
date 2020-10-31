@@ -70,17 +70,7 @@ import Foundation
         target.setRequest(nil)
     }
 
-    static func preload(_ model:Any?,_ primarySignature:String,loader:LoaderProtocol,animtedImgDecoder: AnimatedImageDecoderProtocol,options: GuisoOptions){
-
-        let pre = GuisoPreload(model: model!,primarySignature, options: options, loader: loader, animImgDecoder: animtedImgDecoder)
-        
-        if containsPreload(pre.getKey()) { return  }
-        
-        registryPreLoad(pre.getKey())
-        
-        pre.begin()
-        
-    }
+  
       
     static func isPreloading(_ k:Key) -> Bool {
           

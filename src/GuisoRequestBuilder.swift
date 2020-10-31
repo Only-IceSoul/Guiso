@@ -162,8 +162,9 @@ public class GuisoRequestBuilder {
     }
     
   
-    public func preload() {
-        GuisoRequestManager.preload(mModel,mPrimarySignature, loader: mLoader, animtedImgDecoder: mAnimatedImageDecoder, options: mOptions)
+    public func preload() -> GuisoPreload {
+   
+        return GuisoPreload(model: mModel,mPrimarySignature, options: mOptions, loader: mLoader, animImgDecoder: mAnimatedImageDecoder)
     }
     
     public func diskCacheStrategy(_ strategy: Guiso.DiskCacheStrategy) -> GuisoRequestBuilder{
