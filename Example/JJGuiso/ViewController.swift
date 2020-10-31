@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mImageView2: GuisoView!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
