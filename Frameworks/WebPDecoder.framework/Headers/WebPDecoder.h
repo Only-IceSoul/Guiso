@@ -1,4 +1,3 @@
 
-#import <WebPDecoder/WebPDecoderDecode.h>
-#import <WebPDecoder/WebPDecoderTypes.h>
-
+#include "./WebPDecoderDecode.h"
+#include "./WebPDecoderTypes.h"

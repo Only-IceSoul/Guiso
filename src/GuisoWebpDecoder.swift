@@ -6,8 +6,7 @@
 //
 
 import UIKit
-import WebP
-import WebPDemux
+
 
 public class GuisoWebPDecoder : AnimatedImageDecoderProtocol {
     

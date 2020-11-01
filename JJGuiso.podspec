@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJGuiso'
-  s.version          = '1.8.5'
+  s.version          = '1.8.6'
   s.summary          = 'Easy way to load images and Animated Images.'
 
 # This description is used to generate tags and improve search results.
@@ -32,11 +32,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
 
 
-  s.source_files = ['src/**/*.swift']
+  s.source_files = ['src/**/*.swift','Frameworks/**/Headers/*.{h}']
   s.swift_version = '5.0'
  
 
   s.vendored_frameworks = 'Frameworks/*.framework'
+
+  s.ios.preserve_paths = 'Frameworks'
+  s.public_header_files = 'Frameworks/**/Headers/*.{h}'
 
   # comment arm64 for xcode 11 if any error
   s.pod_target_xcconfig = { 'ARCHS'  => '$(ARCHS_STANDARD)' ,
