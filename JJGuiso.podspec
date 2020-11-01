@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJGuiso'
-  s.version          = '1.8.4'
+  s.version          = '1.8.5'
   s.summary          = 'Easy way to load images and Animated Images.'
 
 # This description is used to generate tags and improve search results.
@@ -30,11 +30,11 @@ Pod::Spec.new do |s|
  
 
   s.ios.deployment_target = '9.0'
-  s.osx.deployment_target = '10.5'
+
 
   s.source_files = ['src/**/*.swift']
   s.swift_version = '5.0'
-
+ 
 
   s.vendored_frameworks = 'Frameworks/*.framework'
 
