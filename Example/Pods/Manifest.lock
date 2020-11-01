@@ -1,5 +1,5 @@
 PODS:
-  - JJGuiso (1.8.3)
+  - JJGuiso (1.8.4)
 
 DEPENDENCIES:
   - JJGuiso (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JJGuiso: 58d5f02552ab4e8eb7ac2a7a53b02d423f8dafcc
+  JJGuiso: cea235de36fee508dd0c2724ce7304754942e70c
 
 PODFILE CHECKSUM: aac25a6a4e4da81ab0477c5490149a5789dd24b1
 

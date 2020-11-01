@@ -10,7 +10,7 @@ Guiso's primary focus is on making scrolling any kind of a list of images as smo
 ## Requirements
 
 ```
- ios platform 11
+ ios developer target 9.0
 ```
 
 ## Installation
