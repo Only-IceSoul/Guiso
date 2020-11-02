@@ -105,7 +105,7 @@ Guiso.load("url").asAnimatedImage().into(myViewTarget) // gif
 ## Animated Webp
 
 ```swift
-// use JJGuisoWebPDecoder
+// use https://cocoapods.org/pods/JJGuisoWebP
 //create a class and implement AnimatedImageDecoderProtocol
 let decoder:  AnimatedImageDecoderProtocol = MyClass()
 Guiso.load("url").asAnimatedImage().animatedImageDecoder(decoder).into(myViewTarget) // gif
