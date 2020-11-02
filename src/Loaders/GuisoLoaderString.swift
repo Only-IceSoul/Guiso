@@ -333,7 +333,7 @@ public class GuisoLoaderString : LoaderProtocol {
     }
     
     private func getAsset(identifier: String) -> PHAsset? {
-           let assets = Guiso.get().getAsset(identifier)
+           let assets = Guiso.getAsset(identifier)
         if assets.count > 0 {
             return assets.firstObject
             

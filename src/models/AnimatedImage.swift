@@ -18,7 +18,7 @@ public class AnimatedImage : NSObject,NSCoding {
     public var canvasWidth: Int = 0
     public var canvasHeight:Int = 0
     
-    override init(){
+    override public init(){
 
     }
     

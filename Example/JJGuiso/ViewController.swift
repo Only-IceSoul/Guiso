@@ -25,7 +25,8 @@ class ViewController: UIViewController {
 
     @IBAction func handleButton2(_ sender: UIButton) {
         mImageView.backgroundColor = UIColor.purple
-        Guiso.get().cleanDiskCache()
+        Guiso.cleanDiskCache()
+       
         
         
     }
@@ -37,7 +38,7 @@ class ViewController: UIViewController {
 
 //        let url = "https://i.pinimg.com/originals/1b/06/9c/1b069c08879c4323b3a7362155124fad.gif"
         
-        let url = "https://res.cloudinary.com/demo/image/upload/fl_awebp,q_40/bored_animation.webp"
+        let url = "https://res.cloudinary.com/demo/image/upload/bored_animation.gif"
 //        guard let p = Bundle.main.url(forResource: "IMG_0021", withExtension: "GIF"),
 //            let data = try? Data(contentsOf: p)
 //            else { return }
@@ -59,7 +60,8 @@ class ViewController: UIViewController {
        
             
             
-            .asAnimatedImage(.webp)
+            .asAnimatedImage()
+            
             .thumbnail(Guiso.load(model: "https://cnnespanol.cnn.com/wp-content/uploads/2016/09/meme-anonimos.jpg?quality=100&strip=info&w=320&h=240&crop=1"))
   
          

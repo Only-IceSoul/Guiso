@@ -15,7 +15,7 @@ public class GuisoRequestBuilder {
     private var mModel: Any?
     private var mPrimarySignature = ""
  
-    private var mAnimatedImageDecoder : AnimatedImageDecoderProtocol = GuisoGifDecoder()
+    private var mAnimatedImageDecoder : AnimatedImageDecoderProtocol? = GuisoGifDecoder()
     
     private var mThumb : GuisoRequestBuilder?
      init(model:Any?) {
@@ -37,7 +37,7 @@ public class GuisoRequestBuilder {
          mLoader = loader
     }
 
-    public func AnimatedImageDecoder(_ decoder:AnimatedImageDecoderProtocol) -> GuisoRequestBuilder{
+    public func animatedImageDecoder(_ decoder:AnimatedImageDecoderProtocol) -> GuisoRequestBuilder{
            mAnimatedImageDecoder = decoder
            return self
     }
@@ -95,17 +95,8 @@ public class GuisoRequestBuilder {
         mOptions.fallback(color)
         return self
     }
-    public func asAnimatedImage(_ type:Guiso.AnimatedType) -> GuisoRequestBuilder {
-        switch type {
-        case .gif:
-            mAnimatedImageDecoder = GuisoGifDecoder()
-            break
-        case .webp:
-            mAnimatedImageDecoder = GuisoWebPDecoder()
-            break
-            
-        }
-        mOptions.asAnimatedImage(type)
+    public func asAnimatedImage() -> GuisoRequestBuilder {
+        mOptions.asAnimatedImage()
         return self
     }
     public func fitCenter() -> GuisoRequestBuilder {
@@ -157,7 +148,7 @@ public class GuisoRequestBuilder {
         return GuisoRequestManager.into(target, builder: self)
     }
     
-    public func getThumb() -> GuisoRequestBuilder?{
+    func getThumb() -> GuisoRequestBuilder?{
         return mThumb
     }
     
@@ -175,7 +166,7 @@ public class GuisoRequestBuilder {
     func getLoader() -> LoaderProtocol {
         return mLoader
     }
-    func getAnimatedImageDecoder() -> AnimatedImageDecoderProtocol {
+    func getAnimatedImageDecoder() -> AnimatedImageDecoderProtocol? {
         return mAnimatedImageDecoder
     }
     func getModel() -> Any? {
@@ -187,17 +178,8 @@ public class GuisoRequestBuilder {
     }
     
    
-    func apply(_ options:GuisoOptions) -> GuisoRequestBuilder{
+    public func apply(_ options:GuisoOptions) -> GuisoRequestBuilder{
         mOptions = options
-        switch mOptions.getAnimatedType() {
-        case .gif:
-            mAnimatedImageDecoder = GuisoGifDecoder()
-            break
-        case .webp:
-            mAnimatedImageDecoder = GuisoWebPDecoder()
-            break
-            
-        }
         return self
     }
  

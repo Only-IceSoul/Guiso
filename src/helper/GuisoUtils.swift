@@ -8,9 +8,9 @@
 import UIKit
 import Photos
 
-class GuisoUtils {
+public class GuisoUtils {
     
-    static func imageColor(color: UIColor) -> UIImage? {
+    public static func imageColor(color: UIColor) -> UIImage? {
 
         let newSize = CGSize(width: 250, height: 250)
         let centerRect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
@@ -21,7 +21,7 @@ class GuisoUtils {
         UIGraphicsEndImageContext()
         return newImage
     }
-     static func getData(asset:PHAsset,_ completion: @escaping (Data?)->Void){
+    public static func getData(asset:PHAsset,_ completion: @escaping (Data?)->Void){
            let options = PHContentEditingInputRequestOptions()
            options.canHandleAdjustmentData = {(adjustmeta: PHAdjustmentData) -> Bool in
                        return true
@@ -54,7 +54,7 @@ class GuisoUtils {
        }
     
     
-    static func getVideoThumbnail(_ asset:PHAsset,second:Double,exact:Bool, completion:@escaping (UIImage?,NSError?)-> Void) {
+    public static func getVideoThumbnail(_ asset:PHAsset,second:Double,exact:Bool, completion:@escaping (UIImage?,NSError?)-> Void) {
 
 
      let options = PHVideoRequestOptions()
@@ -88,7 +88,7 @@ class GuisoUtils {
        
      }
 
-    static func getImage(asset: PHAsset,size:CGSize,contentMode: PHImageContentMode,_ completion: @escaping (UIImage?)->Void) {
+    public static func getImage(asset: PHAsset,size:CGSize,contentMode: PHImageContentMode,_ completion: @escaping (UIImage?)->Void) {
        
             let options = PHImageRequestOptions()
             options.isNetworkAccessAllowed = true

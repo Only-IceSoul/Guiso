@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-public class LRUCache<U:Hashable,T> {
+open class LRUCache<U:Hashable,T> {
   private var mMaxSize: Int64 = 0
   private var mCurrentSize : Int64 = 0
     private var mPriority: LinkedList<U,T> = LinkedList<U,T>()
@@ -89,15 +89,14 @@ public class LRUCache<U:Hashable,T> {
   
 
     
-    func evict(){
+    open func evict(){
         if mCurrentSize >= mMaxSize {
-            trimToSize((mMaxSize * 90) / 100)
+            trimToSize((mMaxSize * 85) / 100)
         }
     }
 
     public func trimToSize(_ size: Int64){
       
-        print("trim to size")
         while let key = self.mPriority.last?.key {
             if self.mCurrentSize <= size {
                 if self.mCurrentSize < 0 { self.mCurrentSize = 0}

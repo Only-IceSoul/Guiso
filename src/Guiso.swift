@@ -10,12 +10,10 @@ import Photos
 public class Guiso {
     
     static private var instance : Guiso?
-    private var mMemoryCache = GuisoCache(200)
-    private var mExecutor = Executor("Guiso")
-    private var mDiskCache = GuisoDiskCache("Guiso", maxSize: 250)
-    private var mMemoryCacheGif = GuisoCacheGif(50)
-    private var mLock = NSLock()
-    private init() {}
+    private static var mMemoryCache = GuisoCache(100)
+    private static var mExecutor = Executor("Guiso")
+    private static var mDiskCache = GuisoDiskCache("Guiso", maxSize: 250)
+    private static var mMemoryCacheGif = GuisoCacheGif(50)
     
   
     public static func load(model: Any?) -> GuisoRequestBuilder{
@@ -24,49 +22,41 @@ public class Guiso {
     public static func load(model:Any?,loader: LoaderProtocol) -> GuisoRequestBuilder{
            return GuisoRequestBuilder(model: model, loader: loader)
     }
+  
     
-    static public func get() -> Guiso {
-        if instance == nil {
-            instance = Guiso()
-        }
-        return instance!
-    }
-    
-    func getExecutor() -> Executor {
+    static func getExecutor() -> Executor {
         return mExecutor
     }
 
-    func getAsset(_ id:String) -> PHFetchResult<PHAsset> {
+    static func getAsset(_ id:String) -> PHFetchResult<PHAsset> {
          let options = PHFetchOptions()
          options.predicate = NSPredicate(format: "localIdentifier == %@",id)
          return PHAsset.fetchAssets(with: options)
      }
     
-    public func cleanMemoryCache(){
+    public static func cleanMemoryCache(){
         mMemoryCache.clear()
         mMemoryCacheGif.clear()
     }
     
-    public func clear(target:ViewTarget?){
+    public static func clear(target:ViewTarget?){
         if target == nil { return }
         GuisoRequestManager.clear(target: target!)
     }
     
-    public func cleanDiskCache(){
-        mExecutor.doWork {
-            self.mDiskCache.clean()
-        }
+    public static func cleanDiskCache(){
+        self.mDiskCache.clean()
     }
     
-    func getMemoryCache() -> GuisoCache {
+    static func getMemoryCache() -> GuisoCache {
         return mMemoryCache
     }
-    func getMemoryCacheGif() -> GuisoCacheGif {
+    static func getMemoryCacheGif() -> GuisoCacheGif {
         return mMemoryCacheGif
     }
   
     
-    func getDiskCache() -> GuisoDiskCache {
+    static func getDiskCache() -> GuisoDiskCache {
         return mDiskCache
     }
   
@@ -86,10 +76,7 @@ public class Guiso {
         audio
     }
     
-    public enum AnimatedType :Int  {
-        case gif = 0,
-        webp
-    }
+  
     
     
     public enum ScaleType:Int {
@@ -120,8 +107,7 @@ public class Guiso {
     }
       
     
-    func writeToCacheFolder(_ data:Data,name:String) -> URL? {
-            mLock.lock(); defer { mLock.unlock() }
+    static func writeToCacheFolder(_ data:Data,name:String) -> URL? {
         do{
             let cacheDir = (NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0])
             let path = URL(fileURLWithPath: cacheDir).appendingPathComponent(name)

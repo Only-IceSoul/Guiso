@@ -10,26 +10,7 @@ import Foundation
 //should make a comunication betwen preload and request???????'
  class GuisoRequestManager {
     
-    private static  var preloads = [Key]()
-    
    
-    static func registryPreLoad(_ key:Key){
-        if !key.isValidSignature() { return }
-        preloads.append(key)
-            
-    }
-    
-    static func removePreload(_ key:Key){
-        if !key.isValidSignature() { return }
-        preloads.removeAll { (s) -> Bool in
-            s == key
-        }
-    }
-
-    static func containsPreload(_ key:Key) -> Bool{
-        if !key.isValidSignature() { return false }
-        return preloads.contains(key)
-    }
     
     
     static func into(_ target: ViewTarget, builder:GuisoRequestBuilder) -> ViewTarget? {
@@ -72,10 +53,7 @@ import Foundation
 
   
       
-    static func isPreloading(_ k:Key) -> Bool {
-          
-          return GuisoRequestManager.containsPreload(k)
-      }
+ 
     
     static func getPriority(_ priority:Guiso.Priority) -> DispatchQoS {
         switch priority {

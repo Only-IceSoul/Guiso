@@ -87,11 +87,11 @@ class GuisoErrorHolder : Equatable {
                     
                     mainRequest.setThumb(thumbRequest)
                     
-                    Guiso.get().getExecutor().doWork(thumbRequest,priority: priority , flags: .enforceQoS )
+                    Guiso.getExecutor().doWork(thumbRequest,priority: priority , flags: .enforceQoS )
                 }
             target?.setRequest(mainRequest)
             if builder.getModel() != nil{
-                Guiso.get().getExecutor().doWork(mainRequest,priority: priority , flags: .enforceQoS )
+                Guiso.getExecutor().doWork(mainRequest,priority: priority , flags: .enforceQoS )
             }
                
         }

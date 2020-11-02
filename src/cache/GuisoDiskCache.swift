@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 import ImageIO
 
-class GuisoDiskCache {
+public class GuisoDiskCache {
     
     private var  mKeySize = "GuisoDiskCacheSize"
 
@@ -20,8 +20,8 @@ class GuisoDiskCache {
    
     private var mKeyGenerator = KeyGenerator()
  
-
-    init(_ folder: String, maxSize:Int,cleanInBg:Bool = false) {
+    //size MB
+    public init(_ folder: String, maxSize:Int,cleanInBg:Bool = false) {
         pthread_rwlock_init(&mLock, nil)
 //        let cacheFolder = (NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0])
         let document = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -42,11 +42,32 @@ class GuisoDiskCache {
         
   
     }
+    //size MB
+    public init(_ directory: URL, maxSize:Int,cleanInBg:Bool = false) {
+        pthread_rwlock_init(&mLock, nil)
+
+        mDirectory = directory
+        mMaxSize = maxSize * 1048576
+
+      
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillTerminate), name: UIApplication.willTerminateNotification, object: nil)
+        
+        if cleanInBg {
+            NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        }
+        
+        
+  
+    }
+    
     deinit {
         pthread_rwlock_destroy(&mLock)
     }
     
-    func getDirectory() -> URL {
+    public func getDirectory() -> URL {
         return mDirectory
     }
     
@@ -65,7 +86,7 @@ class GuisoDiskCache {
     }
     
     
-    func get(_ key:Key) -> Data? {
+    public func get(_ key:Key) -> Data? {
         pthread_rwlock_rdlock(&mLock); defer { pthread_rwlock_unlock(&mLock) }
         
         if !createDirectory(mDirectory.path) { return nil }
@@ -76,7 +97,7 @@ class GuisoDiskCache {
         return data
     }
     
-    func getClassObj(_ key:Key) -> AnyObject? {
+    public func getClassObj(_ key:Key) -> AnyObject? {
         pthread_rwlock_rdlock(&mLock); defer { pthread_rwlock_unlock(&mLock) }
         if !createDirectory(mDirectory.path) { return nil }
         guard let strKey = mKeyGenerator.getKeyString(key: key) else { return nil }
@@ -89,12 +110,12 @@ class GuisoDiskCache {
   
     
     @discardableResult
-    func add(_ key:Key, data : Data,isUpdate: Bool = false) -> Bool {
+    public func add(_ key:Key, data : Data,isUpdate: Bool = false) -> Bool {
         return addItem(key,data,isUpdate,isClassObj: false)
     }
     
     @discardableResult
-    func add(_ key:Key, classObj : AnyObject,isUpdate: Bool = false) -> Bool {
+    public func add(_ key:Key, classObj : AnyObject,isUpdate: Bool = false) -> Bool {
         return addItem(key,classObj,isUpdate,isClassObj: true)
     }
     
@@ -210,7 +231,7 @@ class GuisoDiskCache {
     
    
     
-    func clean(){
+    public func clean(){
         pthread_rwlock_wrlock(&mLock); defer { pthread_rwlock_unlock(&mLock) }
         do {
             let fileManager = FileManager.default
@@ -231,12 +252,6 @@ class GuisoDiskCache {
         return Double(bytes) / 1048576.0
     }
     
-  
-
-    open func getSizeObject(data: Data?) -> Double {
-          let bytes  = data?.count ?? 0
-          return bytesToMb(bytes: bytes)
-    }
     
     private var mIsDeletingCancelled = false
     private func deleteExpiredData(){
@@ -306,7 +321,7 @@ class GuisoDiskCache {
         
         self.mIsDeletingCancelled = false
 
-        Guiso.get().getExecutor().doWork {
+        Guiso.getExecutor().doWork {
            self.deleteExpiredData()
             UIApplication.shared.endBackgroundTask(self.mBgTaskID)
             self.mBgTaskID = .invalid
@@ -319,7 +334,7 @@ class GuisoDiskCache {
     
         let sm =  DispatchSemaphore(value: 0)
         self.mIsDeletingCancelled = true
-        Guiso.get().getExecutor().doWork {
+        Guiso.getExecutor().doWork {
             self.deleteExpiredDataShort()
             sm.signal()
         }

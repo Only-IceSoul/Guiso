@@ -21,7 +21,7 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
     private var mAnimImgDecoder : AnimatedImageDecoderProtocol!
     private var mPrimarySignature = ""
 
-    init(model:Any?,_ primarySignature:String,options:GuisoOptions,_ target: ViewTarget?, loader: LoaderProtocol,animImgDecoder : AnimatedImageDecoderProtocol) {
+    init(model:Any?,_ primarySignature:String,options:GuisoOptions,_ target: ViewTarget?, loader: LoaderProtocol,animImgDecoder : AnimatedImageDecoderProtocol?) {
         pthread_rwlock_init(&mLock, nil)
         mOptions = options
         mPrimarySignature = primarySignature
@@ -56,7 +56,7 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
             if let res = loadFromDiskAnim() {
                 onResourceReady(res, .resourceDiskCache)
                 if !mOptions.getSkipMemoryCache() {
-                    Guiso.get().getMemoryCacheGif().add(mKey, val: res)
+                    Guiso.getMemoryCacheGif().add(mKey, val: res)
                 }
                 return
             }
@@ -64,7 +64,7 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
             if let res = loadFromDiskImg() {
                 onResourceReady(res, .resourceDiskCache)
                 if !mOptions.getSkipMemoryCache() {
-                    Guiso.get().getMemoryCache().add(mKey, val: res)
+                    Guiso.getMemoryCache().add(mKey, val: res)
                 }
                 return
             }
@@ -92,7 +92,7 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
             if self.isCancelled { return  }
             
             if Thread.isMainThread  {
-                Guiso.get().getExecutor().doWork {
+                Guiso.getExecutor().doWork {
                     if self.mOptions.getAsAnimatedImage() {
                         self.handleAnimImg(result, type: type,error,dataSource)
                     }else{
@@ -154,8 +154,8 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
             self.onLoadFailedError("decoding gif, loader error -> \(error)")
               return
           }
-            guard let gif = self.mAnimImgDecoder.decode(data:data) else{
-                self.onLoadFailedError("decoding gif, loader error -> bad request, maybe its not a animated image")
+            guard let gif = self.mAnimImgDecoder?.decode(data:data) else{
+                self.onLoadFailedError("decoding animatedImage, error -> maybe its not a animated image or animated Decoder is nil ")
                 return
             }
             if isCancelled { return  }
@@ -400,7 +400,7 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
         }
         
         if isCancelled { return  }
-        mTask = Guiso.get().getExecutor().doWork(self, priority: .userInitiated, flags: .enforceQoS)
+        mTask = Guiso.getExecutor().doWork(self, priority: .userInitiated, flags: .enforceQoS)
         
         
     }
@@ -408,7 +408,7 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
    
     
     func loadFromDiskImgSource() -> UIImage?{
-        let diskCache = Guiso.get().getDiskCache()
+        let diskCache = Guiso.getDiskCache()
         let diskStrategy = mOptions.getDiskCacheStrategy()
         let keyD = sourceKey()
         if diskStrategy != .none{
@@ -423,7 +423,7 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
     }
     
     func loadFromDiskAnimSource() -> AnimatedImage?{
-        let diskCache = Guiso.get().getDiskCache()
+        let diskCache = Guiso.getDiskCache()
         let diskStrategy = mOptions.getDiskCacheStrategy()
         let keyD = sourceKey()
         if diskStrategy != .none {
@@ -438,7 +438,7 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
     }
     
     func loadFromDiskImg() -> UIImage?{
-        let diskCache = Guiso.get().getDiskCache()
+        let diskCache = Guiso.getDiskCache()
         let diskStrategy = mOptions.getDiskCacheStrategy()
         if diskStrategy != .none {
               if let data = diskCache.get(mKey) {
@@ -451,7 +451,7 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
     }
     
     func loadFromDiskAnim() -> AnimatedImage?{
-        let diskCache = Guiso.get().getDiskCache()
+        let diskCache = Guiso.getDiskCache()
         let diskStrategy = mOptions.getDiskCacheStrategy()
         if diskStrategy != .none {
             if let obj = diskCache.getClassObj(mKey) {
@@ -465,7 +465,7 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
     }
     
     func loadFromMemoryImg() -> UIImage?{
-        let cache = Guiso.get().getMemoryCache()
+        let cache = Guiso.getMemoryCache()
         let skipCache = mOptions.getSkipMemoryCache()
         
         if !skipCache ,let img =  cache.get(mKey)  {
@@ -475,7 +475,7 @@ public class GuisoRequestThumb: Runnable,Equatable,Request {
     }
     
     func loadFromMemoryAnim() -> AnimatedImage?{
-        let cache = Guiso.get().getMemoryCacheGif()
+        let cache = Guiso.getMemoryCacheGif()
         let skipCache = mOptions.getSkipMemoryCache()
         if !skipCache {
             if let animImg =  cache.get(mKey) {

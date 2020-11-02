@@ -8,11 +8,13 @@
 import UIKit
 import MediaPlayer
 
-class GuisoLoaderData: LoaderProtocol {
+public class GuisoLoaderData: LoaderProtocol {
+    
+    public init(){}
     
     private var mOptions = GuisoOptions()
     private var mCallback: ((Any?,Guiso.LoadType,String,Guiso.DataSource)->Void)?
-    func loadData(model: Any?, width: CGFloat, height: CGFloat, options: GuisoOptions, callback: @escaping (Any?, Guiso.LoadType,String,Guiso.DataSource) -> Void) {
+    public func loadData(model: Any?, width: CGFloat, height: CGFloat, options: GuisoOptions, callback: @escaping (Any?, Guiso.LoadType,String,Guiso.DataSource) -> Void) {
         mOptions = options
         mCallback = callback
         guard let data = model as? Data else {
@@ -44,8 +46,8 @@ class GuisoLoaderData: LoaderProtocol {
        }
     
     private func dataAudio(_ data:Data) -> UIImage? {
-        
-        if let path = Guiso.get().writeToCacheFolder(data, name: "guiso_audio.mp3"){
+        let name = Date().timeIntervalSince1970
+        if let path = Guiso.writeToCacheFolder(data, name: "\(name).mp3"){
             return avAssetAudio(AVURLAsset(url: path))
         }else{
             return nil
@@ -54,8 +56,8 @@ class GuisoLoaderData: LoaderProtocol {
     }
     
     private func dataVideo(_ video:Data) {
-        
-        if let path = Guiso.get().writeToCacheFolder(video, name: "guiso_video.mp4"){
+        let name = Date().timeIntervalSince1970
+        if let path = Guiso.writeToCacheFolder(video, name: "\(name).mp4"){
             avAssetVideo(AVURLAsset(url: path))
         }else{
             sendResult(nil, .data,"data: failed parse data, data should be audio video gif or image ",.remote)
@@ -102,15 +104,15 @@ class GuisoLoaderData: LoaderProtocol {
     
     
     //MARK: Tracker
-    func cancel() {
+    public func cancel() {
         mCallback = nil
     }
     
-    func pause() {
+    public func pause() {
         
     }
     
-    func resume() {
+    public func resume() {
         
     }
 }

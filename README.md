@@ -94,13 +94,24 @@ Guiso.load(Data).centerCrop().override(width,height).into(view)
 
 ```
 
-## Animated Gif / Webp
+## Animated Gif 
 
 ```swift
 
-Guiso.load("url").asAnimatedImage(.gif).into(myViewTarget) // gif
-Guiso.load(Data).asAnimatedImage(.webp).into(myViewTarget) //webp
+Guiso.load("url").asAnimatedImage().into(myViewTarget) // gif
+
 ```
+
+## Animated Webp
+
+```swift
+// use JJGuisoWebPDecoder
+//create a class and implement AnimatedImageDecoderProtocol
+let decoder:  AnimatedImageDecoderProtocol = MyClass()
+Guiso.load("url").asAnimatedImage().animatedImageDecoder(decoder).into(myViewTarget) // gif
+
+```
+
 ## Priority
 
 Priorities for completing loads. If more than one load is queued at a time, the load with the higher priority will be started first. Priorities are considered best effort, there are no guarantees about the order in which loads will start or finish.

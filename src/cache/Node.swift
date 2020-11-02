@@ -9,10 +9,10 @@ import UIKit
 
 
 public class Node<U,T> {
-    var key: U
-    var value: T
-    var next: Node?
-    weak var previous: Node?
+    public var key: U
+    public var value: T
+    public var next: Node?
+    public weak var previous: Node?
 
     public init(key:U,value: T) {
         self.value = value

@@ -19,7 +19,6 @@ public class GuisoOptions : Equatable {
             && lhs.getWidth() == rhs.getWidth()
             && lhs.getHeight() == rhs.getHeight()
             && lhs.getIsOverride() == rhs.getIsOverride()
-            && lhs.getAnimatedType() == rhs.getAnimatedType()
             && lhs.getAsAnimatedImage() == rhs.getAsAnimatedImage()
             && lhs.getPriority() == rhs.getPriority()
             && lhs.getSignature() == rhs.getSignature()
@@ -43,7 +42,6 @@ public class GuisoOptions : Equatable {
       private var mFrameSecond : Double = 0
       private var mSkipMemoryCache = false
       private var mAsAnimatedImage = false
-    private var mAnimatedType = Guiso.AnimatedType.gif
       private var mIsOverride = false
       private var mLanczos5 = false
       private var mExactFrame = false
@@ -69,9 +67,8 @@ public class GuisoOptions : Equatable {
       }
     
       @discardableResult
-    public func asAnimatedImage(_ type:Guiso.AnimatedType) -> GuisoOptions {
+    public func asAnimatedImage() -> GuisoOptions {
           mAsAnimatedImage = true
-         mAnimatedType = type
           return self
       }
     @discardableResult
@@ -209,9 +206,7 @@ public class GuisoOptions : Equatable {
       public func getAsAnimatedImage() -> Bool {
           return mAsAnimatedImage
       }
-    public func getAnimatedType() -> Guiso.AnimatedType {
-        return mAnimatedType
-    }
+  
     public func getTransformerSignature() -> String {
         return mSignatureTransformer
     }
