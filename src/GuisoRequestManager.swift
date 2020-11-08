@@ -55,6 +55,7 @@ import Foundation
         target.getRequest()?.setTarget(nil)
         target.getRequest()?.clear()
         target.setRequest(nil)
+        target.onHolder(nil)
     }
 
   

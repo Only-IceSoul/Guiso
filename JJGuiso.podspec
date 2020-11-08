@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJGuiso'
-  s.version          = '1.8.9'
+  s.version          = '1.9.0'
   s.summary          = 'Easy way to load images and Animated Images.'
 
 # This description is used to generate tags and improve search results.
