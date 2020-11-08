@@ -28,7 +28,8 @@ class GuisoSaver {
         if image?.cgImage == nil { return  }
         let diskCache = Guiso.getDiskCache()
         if let data = makeImageData(image!){
-              diskCache.add(key, data: data,isUpdate: false)
+             diskCache.add(key, data: data,isUpdate: false)
+
         }
         
     }
@@ -36,8 +37,8 @@ class GuisoSaver {
     static func saveToDiskCache(key:Key,gif:AnimatedImage?){
         if gif == nil { return  }
         let diskCache = Guiso.getDiskCache()
-        diskCache.add(key, classObj: gif!,isUpdate: false)
-            
+         diskCache.add(key, classObj: gif!,isUpdate: false)
+
     }
     
   

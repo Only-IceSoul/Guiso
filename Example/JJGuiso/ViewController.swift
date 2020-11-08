@@ -25,7 +25,10 @@ class ViewController: UIViewController {
 
     @IBAction func handleButton2(_ sender: UIButton) {
         mImageView.backgroundColor = UIColor.purple
-        Guiso.cleanDiskCache()
+        DispatchQueue.global(qos: .userInitiated).async {
+            Guiso.cleanDiskCache()
+        }
+        
        
         
         

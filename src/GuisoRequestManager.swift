@@ -12,19 +12,24 @@ import Foundation
     
    
     
-    
     static func into(_ target: ViewTarget, builder:GuisoRequestBuilder) -> ViewTarget? {
-        
-        let request = GuisoRequest(model:builder.getModel(),builder.getPrimarySignature(),options: builder.getOptions(),target,loader:builder.getLoader(),animImgDecoder: builder.getAnimatedImageDecoder())
+  
+   
+            
+            let request  = GuisoRequest(model:builder.getModel(),builder.getPrimarySignature(),options: builder.getOptions(),target,loader:builder.getLoader(),animImgDecoder: builder.getAnimatedImageDecoder())
+//            let request = Guiso.mPoolRequest.aquire()!
+//
+//            request.setup(model:builder.getModel(),builder.getPrimarySignature(),options: builder.getOptions(),target,loader:builder.getLoader(),animImgDecoder: builder.getAnimatedImageDecoder(), pool: Guiso.mPoolRequest)
         
         if let tb = builder.getThumb() , builder.getThumb()?.getModel() != nil {
             
             let thumbRequest = GuisoRequestThumb(model: tb.getModel()!,tb.getPrimarySignature(), options: tb.getOptions(), target, loader: tb.getLoader(), animImgDecoder: tb.getAnimatedImageDecoder())
             
-            request.setThumb(thumbRequest)
+             request.setThumb(thumbRequest)
             
         }
     
+           
         if let previous = target.getRequest() {
             if previous == request && !(builder.getOptions().getSkipMemoryCache() && previous.isComplete()) {
                 
@@ -32,15 +37,16 @@ import Foundation
                     previous.isCancelled = false
                     previous.begin()
                 }
-                
-                return target
+               return target
+            
             }
         }
         
-     
-        clear(target: target)
-        target.setRequest(request)
-        request.begin()
+          
+        
+            clear(target: target)
+            target.setRequest(request)
+            request.begin()
         
           return target
     }

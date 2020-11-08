@@ -321,7 +321,7 @@ public class GuisoDiskCache {
         
         self.mIsDeletingCancelled = false
 
-        Guiso.getExecutor().doWork {
+        DispatchQueue.global(qos: .userInitiated).async {
            self.deleteExpiredData()
             UIApplication.shared.endBackgroundTask(self.mBgTaskID)
             self.mBgTaskID = .invalid
@@ -334,7 +334,7 @@ public class GuisoDiskCache {
     
         let sm =  DispatchSemaphore(value: 0)
         self.mIsDeletingCancelled = true
-        Guiso.getExecutor().doWork {
+        DispatchQueue.global(qos: .userInitiated).async  {
             self.deleteExpiredDataShort()
             sm.signal()
         }

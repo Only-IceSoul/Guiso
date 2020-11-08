@@ -46,7 +46,7 @@ public class GuisoView: UIImageView , ViewTarget {
     }
     
     public func onResourceReady(_ gif: AnimatedLayer) {
-        image = nil
+        if image != nil { image = nil }
         removeGif()
         addGif(gif)
     }
@@ -55,20 +55,7 @@ public class GuisoView: UIImageView , ViewTarget {
         removeGif()
         image = img
     }
-    
-    public func onThumbReady(_ img: UIImage?) {
-        //if thumb fail and error thumb fail  img is nil.
-            removeGif()
-            image = img
-        
-    }
-    
-    public func onThumbReady(_ gif: AnimatedLayer) {
-        image = nil
-        removeGif()
-        addGif(gif)
-       
-    }
+
     
     public func onLoadFailed(_ error:String) {
         // auto retry?
@@ -92,6 +79,8 @@ public class GuisoView: UIImageView , ViewTarget {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
+
+        if mGif == nil { return }
         if bounds.width > 0 && bounds.height > 0 && mGif?.isAnimating() == false {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.mGif?.startAnimation()
@@ -100,8 +89,10 @@ public class GuisoView: UIImageView , ViewTarget {
     }
     
     private func removeGif(){
+        if mGif == nil {return }
         mGif?.removeFromSuperlayer()
         mGif = nil
+
     }
     
     private func addGif(_ gif:AnimatedLayer){

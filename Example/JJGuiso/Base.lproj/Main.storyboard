@@ -24,7 +24,6 @@
                                 <rect key="frame" x="119" y="64" width="137" height="144"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="57v-vX-GOx"/>
                                     <constraint firstAttribute="height" constant="144" id="G6V-XW-W1c"/>
                                 </constraints>
                             </imageView>
@@ -32,7 +31,6 @@
                                 <rect key="frame" x="119" y="244" width="137" height="144"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="4mK-Ue-4pG"/>
                                     <constraint firstAttribute="height" constant="144" id="Fuq-b2-Bv4"/>
                                 </constraints>
                             </imageView>

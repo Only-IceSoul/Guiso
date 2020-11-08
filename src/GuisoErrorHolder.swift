@@ -78,20 +78,10 @@ class GuisoErrorHolder : Equatable {
            
             let mainRequest = GuisoRequest(model:builder.getModel(),builder.getPrimarySignature(),options: builder.getOptions(),target,loader:builder.getLoader(),animImgDecoder: builder.getAnimatedImageDecoder())
             
-            let priority = GuisoRequestManager.getPriority( builder.getOptions().getPriority() )
                
-                
-                if let tb = builder.getThumb() , builder.getThumb()?.getModel() != nil {
-                    
-                    let thumbRequest = GuisoRequestThumb(model: tb.getModel()!,tb.getPrimarySignature(), options: tb.getOptions(), target, loader: tb.getLoader(), animImgDecoder: tb.getAnimatedImageDecoder())
-                    
-                    mainRequest.setThumb(thumbRequest)
-                    
-                    Guiso.getExecutor().doWork(thumbRequest,priority: priority , flags: .enforceQoS )
-                }
             target?.setRequest(mainRequest)
             if builder.getModel() != nil{
-                Guiso.getExecutor().doWork(mainRequest,priority: priority , flags: .enforceQoS )
+//                Guiso.getExecutor().doWork(mainRequest,priority: priority , flags: .enforceQoS )
             }
                
         }

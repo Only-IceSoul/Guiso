@@ -14,15 +14,15 @@ open class LRUCache<U:Hashable,T> {
     private var mPriority: LinkedList<U,T> = LinkedList<U,T>()
   private var mCache: [U: Node<U,T>] = [U:Node<U,T>]()
     
-   
-
+    
   public init(_ maxSize: Double) {
-    self.mMaxSize = maxSize < 1 ? mbToBytes(mb: 10) : mbToBytes(mb: maxSize)
-
+    self.mMaxSize = maxSize < 1 ? 1 : mbToBytes(mb: maxSize)
     
     NotificationCenter.default.addObserver(self, selector: #selector(appMemoryWarning), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
     
   }
+   
+    
     func mbToBytes(mb:Double)->Int64{
         return Int64(mb * 1048576.0)
     }
@@ -96,7 +96,7 @@ open class LRUCache<U:Hashable,T> {
     }
 
     public func trimToSize(_ size: Int64){
-      
+        
         while let key = self.mPriority.last?.key {
             if self.mCurrentSize <= size {
                 if self.mCurrentSize < 0 { self.mCurrentSize = 0}
@@ -116,7 +116,6 @@ open class LRUCache<U:Hashable,T> {
     
     
       deinit {
-         
           NotificationCenter.default.removeObserver(self)
       }
 }
