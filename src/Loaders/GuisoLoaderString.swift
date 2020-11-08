@@ -318,7 +318,7 @@ public class GuisoLoaderString : LoaderProtocol {
     
     private func getConfigWeb() ->URLSessionConfiguration {
           let config = URLSessionConfiguration.default
-             config.timeoutIntervalForRequest = TimeInterval(120)
+             config.timeoutIntervalForRequest = TimeInterval(60)
              config.allowsCellularAccess = true
              config.httpShouldUsePipelining = true
          

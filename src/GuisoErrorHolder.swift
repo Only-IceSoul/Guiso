@@ -58,33 +58,16 @@ class GuisoErrorHolder : Equatable {
             let img = UIImage(named: mName ?? "")
             target?.onHolder(img)
         }else{
-          
-            target?.onHolder(nil)
-            
-            let builder = mBuilder!
-            
-              builder.getOptions().getPlaceHolder()?.load(target)
-             
-            if builder.getModel() == nil {
-                if let fb = builder.getOptions().getFallbackHolder() {
-                    fb.load(target)
-                }else{
-                    builder.getOptions().getErrorHolder()?.load(target)
-                }
+            if  let builder = mBuilder {
                
-                target?.onLoadFailed("errorRequest: model is nil")
-             }
-          
-           
-            let mainRequest = GuisoRequest(model:builder.getModel(),builder.getPrimarySignature(),options: builder.getOptions(),target,loader:builder.getLoader(),animImgDecoder: builder.getAnimatedImageDecoder())
-            
+                    let mainRequest = GuisoRequest(model:builder.getModel(),builder.getPrimarySignature(),options: builder.getOptions(),target,loader:builder.getLoader(),animImgDecoder: builder.getAnimatedImageDecoder())
+                
+                    target?.setRequest(mainRequest)
+                    mainRequest.begin()
                
-            target?.setRequest(mainRequest)
-            if builder.getModel() != nil{
-//                Guiso.getExecutor().doWork(mainRequest,priority: priority , flags: .enforceQoS )
             }
-               
         }
+        
     }
     
     

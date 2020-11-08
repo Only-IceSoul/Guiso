@@ -14,7 +14,7 @@ public class Guiso {
     private static var mExecutor = Executor()
     private static var mDiskCache = GuisoDiskCache("Guiso", maxSize: 250)
     private static var mMemoryCacheGif = GuisoCacheGif(50)
-    static var mPoolRequest = FactoryPool<GuisoRequest>(pool: SynchronizedPool<GuisoRequest>(max: 64), factory: FactoryRequest())
+
   
     public static func load(model: Any?) -> GuisoRequestBuilder{
         return GuisoRequestBuilder(model:model)
