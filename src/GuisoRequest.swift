@@ -21,7 +21,7 @@ public class GuisoRequest: Equatable,Request {
     private var mPrimarySignature = ""
     private var mOp: FetcherOperation?
     private var mPool: FactoryPool<GuisoRequest>?
-    
+    private var mScale : Guiso.ScaleType = .fitCenter
     init(){}
     init(model:Any?,_ primarySignature:String,options:GuisoOptions,_ target: ViewTarget?, loader: LoaderProtocol,animImgDecoder : AnimatedImageDecoderProtocol?) {
 
@@ -31,10 +31,15 @@ public class GuisoRequest: Equatable,Request {
         mAnimImgDecoder = animImgDecoder
         mTarget = target
         mLoader = loader
+        mScale = mOptions!.getScaleType() == .none ? getScaleType(target?.getContentMode()) : mOptions!.getScaleType()
         mKey = makeKey()
         
     }
-  
+    private func getScaleType(_ scale:UIView.ContentMode?)-> Guiso.ScaleType{
+           if scale == nil { return .fitCenter}
+           return scale! == UIView.ContentMode.scaleAspectFill ? .centerCrop : .fitCenter
+    }
+    
     func setup(model:Any?,_ primarySignature:String,options:GuisoOptions,_ target: ViewTarget?, loader: LoaderProtocol,animImgDecoder : AnimatedImageDecoderProtocol?,pool:FactoryPool<GuisoRequest>) {
         
         mOptions = options
@@ -43,6 +48,7 @@ public class GuisoRequest: Equatable,Request {
         mAnimImgDecoder = animImgDecoder
         mTarget = target
         mLoader = loader
+        mScale = mOptions!.getScaleType() == .none ? getScaleType(target?.getContentMode()) : mOptions!.getScaleType()
         mKey = makeKey()
  
         
@@ -61,7 +67,7 @@ public class GuisoRequest: Equatable,Request {
     }
         
     func makeKey() -> Key {
-        let key = mOptions!.getIsOverride() ? Key(signature:mPrimarySignature ,extra:mOptions!.getSignature(), width: mOptions!.getWidth(), height: mOptions!.getHeight(), scaleType: mOptions!.getScaleType()  == .none ? .fitCenter : mOptions!.getScaleType(), frame: mOptions!.getFrameSecond()   ,exactFrame:mOptions!.getExactFrame(), isAnim:mOptions!.getAsAnimatedImage(), transform: mOptions!.getTransformerSignature()) :
+        let key = mOptions!.getIsOverride() ? Key(signature:mPrimarySignature ,extra:mOptions!.getSignature(), width: mOptions!.getWidth(), height: mOptions!.getHeight(), scaleType: mScale, frame: mOptions!.getFrameSecond()   ,exactFrame:mOptions!.getExactFrame(), isAnim:mOptions!.getAsAnimatedImage(), transform: mOptions!.getTransformerSignature()) :
             Key(signature:mPrimarySignature,extra: mOptions!.getSignature(), width: -1, height: -1, scaleType: .none,frame: mOptions!.getFrameSecond()  ,exactFrame:mOptions!.getExactFrame(), isAnim: mOptions!.getAsAnimatedImage(),
         transform: mOptions!.getTransformerSignature())
         return key
@@ -149,7 +155,7 @@ public class GuisoRequest: Equatable,Request {
                 self.mThumb?.begin()
             }
        
-            self.mOp = FetcherOperation(model: self.mModel, loader: self.mLoader!, key: self.mKey!, signature: self.mPrimarySignature, options: self.mOptions!, animDecoder: self.mAnimImgDecoder)
+        self.mOp = FetcherOperation(model: self.mModel, loader: self.mLoader!, key: self.mKey!, signature: self.mPrimarySignature, options: self.mOptions!, animDecoder: self.mAnimImgDecoder,scale: mScale)
         
 
       

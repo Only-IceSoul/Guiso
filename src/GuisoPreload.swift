@@ -15,7 +15,6 @@ public class GuisoPreload: Equatable,Request {
     private var mAnimImgDecoder : AnimatedImageDecoderProtocol?
     private var mPrimarySignature = ""
     private var mOp: FetcherOperation?
-    
     private var mPool: FactoryPool<GuisoPreload>?
     public init(){
         
@@ -132,7 +131,7 @@ public class GuisoPreload: Equatable,Request {
             if self.isCancelled { return  }
         
        
-            self.mOp = FetcherOperation(model: self.mModel, loader: self.mLoader!, key: self.mKey!, signature: self.mPrimarySignature, options: self.mOptions!, animDecoder: self.mAnimImgDecoder)
+        self.mOp = FetcherOperation(model: self.mModel, loader: self.mLoader!, key: self.mKey!, signature: self.mPrimarySignature, options: self.mOptions!, animDecoder: self.mAnimImgDecoder,scale:mOptions!.getScaleType() == .none ? .fitCenter : mOptions!.getScaleType())
         
       
             self.mOp?.completionBlock = { [ weak self ] in

@@ -29,14 +29,15 @@ class FetcherOperation : Operation {
     private var mLoader : LoaderProtocol!
     private var mAnimImgDecoder : AnimatedImageDecoderProtocol?
     private var mPrimarySignature = ""
-
-    init(model:Any?,loader:LoaderProtocol,key:Key, signature:String,options:GuisoOptions,animDecoder:AnimatedImageDecoderProtocol?){
+    private var mScaleTransform : Guiso.ScaleType = .fitCenter
+    init(model:Any?,loader:LoaderProtocol,key:Key, signature:String,options:GuisoOptions,animDecoder:AnimatedImageDecoderProtocol?,scale:Guiso.ScaleType){
         mOptions = options
         mKey = key
         mModel = model
         mLoader = loader
         mAnimImgDecoder = animDecoder
         mPrimarySignature = signature
+        mScaleTransform = scale
     }
 
      func run() {
@@ -69,8 +70,9 @@ class FetcherOperation : Operation {
 
         if finishIfCancelled() { return  }
         //source
-        if mOptions.getDiskCacheStrategy() != .none {
-            let  op = DiskOperation(key: sourceKey(), img: nil, anim: nil, isAnim: mOptions.getAsAnimatedImage(), isSave: false)
+        let sk = sourceKey()
+        if mOptions.getDiskCacheStrategy() != .none && mKey != sk {
+            let  op = DiskOperation(key: sk, img: nil, anim: nil, isAnim: mOptions.getAsAnimatedImage(), isSave: false)
 
             Guiso.getExecutor().diskQueue.addOperation(op)
             op.isReady = true
@@ -83,7 +85,7 @@ class FetcherOperation : Operation {
                     if op.resAnim != nil {
                         self.handleAnimImg(op.resAnim, type: .animatedImg, "", .dataDiskCache)
                     }else if op.resImg != nil{
-                        self.handleAnimImg(op.resImg, type: .uiimg, "", .dataDiskCache)
+                        self.handleImage(op.resImg, type: .uiimg, "", .dataDiskCache)
                     }else{
                         markFinished()
                     }
@@ -149,6 +151,10 @@ class FetcherOperation : Operation {
             saveData(img,dataSource)
             transformDisplayCacheImage(img,dataSource)
         }
+        
+        if type == .animatedImg {
+            self.onLoadFailedError("expected recieve a object Image  but instead got AnimatedImage")
+        }
     }
     
  
@@ -171,16 +177,7 @@ class FetcherOperation : Operation {
         }
         if finishIfCancelled() {  return  }
         if type == .uiimg {
-            guard let img = result as? UIImage
-              else{
-                self.onLoadFailedError("getting gift from uiimage, loader error -> \(error)")
-                  return
-            }
-            if finishIfCancelled() { return  }
-            saveData(img,dataSource)
-            onResourceReady(img, dataSource)
-           
-            
+            self.onLoadFailedError("expected recieve a object AnimatedImage or Data but instead got UIImage as AnimatedImage, if you want to load an animated image as uiimage remove the option asAnimatedImage")
         }
         if finishIfCancelled() {  return  }
         if type == .animatedImg {
@@ -204,7 +201,7 @@ class FetcherOperation : Operation {
         
         if self.mOptions.getIsOverride() {
             isTransformed = true
-            final = GuisoTransform.transformImage(img: img, outWidth: mOptions.getWidth(), outHeight: mOptions.getHeight(),scale:mOptions.getScaleType()  == .none ? .fitCenter : mOptions.getScaleType(),l: mOptions.getLanczos())
+            final = GuisoTransform.transformImage(img: img, outWidth: mOptions.getWidth(), outHeight: mOptions.getHeight(),scale:mScaleTransform,l: mOptions.getLanczos())
         }
         
         if finishIfCancelled() {  return  }
@@ -231,7 +228,7 @@ class FetcherOperation : Operation {
             isTransformed = true
             var images = [CGImage]()
             gif.frames.forEach { (cg) in
-             let i = GuisoTransform.transformGif(cg: cg, outWidth: self.mOptions.getWidth(), outHeight: self.mOptions.getHeight(),scale:mOptions.getScaleType()  == .none ? .fitCenter : mOptions.getScaleType(),l: mOptions.getLanczos())
+             let i = GuisoTransform.transformGif(cg: cg, outWidth: self.mOptions.getWidth(), outHeight: self.mOptions.getHeight(),scale:mScaleTransform,l: mOptions.getLanczos())
                 if i != nil { images.append(i!) }
             }
             gif.frames = images
@@ -257,7 +254,7 @@ class FetcherOperation : Operation {
         
     }
 
-   
+  
     
     private func saveData(_ img:UIImage,_ dataSource:Guiso.DataSource){
         if !mKey.isValidSignature() { return }

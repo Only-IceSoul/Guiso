@@ -29,12 +29,15 @@ public class GuisoRequestThumb: Equatable,Request {
             
         mTarget = target
         mLoader = loader
-        mScale = mOptions.getScaleType()  == .none ? .fitCenter : mOptions.getScaleType()
+        mScale = mOptions!.getScaleType() == .none ? getScaleType(target?.getContentMode()) : mOptions!.getScaleType()
     
         mKey = makeKey()
         
     }
-            
+    private func getScaleType(_ scale:UIView.ContentMode?)-> Guiso.ScaleType{
+           if scale == nil { return .fitCenter}
+           return scale! == UIView.ContentMode.scaleAspectFill ? .centerCrop : .fitCenter
+    }
 
     func makeKey() -> Key {
         let key = mOptions.getIsOverride() ? Key(signature:mPrimarySignature ,extra:mOptions.getSignature(), width: mOptions.getWidth(), height: mOptions.getHeight(), scaleType: mScale, frame: mOptions.getFrameSecond()   ,exactFrame:mOptions.getExactFrame(), isAnim:mOptions.getAsAnimatedImage(), transform: mOptions.getTransformerSignature()) :
@@ -101,7 +104,7 @@ public class GuisoRequestThumb: Equatable,Request {
         
             if self.isCancelled { return  }
           
-            self.mOp = FetcherOperation(model: self.mModel, loader: self.mLoader!, key: self.mKey!, signature: self.mPrimarySignature, options: self.mOptions!, animDecoder: self.mAnimImgDecoder)
+        self.mOp = FetcherOperation(model: self.mModel, loader: self.mLoader!, key: self.mKey!, signature: self.mPrimarySignature, options: self.mOptions!, animDecoder: self.mAnimImgDecoder,scale:mScale)
         
       
             self.mOp?.completionBlock = { [ weak self ] in
