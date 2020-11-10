@@ -10,12 +10,12 @@ import Photos
 public class Guiso {
     
     static private var instance : Guiso?
-    private static var mMemoryCache = GuisoCache(100)
+    private static var mMemoryCache = GuisoCache(200)
     private static var mExecutor = Executor()
     private static var mDiskCache = GuisoDiskCache("Guiso", maxSize: 250)
-    private static var mMemoryCacheGif = GuisoCacheGif(50)
-
-  
+    private static var mMemoryCacheGif = GuisoCacheGif(100)
+    private static var mPhotos = PhotosSyncronized()
+    private static var mFileSync = FileSyncronized()
     public static func load(model: Any?) -> GuisoRequestBuilder{
         return GuisoRequestBuilder(model:model)
     }
@@ -23,7 +23,12 @@ public class Guiso {
            return GuisoRequestBuilder(model: model, loader: loader)
     }
   
-    
+    static func getPhotos()-> PhotosSyncronized{
+        return mPhotos
+    }
+    static func getFileSync()-> FileSyncronized{
+        return mFileSync
+    }
     static func getExecutor() -> Executor {
         return mExecutor
     }
@@ -61,16 +66,16 @@ public class Guiso {
     }
   
     
-    public enum DiskCacheStrategy {
-        case none,
+    public enum DiskCacheStrategy : Int{
+        case none = 0,
         all,
         data,
         resource,
         automatic
     }
     
-    public enum MediaType {
-        case image,
+    public enum MediaType: Int {
+        case image = 0,
         video,
         gif,
         audio

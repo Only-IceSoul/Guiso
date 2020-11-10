@@ -13,17 +13,12 @@ class NetOperation : Operation {
     private var mModel: Any?
     private var mOptions: GuisoOptions?
     private var mLoader: LoaderProtocol?
-    private var mLock = pthread_rwlock_t()
     init(model:Any?,loader:LoaderProtocol,options:GuisoOptions) {
-        pthread_rwlock_init(&mLock, nil)
+   
         mModel = model
         mOptions = options
         mLoader = loader
     }
-    deinit {
-        pthread_rwlock_destroy(&mLock)
-    }
-        
     private(set) var result: Any?
     private(set) var status: Status = .none
     private(set) var error: String = ""
@@ -59,9 +54,8 @@ class NetOperation : Operation {
         }
     
     
-        while true {
-            if isCancelled { break }
-            if isFetcherFinished { break }
+        while !isCancelled && !isFetcherFinished {
+            Thread.sleep(forTimeInterval: 0.04)
         }
         isFetcherFinished = false
     

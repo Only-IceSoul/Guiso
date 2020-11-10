@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJGuiso'
-  s.version          = '1.9.0'
+  s.version          = '1.9.1'
   s.summary          = 'Easy way to load images and Animated Images.'
 
 # This description is used to generate tags and improve search results.
@@ -29,12 +29,11 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
  
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
 
   s.source_files = 'src/**/*.swift'
   s.swift_version = '5.0'
- 
 
   # comment arm64 for xcode 11 if any error
 #  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
@@ -44,6 +43,6 @@ Pod::Spec.new do |s|
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  
   # s.dependency 'AFNetworking', '~> 2.3'
 end

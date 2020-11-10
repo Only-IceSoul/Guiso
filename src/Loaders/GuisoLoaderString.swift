@@ -64,16 +64,26 @@ public class GuisoLoaderString : LoaderProtocol {
             }
         }else{
             if isIpod() {
-                assetAudio()
-            }else{
-                guard let a = getAsset(identifier: mUrl)
-                else{ callback(nil,.data,"failed get asset",.local)
-                    return
-                }
-                if a.mediaType == .video {
-                    assetVideo(a)
+                let id = mUrl.substring(from: 32)
+                if MPMediaLibrary.authorizationStatus() == .authorized, let a = getAssetAudio(id: id){
+                    assetAudio(asset: a)
                 }else{
-                    asset(a)
+                    callback(nil,.data,"failed to get asset, ipod url -> \(mUrl)",.local)
+                }
+              
+            }else{
+                //id asset
+                if PHPhotoLibrary.authorizationStatus() == .authorized, let a = getAsset(identifier: mUrl){
+                    if a.mediaType == .video {
+                        assetVideo(a)
+                    }else{
+                        asset(a)
+                    }
+                }else if MPMediaLibrary.authorizationStatus() == .authorized, let ipod = getAssetAudio(id: mUrl){
+                    assetAudio(asset: ipod)
+                }else{
+                    callback(nil,.data,"failed get asset with identifier \(mUrl) , -> not an id or requires permission",.local)
+                    
                 }
             }
         }
@@ -110,8 +120,7 @@ public class GuisoLoaderString : LoaderProtocol {
     //MARK: File
     
     private func file(){
-        guard let url = URL(string: mUrl),
-            let data = try? Data(contentsOf: url)
+        guard let data = Guiso.getFileSync().getData(urlAbsoluteString: mUrl)
                 else {
             self.sendResult(nil,.data,"file : can't get the file",.local)
                    return
@@ -127,10 +136,16 @@ public class GuisoLoaderString : LoaderProtocol {
         options.canHandleAdjustmentData = {(adjustmeta: PHAdjustmentData) -> Bool in
              return true
          }
-        options.isNetworkAccessAllowed = true
+        options.isNetworkAccessAllowed = false
+        
         
         mPha = asset
-       mPhaId = asset.requestContentEditingInput(with: options) { (value, info) in
+                   
+      Guiso.getPhotos().requestContentEditingInput(asset:asset,options: options,
+        { id in
+        self.mPhaId = id
+      },{ (value, info) in
+        
             guard let url = value?.fullSizeImageURL else {
                 self.sendResult(nil,.data,"asset: can't get image url",.local)
                 return
@@ -145,7 +160,7 @@ public class GuisoLoaderString : LoaderProtocol {
             }
             self.mPha = nil
             self.mPhaId = nil
-        }
+        })
         
         
     }
@@ -154,31 +169,38 @@ public class GuisoLoaderString : LoaderProtocol {
         let options = PHVideoRequestOptions()
         options.isNetworkAccessAllowed = false
         options.deliveryMode = .highQualityFormat
-        
-       mPhId = PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { (avasset, audiomix, info) in
-                if avasset != nil {
-                    self.avAssetVideoAsync(avasset!)
-                    
-                }else{
-                    self.sendResult(nil,.data,"asset: could not get avasset",.local)
-                }
-            self.mPhId = nil
-        }
-     
+      Guiso.getPhotos().requestAVAsset(forVideo: asset, options: options,{ id in
+        self.mPhId = id
+        }, { (avasset, audiomix, info) in
+                     if avasset != nil {
+                         self.avAssetVideoAsync(avasset!)
+                         
+                     }else{
+                         self.sendResult(nil,.data,"asset: could not get avasset",.local)
+                     }
+                 self.mPhId = nil
+             })
+    
     }
     
-    private func assetAudio(){
-        let id = mUrl.substring(from: 32)
+    private func getAssetAudio(id:String) -> MPMediaItem?{
         let query = MPMediaQuery.songs()
         let urlQuery = MPMediaPropertyPredicate(value:id,forProperty: MPMediaItemPropertyPersistentID,comparisonType: .contains)
          query.addFilterPredicate(urlQuery);
         let mediaItems = query.items
-        guard let media = mediaItems?.first,
-           let artwork =  media.artwork else {
+        guard let media = mediaItems?.first else{
+            return nil
+          }
+        return media
+    }
+    
+    private func assetAudio(asset:MPMediaItem){
+        guard let artwork =  asset.artwork,
+              let img = artwork.image(at: CGSize(width: 220, height: 220)) else {
             self.sendResult(nil,.uiimg,"asset: could not get artwork",.local)
             return
           }
-        let img = artwork.image(at: CGSize(width: 220, height: 220))
+        
         self.sendResult(img,.uiimg,"",.local)
     }
     
@@ -364,7 +386,6 @@ public class GuisoLoaderString : LoaderProtocol {
     
     //MARK: Tracker
     public func cancel() {
-        
         if mWebTask != nil {
             mWebTask?.cancel()
             mWebTask = nil

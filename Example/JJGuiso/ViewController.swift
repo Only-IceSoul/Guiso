@@ -37,11 +37,11 @@ class ViewController: UIViewController {
     @IBAction func handleButton(_ sender: UIButton) {
         
        //video
-//      let url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      let url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
 
 //        let url = "https://i.pinimg.com/originals/1b/06/9c/1b069c08879c4323b3a7362155124fad.gif"
         
-        let url = "https://res.cloudinary.com/demo/image/upload/bored_animation.gif"
+//        let url = "https://res.cloudinary.com/demo/image/upload/bored_animation.gif"
 //        guard let p = Bundle.main.url(forResource: "IMG_0021", withExtension: "GIF"),
 //            let data = try? Data(contentsOf: p)
 //            else { return }
@@ -60,14 +60,9 @@ class ViewController: UIViewController {
 
         
         Guiso.load(model:url)
-       
-            
-            
-            .asAnimatedImage()
-            
             .thumbnail(Guiso.load(model: "https://cnnespanol.cnn.com/wp-content/uploads/2016/09/meme-anonimos.jpg?quality=100&strip=info&w=320&h=240&crop=1"))
   
-         
+            .frame(20,exact: true)
             .into(mImageView2)
         
 

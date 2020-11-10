@@ -23,8 +23,7 @@ public class GuisoDiskCache {
     //size MB
     public init(_ folder: String, maxSize:Int,cleanInBg:Bool = false) {
         pthread_rwlock_init(&mLock, nil)
-//        let cacheFolder = (NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0])
-        let document = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let document = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
         mDirectory = document.appendingPathComponent(folder)
         createDirectory(mDirectory.path)
         mMaxSize = maxSize * 1048576
@@ -39,8 +38,6 @@ public class GuisoDiskCache {
         
         }
         
-        
-  
     }
     //size MB
     public init(_ directory: URL, maxSize:Int,cleanInBg:Bool = false) {

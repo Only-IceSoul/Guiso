@@ -50,7 +50,7 @@ class FetcherOperation : Operation {
             Guiso.getExecutor().diskQueue.addOperation(op)
             op.isReady = true
             while !isCancelled && !op.isFinished {
-                Thread.sleep(forTimeInterval: 0.1)
+                Thread.sleep(forTimeInterval: 0.015)
               
             }
             op.cancel()
@@ -75,7 +75,7 @@ class FetcherOperation : Operation {
             Guiso.getExecutor().diskQueue.addOperation(op)
             op.isReady = true
             while !isCancelled && !op.isFinished {
-                Thread.sleep(forTimeInterval: 0.1)
+                Thread.sleep(forTimeInterval: 0.015)
             }
             op.cancel()
             if finishIfCancelled() {   return  }
@@ -83,7 +83,7 @@ class FetcherOperation : Operation {
                     if op.resAnim != nil {
                         self.handleAnimImg(op.resAnim, type: .animatedImg, "", .dataDiskCache)
                     }else if op.resImg != nil{
-                        self.handleAnimImg(op.resImg, type: .animatedImg, "", .dataDiskCache)
+                        self.handleAnimImg(op.resImg, type: .uiimg, "", .dataDiskCache)
                     }else{
                         markFinished()
                     }
@@ -95,13 +95,12 @@ class FetcherOperation : Operation {
         }
 
         if finishIfCancelled() { return  }
- 
         //fetcher
         let on = NetOperation(model: mModel, loader: mLoader, options: mOptions)
         Guiso.getExecutor().netQueue.addOperation(on)
         on.isReady = true
         while !isCancelled && !on.isFinished {
-            Thread.sleep(forTimeInterval: 0.1)
+            Thread.sleep(forTimeInterval: 0.05)
         }
         on.cancel()
         if finishIfCancelled() {   return  }
@@ -264,8 +263,10 @@ class FetcherOperation : Operation {
         if !mKey.isValidSignature() { return }
         let st =  mOptions.getDiskCacheStrategy()
         if (st == .data && dataSource != .dataDiskCache)
-            ||  (st == .automatic ||  st == .all &&  dataSource == .remote){
+            ||  ((st == .automatic ||  st == .all) &&  dataSource == .remote){
+            
             let d = DiskOperation(key: sourceKey(), img: img, anim: nil, isAnim: false,isSave: true)
+            
             Guiso.getExecutor().diskQueue.addOperation(d)
             d.isReady = true
             
@@ -277,7 +278,8 @@ class FetcherOperation : Operation {
         if !mKey.isValidSignature() { return }
         let st =  mOptions.getDiskCacheStrategy()
         if (st == .data && dataSource != .dataDiskCache)
-            || (st == .automatic ||  st == .all &&  dataSource == .remote)  {
+            || ((st == .automatic ||  st == .all) &&  dataSource == .remote)  {
+            
            let d = DiskOperation(key: sourceKey(), img: nil, anim: gif, isAnim: true,isSave:true)
             Guiso.getExecutor().diskQueue.addOperation(d)
             d.isReady = true
@@ -289,9 +291,10 @@ class FetcherOperation : Operation {
         if !mKey.isValidSignature() { return }
        let st =  mOptions.getDiskCacheStrategy()
         
-        if (st == .resource || st == .all && dataSource != .memoryCache
+        if ((st == .resource || st == .all) && dataSource != .memoryCache
             && dataSource != .resourceDiskCache)
         || (st == .automatic && isTransformed)  {
+            
             let d = DiskOperation(key: mKey, img: img, anim: nil, isAnim: false,isSave:true)
             Guiso.getExecutor().diskQueue.addOperation(d)
             d.isReady = true
@@ -303,9 +306,10 @@ class FetcherOperation : Operation {
     private func saveResource(_ gif:AnimatedImage,_ dataSource:Guiso.DataSource,_ isTransformed:Bool){
         if !mKey.isValidSignature() { return }
        let st =  mOptions.getDiskCacheStrategy()
-        if (st == .resource || st == .all && dataSource != .memoryCache
+        if ((st == .resource || st == .all) && dataSource != .memoryCache
                 && dataSource != .resourceDiskCache)
             || (st == .automatic && isTransformed)  {
+            
             let d = DiskOperation(key: mKey, img: nil, anim: gif, isAnim: true,isSave: true)
             Guiso.getExecutor().diskQueue.addOperation(d)
             d.isReady = true

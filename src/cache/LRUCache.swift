@@ -14,13 +14,24 @@ open class LRUCache<U:Hashable,T> {
     private var mPriority: LinkedList<U,T> = LinkedList<U,T>()
   private var mCache: [U: Node<U,T>] = [U:Node<U,T>]()
     
-    
+    private var mLock = pthread_rwlock_t()
+    private var mEvictSize:Int64 = 0
   public init(_ maxSize: Double) {
+    pthread_rwlock_init(&mLock, nil)
+    
     self.mMaxSize = maxSize < 1 ? 1 : mbToBytes(mb: maxSize)
+    self.mEvictSize =  (self.mMaxSize * 90) / 100
+  
     
     NotificationCenter.default.addObserver(self, selector: #selector(appMemoryWarning), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
     
+    NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
   }
+    
+    deinit {
+        pthread_rwlock_destroy(&mLock)
+        NotificationCenter.default.removeObserver(self)
+    }
    
     
     func mbToBytes(mb:Double)->Int64{
@@ -28,15 +39,19 @@ open class LRUCache<U:Hashable,T> {
     }
     
     public func setMaxSize(_ maxSize: Double){
+        pthread_rwlock_wrlock(&mLock) ; defer { pthread_rwlock_unlock(&mLock) }
         self.mMaxSize = mbToBytes(mb: maxSize)
+        self.mEvictSize =  (self.mMaxSize * 90) / 100
     }
   
     public func get(_ key: U) -> T? {
+        pthread_rwlock_rdlock(&mLock) ; defer { pthread_rwlock_unlock(&mLock) }
         guard let val = mCache[key] else  { return nil }
         return val.value
   }
 
     public func add(_ key: U, val: T) {
+        pthread_rwlock_wrlock(&mLock) ; defer { pthread_rwlock_unlock(&mLock) }
         let sizeObjc = getSizeObject(obj: val)
         if sizeObjc >= mMaxSize {
             //evicted cb
@@ -67,12 +82,7 @@ open class LRUCache<U:Hashable,T> {
         return 1000
     }
     
-    public func clear(){
-        mCache.removeAll()
-        mPriority.removeAll()
-        mCurrentSize = 0
-        
-    }
+  
     public func size()-> Int64 {
         return self.mCurrentSize
     }
@@ -91,12 +101,20 @@ open class LRUCache<U:Hashable,T> {
     
     open func evict(){
         if mCurrentSize >= mMaxSize {
-            trimToSize((mMaxSize * 85) / 100)
+            while let key = self.mPriority.last?.key {
+                if self.mCurrentSize <= mEvictSize {
+                    if self.mCurrentSize < 0 { self.mCurrentSize = 0}
+                    break
+                    
+                }
+                   self.remove(key)
+
+            }
         }
     }
 
     public func trimToSize(_ size: Int64){
-        
+        pthread_rwlock_wrlock(&mLock) ; defer { pthread_rwlock_unlock(&mLock) }
         while let key = self.mPriority.last?.key {
             if self.mCurrentSize <= size {
                 if self.mCurrentSize < 0 { self.mCurrentSize = 0}
@@ -108,14 +126,33 @@ open class LRUCache<U:Hashable,T> {
         }
             
     }
-    
+    public func clear(){
+        pthread_rwlock_wrlock(&mLock) ; defer { pthread_rwlock_unlock(&mLock) }
+        mCache.removeAll()
+        mPriority.removeAll()
+        mCurrentSize = 0
+    }
     
    @objc func appMemoryWarning(notification:Notification){
          clear()
     }
     
+    private var mBgTaskID = UIBackgroundTaskIdentifier.invalid
+    @objc func appDidEnterBackground(notification:Notification){
+        mBgTaskID =  UIApplication.shared.beginBackgroundTask {
+
+            UIApplication.shared.endBackgroundTask(self.mBgTaskID)
+            self.mBgTaskID = .invalid
+        }
+
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.trimToSize((self.mMaxSize / 3))
+            UIApplication.shared.endBackgroundTask(self.mBgTaskID)
+            self.mBgTaskID = .invalid
+        }
+
+      
+    }
     
-      deinit {
-          NotificationCenter.default.removeObserver(self)
-      }
+     
 }

@@ -9,7 +9,7 @@ import Foundation
 
 public class KeyGenerator {
     
-    private var mCache = LRUCache<String,String>(2)
+    private var mCache = LRUCache<Key,String>(2)
     private var mLock = pthread_rwlock_t()
     public init() {
         pthread_rwlock_init(&mLock, nil)
@@ -19,14 +19,13 @@ public class KeyGenerator {
     public func getKeyString(key:Key)-> String?{
         pthread_rwlock_rdlock(&mLock)
         var str : String?
-        let k = key.toString()
-         str = mCache.get(k)
+         str = mCache.get(key)
         pthread_rwlock_unlock(&mLock)
         if str == nil {
             str = calculateHexString(key: key)
         }
         pthread_rwlock_wrlock(&mLock)
-        if str != nil { mCache.add(k, val: str!) }
+        if str != nil { mCache.add(key, val: str!) }
         pthread_rwlock_unlock(&mLock)
         return str
     }
