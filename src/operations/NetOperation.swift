@@ -55,7 +55,7 @@ class NetOperation : Operation {
     
     
         while !isCancelled && !isFetcherFinished {
-            Thread.sleep(forTimeInterval: 0.04)
+            Thread.sleep(forTimeInterval: 0.03)
         }
         isFetcherFinished = false
     

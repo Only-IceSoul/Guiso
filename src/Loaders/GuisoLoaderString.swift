@@ -140,28 +140,32 @@ public class GuisoLoaderString : LoaderProtocol {
         
         
         mPha = asset
-                   
-      Guiso.getPhotos().requestContentEditingInput(asset:asset,options: options,
-        { id in
-        self.mPhaId = id
-      },{ (value, info) in
+        var urlResult : URL?
+        var isFinishedTask = false
+        self.mPhaId =  Guiso.getPhotos().requestContentEditingInput(asset:asset,options: options ){ (value, info) in
+             urlResult = value?.fullSizeImageURL
+            isFinishedTask = true
+
+        }
         
-            guard let url = value?.fullSizeImageURL else {
-                self.sendResult(nil,.data,"asset: can't get image url",.local)
-                return
-            }
-            do{
-                let imageData = try Data(contentsOf: url)
-                self.sendResult(imageData,.data,"",.local)
-            }catch let e as NSError {
-                self.sendResult(nil,.data,"asset: can't get the file with url \(url)",.local)
-              
-                print("GuisoLoaderString - asset:error -> ",e)
-            }
-            self.mPha = nil
-            self.mPhaId = nil
-        })
+        while !isCancelled && !isFinishedTask {
+            Thread.sleep(forTimeInterval: 0.015)
+        }
         
+        if isCancelled { return }
+        
+        guard let url = urlResult else {
+            self.sendResult(nil,.data,"asset: can't get image url",.local)
+            return
+        }
+        do{
+            let imageData = try Data(contentsOf: url)
+            self.sendResult(imageData,.data,"",.local)
+        }catch let e as NSError {
+            self.sendResult(nil,.data,"asset: can't get the file with url \(url)",.local)
+          
+            print("GuisoLoaderString - asset:error -> ",e)
+        }
         
     }
     
@@ -169,18 +173,14 @@ public class GuisoLoaderString : LoaderProtocol {
         let options = PHVideoRequestOptions()
         options.isNetworkAccessAllowed = false
         options.deliveryMode = .highQualityFormat
-      Guiso.getPhotos().requestAVAsset(forVideo: asset, options: options,{ id in
-        self.mPhId = id
-        }, { (avasset, audiomix, info) in
-                     if avasset != nil {
-                         self.avAssetVideoAsync(avasset!)
-                         
-                     }else{
-                         self.sendResult(nil,.data,"asset: could not get avasset",.local)
-                     }
-                 self.mPhId = nil
-             })
-    
+        
+        self.mPhId =  Guiso.getPhotos().requestAVAsset(forVideo: asset, options: options) { (avasset, audiomix, info) in
+                if avasset != nil {
+                    self.avAssetVideoAsync(avasset!)
+                }else{
+                    self.sendResult(nil,.data,"asset: could not get avasset",.local)
+                }
+        }
     }
     
     private func getAssetAudio(id:String) -> MPMediaItem?{
@@ -232,7 +232,6 @@ public class GuisoLoaderString : LoaderProtocol {
        
         let timestamp = CMTime(seconds: mOptions.getFrameSecond(), preferredTimescale: 1)
         generator.generateCGImagesAsynchronously(forTimes: [NSValue(time: timestamp)]) { (time, cg, time2, result, error) in
-                
             let typeSoruce:Guiso.DataSource = self.mUrlFile ? .local : .remote
             
             if cg != nil {
@@ -385,7 +384,9 @@ public class GuisoLoaderString : LoaderProtocol {
     }
     
     //MARK: Tracker
+    private var isCancelled = false
     public func cancel() {
+        isCancelled = true
         if mWebTask != nil {
             mWebTask?.cancel()
             mWebTask = nil

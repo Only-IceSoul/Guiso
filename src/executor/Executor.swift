@@ -14,7 +14,7 @@ public class Executor {
     
     private(set) var fetcherQueue : OperationQueue = {
         let o =  OperationQueue()
-         o.maxConcurrentOperationCount = 64
+         o.maxConcurrentOperationCount = 60
          return o
      }()
     
@@ -35,11 +35,11 @@ public class Executor {
         o.maxConcurrentOperationCount = 1
         return o
     }()
-//    private(set) var transformQueue : OperationQueue = {
-//       let o =  OperationQueue()
-//        o.maxConcurrentOperationCount = 2
-//        return o
-//    }()
+    private(set) var transformQueue : OperationQueue = {
+       let o =  OperationQueue()
+        o.maxConcurrentOperationCount = 2
+        return o
+    }()
     
   
     public init(){

@@ -102,7 +102,7 @@ class FetcherOperation : Operation {
         Guiso.getExecutor().netQueue.addOperation(on)
         on.isReady = true
         while !isCancelled && !on.isFinished {
-            Thread.sleep(forTimeInterval: 0.05)
+            Thread.sleep(forTimeInterval: 0.04)
         }
         on.cancel()
         if finishIfCancelled() {   return  }
@@ -197,53 +197,51 @@ class FetcherOperation : Operation {
 
     func transformDisplayCacheImage(_ img: UIImage,_ dataSource:Guiso.DataSource){
         var isTransformed = false
-        var final: UIImage? = img
+        var final: UIImage = img
         
-        if self.mOptions.getIsOverride() {
+        if self.mOptions.getIsOverride() || self.mOptions.getTransformer() != nil {
             isTransformed = true
-            final = GuisoTransform.transformImage(img: img, outWidth: mOptions.getWidth(), outHeight: mOptions.getHeight(),scale:mScaleTransform,l: mOptions.getLanczos())
+            let op = TransformOperation(transformer: self.mOptions.getTransformer(), img: img, anim: nil, isOverride: mOptions.getIsOverride(), ow: mOptions.getWidth(), oh: mOptions.getHeight(), isAnim: false, scale: mScaleTransform, lancoz: mOptions.getLanczos())
+            Guiso.getExecutor().transformQueue.addOperation(op)
+            op.isReady = true
+            while !isCancelled && !op.isFinished {
+                Thread.sleep(forTimeInterval: 0.015)
+            }
+            op.cancel()
+            if op.status == .success {
+                final = op.resImg!
+            }else{
+                onLoadFailedError(op.error)
+                return
+            }
         }
         
         if finishIfCancelled() {  return  }
+        onResourceReady(final,dataSource)
+        saveResource(final,dataSource,isTransformed)
         
-        if self.mOptions.getTransformer() != nil {
-            isTransformed = true
-        final  = self.mOptions.getTransformer()?.transformImage(img: img, outWidth: mOptions.getWidth(), outHeight: mOptions.getHeight())
-        }
-        if finishIfCancelled() {  return  }
-        
-        if final != nil {
-            onResourceReady(final,dataSource)
-            saveResource(final!,dataSource,isTransformed)
-        }else{
-            self.onLoadFailedError("failed transformation")
-        }
     }
 
     func transformDisplayCacheAnim(_ gifObj:AnimatedImage,_ dataSource:Guiso.DataSource){
-        let gif = gifObj
+        
+        var gif = gifObj
         var isTransformed = false
         
-        if self.mOptions.getIsOverride() {
+        if self.mOptions.getIsOverride() || self.mOptions.getTransformer() != nil {
             isTransformed = true
-            var images = [CGImage]()
-            gif.frames.forEach { (cg) in
-             let i = GuisoTransform.transformGif(cg: cg, outWidth: self.mOptions.getWidth(), outHeight: self.mOptions.getHeight(),scale:mScaleTransform,l: mOptions.getLanczos())
-                if i != nil { images.append(i!) }
+            let op = TransformOperation(transformer: self.mOptions.getTransformer(), img: nil, anim: gifObj, isOverride: mOptions.getIsOverride(), ow: mOptions.getWidth(), oh: mOptions.getHeight(), isAnim: true, scale: mScaleTransform, lancoz: mOptions.getLanczos())
+            Guiso.getExecutor().transformQueue.addOperation(op)
+            op.isReady = true
+            while !isCancelled && !op.isFinished {
+                Thread.sleep(forTimeInterval: 0.02)
             }
-            gif.frames = images
-        }
-        
-        if finishIfCancelled() {  return  }
-        
-        if self.mOptions.getTransformer() != nil {
-            isTransformed = true
-            var images = [CGImage]()
-            gif.frames.forEach { (cg) in
-                let i = self.mOptions.getTransformer()!.transformGif(cg: cg, outWidth: self.mOptions.getWidth(), outHeight: self.mOptions.getHeight())
-                if i != nil { images.append(i!) }
+            op.cancel()
+            if op.status == .success {
+                gif = op.resAnim!
+            }else{
+                onLoadFailedError(op.error)
+                return
             }
-            gif.frames = images
         }
         
         if finishIfCancelled() {  return  }

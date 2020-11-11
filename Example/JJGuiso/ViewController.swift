@@ -61,10 +61,7 @@ class ViewController: UIViewController {
 
         
         Guiso.load(model:url)
-          
-            
             .thumbnail(Guiso.load(model: "https://cnnespanol.cnn.com/wp-content/uploads/2016/09/meme-anonimos.jpg?quality=100&strip=info&w=320&h=240&crop=1"))
-  
             .frame(20,exact: true)
             .into(mImageView2)
         
