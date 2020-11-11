@@ -13,11 +13,14 @@ class GuisoFallbackHolder : Equatable {
         return lhs.mName == rhs.mName
             && (lhs.mImage == nil && rhs.mImage == nil)
             && lhs.mColor == rhs.mColor
+        
     }
     
     private var mName:String?
     private var mImage:UIImage?
     private var mColor: UIColor?
+    private var mWidth:CGFloat = 250
+    private var mHeight:CGFloat = 250
     init(_ name:String) {
         mName = name
         mImage = nil
@@ -29,10 +32,12 @@ class GuisoFallbackHolder : Equatable {
        mImage = image
         mColor = nil
     }
-    init(_ color:UIColor) {
+    init(_ color:UIColor,w:CGFloat,h:CGFloat) {
        mName = nil
        mImage = nil
         mColor = color
+        mWidth = w
+        mHeight = h
     }
     
     
@@ -40,7 +45,7 @@ class GuisoFallbackHolder : Equatable {
         if mImage != nil {
             target?.onHolder(mImage)
         }else if mColor != nil {
-            let img = GuisoUtils.imageColor(color: mColor!)
+            let img = GuisoUtils.imageColor(color: mColor!,w:mWidth,h:mHeight)
             target?.onHolder(img)
         }else{
             let img = UIImage(named: mName ?? "")

@@ -95,8 +95,8 @@ public class GuisoOptions : Equatable {
           return self
        }
        @discardableResult
-          public func placeHolder(_ place:UIColor) -> GuisoOptions {
-            mPlaceHolder = GuisoPlaceHolder(place)
+    public func placeHolder(_ place:UIColor,_ w:CGFloat,_ h:CGFloat) -> GuisoOptions {
+        mPlaceHolder = GuisoPlaceHolder(place,w:w,h: h)
              return self
           }
        @discardableResult
@@ -111,8 +111,8 @@ public class GuisoOptions : Equatable {
        return self
     }
     @discardableResult
-       public func error(_ error:UIColor) -> GuisoOptions {
-         mErrorHolder = GuisoErrorHolder(error)
+    public func error(_ error:UIColor,w:CGFloat,h:CGFloat) -> GuisoOptions {
+        mErrorHolder = GuisoErrorHolder(error,w: w,h:h)
           return self
        }
     @discardableResult
@@ -133,8 +133,8 @@ public class GuisoOptions : Equatable {
          return self
       }
       @discardableResult
-         public func fallback(_ fallback:UIColor) -> GuisoOptions {
-           mFallbackHolder = GuisoFallbackHolder(fallback)
+    public func fallback(_ fallback:UIColor,w:CGFloat,h:CGFloat) -> GuisoOptions {
+        mFallbackHolder = GuisoFallbackHolder(fallback,w:w,h:h)
             return self
          }
       @discardableResult

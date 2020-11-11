@@ -93,6 +93,13 @@ public class GuisoRequest: Equatable,Request {
     public func clear(){
         if status == .cleared {  return  }
         cancel()
+        let t = mTarget
+        mTarget = nil
+        if mOptions?.getPlaceHolder() != nil {
+            mOptions!.getPlaceHolder()!.load(t)
+        }else{
+            t?.onHolder(nil)
+        }
         releaseInternal()
         status = .cleared
     }
@@ -329,7 +336,6 @@ public class GuisoRequest: Equatable,Request {
         mPrimarySignature = ""
         mModel = nil
         mAnimImgDecoder = nil
-        mTarget = nil
         mLoader = nil
         mKey = nil
         resourceImg = nil

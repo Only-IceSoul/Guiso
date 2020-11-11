@@ -62,8 +62,8 @@ public class GuisoRequestBuilder {
        mOptions.placeHolder(image)
        return self
     }
-    public func placeHolder(_ color:UIColor) -> GuisoRequestBuilder {
-         mOptions.placeHolder(color)
+    public func placeHolder(_ color:UIColor,w:CGFloat,h:CGFloat) -> GuisoRequestBuilder {
+         mOptions.placeHolder(color,w,h)
        return self
     }
     public func error(_ name:String) -> GuisoRequestBuilder {
@@ -78,8 +78,8 @@ public class GuisoRequestBuilder {
       mOptions.error(image)
       return self
     }
-    public func error(_ color:UIColor) -> GuisoRequestBuilder {
-       mOptions.error(color)
+    public func error(_ color:UIColor,w:CGFloat,h:CGFloat) -> GuisoRequestBuilder {
+        mOptions.error(color,w:w,h:h)
       return self
     }
     public func fallback(_ name:String) -> GuisoRequestBuilder {
@@ -91,8 +91,8 @@ public class GuisoRequestBuilder {
         mOptions.fallback(image)
         return self
     }
-    public func fallback(_ color:UIColor) -> GuisoRequestBuilder {
-        mOptions.fallback(color)
+    public func fallback(_ color:UIColor,w:CGFloat,h:CGFloat) -> GuisoRequestBuilder {
+        mOptions.fallback(color,w:w,h:h)
         return self
     }
     public func asAnimatedImage() -> GuisoRequestBuilder {

@@ -10,9 +10,9 @@ import Photos
 
 public class GuisoUtils {
     
-    public static func imageColor(color: UIColor) -> UIImage? {
+    public static func imageColor(color: UIColor,w:CGFloat,h:CGFloat) -> UIImage? {
 
-        let newSize = CGSize(width: 250, height: 250)
+        let newSize = CGSize(width: w, height: h)
         let centerRect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
         UIGraphicsBeginImageContextWithOptions(newSize, false, UIScreen.main.scale)
        color.setFill()

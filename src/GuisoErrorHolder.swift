@@ -15,6 +15,8 @@ class GuisoErrorHolder : Equatable {
             && (lhs.mImage == nil && rhs.mImage == nil)
             && lhs.mColor == rhs.mColor
             && (lhs.mBuilder == nil && rhs.mBuilder == nil)
+            && lhs.mWidth == rhs.mWidth
+            && lhs.mHeight == rhs.mHeight
     }
     
     private var mName:String?
@@ -22,7 +24,8 @@ class GuisoErrorHolder : Equatable {
     private var mTarget: ViewTarget?
     private var mColor: UIColor?
     private var mBuilder: GuisoRequestBuilder?
-    
+    private var mWidth:CGFloat = 250
+    private var mHeight:CGFloat = 250
     init(_ builder:GuisoRequestBuilder) {
         mName = nil
         mImage = nil
@@ -40,10 +43,12 @@ class GuisoErrorHolder : Equatable {
        mImage = image
         mColor = nil
     }
-    init(_ color:UIColor) {
-       mName = nil
-       mImage = nil
+    init(_ color:UIColor,w:CGFloat,h:CGFloat) {
+        mName = nil
+        mImage = nil
         mColor = color
+        mWidth = w
+        mHeight = h
     }
     
     
@@ -52,7 +57,7 @@ class GuisoErrorHolder : Equatable {
         if mImage != nil {
             target?.onHolder(mImage)
         }else if mColor != nil {
-            let img = GuisoUtils.imageColor(color: mColor!)
+            let img = GuisoUtils.imageColor(color: mColor!,w: mWidth,h:mHeight)
             target?.onHolder(img)
         }else if mName != nil {
             let img = UIImage(named: mName ?? "")

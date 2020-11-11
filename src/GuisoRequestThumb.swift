@@ -163,7 +163,7 @@ public class GuisoRequestThumb: Equatable,Request {
             return
         }
         status = .complete
-       
+        if mTarget == nil { return }
         
         if self.isCancelled { return}
         OperationQueue.main.addOperation {
@@ -178,7 +178,7 @@ public class GuisoRequestThumb: Equatable,Request {
             return
         }
         status = .complete
-       
+        if mTarget == nil { return }
         
         if self.isCancelled { return }
         let layer = AnimatedLayer(res!)
