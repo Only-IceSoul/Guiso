@@ -30,7 +30,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Freatures
 
 - [x] url web
-- [x] url local
+- [x] uri
 - [x] asset local identifier
 - [x] Data
 - [x] Custom Model and loader
